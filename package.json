@@ -1,0 +1,47 @@
+{
+  "name": "clean-node-ms",
+  "version": "0.0.1",
+  "description": "A generator for microservices with Clean in Node",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "start:dev": "node --inspect=0.0.0.0:9229 -r ts-node/register ./src/index.ts",
+    "dev": "nodemon",
+    "release": "standard-version --release-as"
+  },
+  "keywords": [
+    "clean",
+    "node",
+    "kubernetes"
+  ],
+  "author": "WandersonAlves",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/express": "^4.17.6",
+    "husky": "^4.2.5",
+    "husky-tslint-pre-commit": "^1.0.3",
+    "nodemon": "^2.0.4",
+    "prettier-quick": "^0.0.5",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-misc-rules": "^3.5.1",
+    "typescript": "^3.9.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "http-status": "^1.4.2",
+    "inversify": "^5.0.1",
+    "reflect-metadata": "^0.1.13"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node node_modules/husky-tslint-pre-commit/pre-commit.js"
+    }
+  }
+}
