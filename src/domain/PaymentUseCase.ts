@@ -4,7 +4,7 @@ import { IHttpResponse } from '../presentation/interfaces';
 import { injectable, inject } from 'inversify';
 import HttpResponseFactory from '../presentation/factory/HttpResponseFactory';
 import InjectionReferences from '../container/inversify.references';
-import PaymentModel from '../models/PaymentModel';
+import PaymentModel from '../models/Payment/PaymentModel';
 
 @injectable()
 export default class PaymentUseCase {

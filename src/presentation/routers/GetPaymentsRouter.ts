@@ -1,7 +1,7 @@
 import { inject, injectable } from 'inversify';
 import { Router, IHttpRequest, IHttpResponse } from '../interfaces';
 import InjectionReferences from '../../container/inversify.references';
-import PaymentModel from '../../models/PaymentModel';
+import PaymentModel from '../../models/Payment/PaymentModel';
 import PaymentUseCase from '../../domain/PaymentUseCase';
 
 @injectable()

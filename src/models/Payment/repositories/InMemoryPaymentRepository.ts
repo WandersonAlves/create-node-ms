@@ -1,6 +1,6 @@
-import { DataRepository } from "../interfaces";
+import { DataRepository } from "../../../infra/interfaces";
 import { injectable } from "inversify";
-import PaymentModel from "../../models/PaymentModel";
+import PaymentModel from "../PaymentModel";
 
 @injectable()
 export default class InMemoryPaymentRepository implements DataRepository<PaymentModel> {

@@ -4,7 +4,7 @@ import AxiosHttpHandle from '../infra/http/AxiosHttpHandler';
 import CreatePaymentRouter from '../presentation/routers/CreatePaymentRouter';
 import GetPaymentsRouter from '../presentation/routers/GetPaymentsRouter';
 import InjectionReferences from './inversify.references';
-import InMemoryPaymentRepository from '../infra/repositories/InMemoryPaymentRepository';
+import InMemoryPaymentRepository from '../models/Payment/repositories/InMemoryPaymentRepository';
 import PaymentUseCase from '../domain/PaymentUseCase';
 import PostPaymentRouter from '../presentation/routers/PostPaymentRouter';
 
