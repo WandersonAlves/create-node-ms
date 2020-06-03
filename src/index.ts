@@ -1,6 +1,12 @@
 import 'reflect-metadata';
-import server from './presentation/server';
+import { DatabaseConnection } from './infra/interfaces';
+import { logger } from './shared/Logger';
+import container from './container/inversify.config';
+import env from './config/env';
+import InjectionReferences from './container/inversify.references';
+import server from './presentation/express-server/server';
 
-server.listen(8080, () => {
-  console.log('Server started at 8080');
+server.listen(env.server_port, async () => {
+  await container.get<DatabaseConnection>(InjectionReferences.DatabaseConnectionRef).connect();
+  logger.info(`Server started at ${env.server_port} port`);
 });

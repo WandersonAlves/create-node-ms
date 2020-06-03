@@ -1,4 +1,4 @@
-export interface IPaginationParams {
+export interface IPaginationRequestParams {
   skip?: number;
   limit?: number;
 }

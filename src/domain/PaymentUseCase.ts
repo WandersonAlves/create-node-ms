@@ -1,39 +1,32 @@
-import { CREATED, OK } from 'http-status';
-import { DataRepository } from '../infra/interfaces';
-import { IHttpResponse } from '../presentation/interfaces';
+import { DataRepository } from '../entities/interfaces';
+import { IHttpResponse, IHttpError } from '../presentation/interfaces';
 import { injectable, inject } from 'inversify';
+import { OK, NO_CONTENT } from 'http-status';
+import { TRestParameters } from '../shared/types';
 import HttpResponseFactory from '../presentation/factory/HttpResponseFactory';
 import InjectionReferences from '../container/inversify.references';
-import PaymentModel from '../models/Payment/PaymentModel';
+import IPaymentDTO from '../infra/dtos/IPaymentDTO';
+import RequestHandler from '../shared/decorators/RequestHandler';
 
 @injectable()
 export default class PaymentUseCase {
-  @inject(InjectionReferences.PaymentRepositoryRef) private repository: DataRepository<PaymentModel>;
+  @inject(InjectionReferences.PaymentRepositoryRef) private repository: DataRepository<IPaymentDTO>;
 
-  async payBill(pendingPaymentID: number): Promise<IHttpResponse> {
-    try {
-      const result = await this.repository.updateById(pendingPaymentID, { status: 'paid' });
-      if (!result) {
-        return HttpResponseFactory.error("Can't update bill");
-      }
-      return HttpResponseFactory.success(CREATED, result);
-    } catch (e) {
-      return HttpResponseFactory.error(e.message);
+  @RequestHandler()
+  async getItems(filter?: TRestParameters<IPaymentDTO>): Promise<IHttpResponse<IPaymentDTO[] | IHttpError>> {
+    const result = await this.repository.find(filter);
+    if (result.length) {
+      return HttpResponseFactory.success(OK, result);
     }
+    return HttpResponseFactory.success(NO_CONTENT, []);
   }
 
-  async createPayment(payment: PaymentModel): Promise<IHttpResponse> {
-    try {
-      const paymentModel = new PaymentModel(payment);
-      const result = await this.repository.create(paymentModel);
-      return HttpResponseFactory.success(CREATED, result);
-    } catch (e) {
-      return HttpResponseFactory.error(e.message);
+  @RequestHandler()
+  async getItem(id: string): Promise<IHttpResponse<IPaymentDTO | IHttpError>> {
+    const result = await this.repository.findOne(id);
+    if (result) {
+      return HttpResponseFactory.success(OK, result);
     }
-  }
-
-  async getBills(): Promise<IHttpResponse> {
-    const result = await this.repository.find();
-    return HttpResponseFactory.success(OK, result);
+    return HttpResponseFactory.success(NO_CONTENT, null);
   }
 }

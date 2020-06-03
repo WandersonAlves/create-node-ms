@@ -1,22 +1,29 @@
 import { Container } from 'inversify';
-import { DataRepository, HTTPHandler } from '../infra/interfaces';
+import { DataRepository } from '../entities/interfaces';
+import { HTTPHandler, DatabaseConnection } from '../infra/interfaces';
 import AxiosHttpHandle from '../infra/http/AxiosHttpHandler';
-import CreatePaymentRouter from '../presentation/routers/CreatePaymentRouter';
-import GetPaymentsRouter from '../presentation/routers/GetPaymentsRouter';
+import GetPaymentRouter from '../presentation/express-server/routers/GetPaymentRouter';
+import GetPaymentsRouter from '../presentation/express-server/routers/GetPaymentsRouter';
 import InjectionReferences from './inversify.references';
-import InMemoryPaymentRepository from '../models/Payment/repositories/InMemoryPaymentRepository';
+import InMemoryPaymentRepository from '../entities/payment/repositories/InMemoryPaymentRepository';
+import MongooseConnection from '../infra/db/mongoose/MongooseConnection';
+import MongoosePaymentRepository from '../entities/payment/repositories/MongoosePaymentRepository';
 import PaymentUseCase from '../domain/PaymentUseCase';
-import PostPaymentRouter from '../presentation/routers/PostPaymentRouter';
 
 const container = new Container({ defaultScope: 'Singleton' });
 
+// Entity
 container.bind<DataRepository>(InjectionReferences.PaymentRepositoryRef).to(InMemoryPaymentRepository);
 
-container.bind<PostPaymentRouter>(InjectionReferences.PostPaymentRouterRef).to(PostPaymentRouter);
+// Routes
 container.bind<GetPaymentsRouter>(InjectionReferences.GetPaymentsRouterRef).to(GetPaymentsRouter);
-container.bind<CreatePaymentRouter>(InjectionReferences.CreatePaymentRouterRef).to(CreatePaymentRouter);
+container.bind<GetPaymentRouter>(InjectionReferences.GetPaymentRouterRef).to(GetPaymentRouter);
 
+// Infra
 container.bind<HTTPHandler>(InjectionReferences.HTTPHandlerRef).to(AxiosHttpHandle);
+container.bind<DatabaseConnection>(InjectionReferences.DatabaseConnectionRef).to(MongooseConnection);
+
+// Domain
 container.bind<PaymentUseCase>(InjectionReferences.PaymentUseCaseRef).to(PaymentUseCase);
 
 export default container;

@@ -3,11 +3,12 @@ const InjectionReferences = {
   PaymentUseCaseRef: Symbol.for('PaymentUseCase'),
   // Infra
   HTTPHandlerRef: Symbol.for('HTTPHandler'),
+  DatabaseConnectionRef: Symbol.for('DatabaseConnection'),
+  // Entity
   PaymentRepositoryRef: Symbol.for('PaymentRepository'),
   // Presentation
-  PostPaymentRouterRef: Symbol.for('PostPaymentRouter'),
+  GetPaymentRouterRef: Symbol.for('GetPaymentRouterRef'),
   GetPaymentsRouterRef: Symbol.for('GetPaymentsRouter'),
-  CreatePaymentRouterRef: Symbol.for('CreatePaymentRouterRef'),
 };
 
 export default InjectionReferences;

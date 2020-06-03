@@ -1,19 +1,16 @@
-import { IHttpResponse } from "../interfaces";
+import { IHttpResponse, IHttpError } from "../interfaces";
 import { INTERNAL_SERVER_ERROR } from 'http-status';
 
-interface IHttpError {
-  reason: string;
-  statusCode: number;
-  details?: any;
-}
+
 
 export default class HttpResponseFactory {
-  static error(msg: string, statusCode = INTERNAL_SERVER_ERROR, details?: any): IHttpResponse<IHttpError> {
+  static error(e: Error, statusCode = INTERNAL_SERVER_ERROR, details?: any): IHttpResponse<IHttpError> {
     return {
       statusCode,
+      success: false,
       body: {
-        reason: msg,
-        statusCode,
+        name: e.name,
+        message: e.message,
         details
       }
     }
@@ -21,6 +18,7 @@ export default class HttpResponseFactory {
 
   static success<T>(statusCode: number, response: T): IHttpResponse<T> {
     return {
+      success: true,
       statusCode,
       body: response
     }
