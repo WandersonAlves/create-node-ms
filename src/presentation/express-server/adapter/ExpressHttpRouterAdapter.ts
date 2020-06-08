@@ -6,10 +6,12 @@ export default class ExpressRouterAdapter {
     return async (req: Request, res: Response) => {
       const httpRequest: IHttpRequest = {
         body: req.body,
-        query: req.query
+        params: req.params,
+        query: req.query,
+        headers: req.headers,
       };
       const httpResponse: IHttpResponse = await router.route(httpRequest);
-      res.status(httpResponse.statusCode).json(httpResponse);
+      return res.status(httpResponse.statusCode).json(httpResponse);
     }
   }
 }

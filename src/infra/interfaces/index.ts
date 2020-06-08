@@ -1,3 +1,5 @@
+import { IHttpResponse } from "../../presentation/interfaces";
+
 export abstract class HTTPHandler {
   abstract async get<T>(url: string, params?: IHTTPHandlerParams): Promise<IHttpResponse<T>>;
   abstract async post<T>(url: string, params?: IHTTPHandlerParams): Promise<IHttpResponse<T>>;
@@ -15,9 +17,4 @@ export abstract class DatabaseConnection {
 export interface IHTTPHandlerParams {
   data?: any;
   headers?: any;
-}
-
-export interface IHttpResponse<T = any> {
-  statusCode: number;
-  body: T;
 }

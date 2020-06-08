@@ -1,29 +1,44 @@
 import { Container } from 'inversify';
+import { DatabaseConnection } from '../infra/interfaces';
 import { DataRepository } from '../entities/interfaces';
-import { HTTPHandler, DatabaseConnection } from '../infra/interfaces';
-import AxiosHttpHandle from '../infra/http/AxiosHttpHandler';
-import GetPaymentRouter from '../presentation/express-server/routers/GetPaymentRouter';
-import GetPaymentsRouter from '../presentation/express-server/routers/GetPaymentsRouter';
+import AuthenticateUserRouter from '../presentation/express-server/routers/AuthenticateUserRouter';
+import AuthenticationCase from '../useCases/AuthenticationCase';
+import CreatePlaceRouter from '../presentation/express-server/routers/CreatePlaceRouter';
+import CreateUserRouter from '../presentation/express-server/routers/CrateUserRouter';
+import EvaluatePlaceRouter from '../presentation/express-server/routers/EvaluatePlaceRouter';
+import GetPlacesRouter from '../presentation/express-server/routers/GetPlacesRouter';
+import GetPlacesWithCommentsRouter from '../presentation/express-server/routers/GetPlaceWithCommentRouter';
 import InjectionReferences from './inversify.references';
-import InMemoryPaymentRepository from '../entities/payment/repositories/InMemoryPaymentRepository';
-import MongooseConnection from '../infra/db/mongoose/MongooseConnection';
-import MongoosePaymentRepository from '../entities/payment/repositories/MongoosePaymentRepository';
-import PaymentUseCase from '../domain/PaymentUseCase';
+import LogoutUserRouter from '../presentation/express-server/routers/LogoutUserRouter';
+import PlaceEvaluationPostgresRepository from '../entities/repositories/PlaceEvaluationPostgresRepository';
+import PlacePostgresRepository from '../entities/repositories/PlacePostgresRepository';
+import PlacesCase from '../useCases/PlacesCase';
+import PostgresConnection from '../infra/db/postgres/PostgresConnection';
+import ProfileCase from '../useCases/ProfileCase';
+import UserPostgresRepository from '../entities/repositories/UserPostgresRepository';
 
 const container = new Container({ defaultScope: 'Singleton' });
 
 // Entity
-container.bind<DataRepository>(InjectionReferences.PaymentRepositoryRef).to(InMemoryPaymentRepository);
-
-// Routes
-container.bind<GetPaymentsRouter>(InjectionReferences.GetPaymentsRouterRef).to(GetPaymentsRouter);
-container.bind<GetPaymentRouter>(InjectionReferences.GetPaymentRouterRef).to(GetPaymentRouter);
+container.bind<DataRepository>(InjectionReferences.UserRepositoryRef).to(UserPostgresRepository);
+container.bind<DataRepository>(InjectionReferences.PlaceRepositoryRef).to(PlacePostgresRepository);
+container.bind<DataRepository>(InjectionReferences.PlaceEvaluationRepositoryRef).to(PlaceEvaluationPostgresRepository);
 
 // Infra
-container.bind<HTTPHandler>(InjectionReferences.HTTPHandlerRef).to(AxiosHttpHandle);
-container.bind<DatabaseConnection>(InjectionReferences.DatabaseConnectionRef).to(MongooseConnection);
+container.bind<DatabaseConnection>(InjectionReferences.DatabaseConnectionRef).to(PostgresConnection);
 
-// Domain
-container.bind<PaymentUseCase>(InjectionReferences.PaymentUseCaseRef).to(PaymentUseCase);
+// Domain / Use Cases
+container.bind<AuthenticationCase>(InjectionReferences.AuthenticationCaseRef).to(AuthenticationCase);
+container.bind<PlacesCase>(InjectionReferences.PlacesCaseRef).to(PlacesCase);
+container.bind<ProfileCase>(InjectionReferences.ProfileCaseRef).to(ProfileCase);
+
+// Routers
+container.bind<CreateUserRouter>(InjectionReferences.CreateUserRouterRef).to(CreateUserRouter);
+container.bind<AuthenticateUserRouter>(InjectionReferences.AuthenticateUserRouterRef).to(AuthenticateUserRouter);
+container.bind<LogoutUserRouter>(InjectionReferences.LogoutUserRouterRef).to(LogoutUserRouter);
+container.bind<EvaluatePlaceRouter>(InjectionReferences.EvaluatePlaceRouterRef).to(EvaluatePlaceRouter);
+container.bind<CreatePlaceRouter>(InjectionReferences.CreatePlaceRouterRef).to(CreatePlaceRouter);
+container.bind<GetPlacesRouter>(InjectionReferences.GetPlacesRouterRef).to(GetPlacesRouter);
+container.bind<GetPlacesWithCommentsRouter>(InjectionReferences.GetPlacesWithCommentsRouterRef).to(GetPlacesWithCommentsRouter);
 
 export default container;

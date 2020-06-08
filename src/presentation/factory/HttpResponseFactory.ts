@@ -1,18 +1,12 @@
 import { IHttpResponse, IHttpError } from "../interfaces";
-import { INTERNAL_SERVER_ERROR } from 'http-status';
-
-
+import GenericException from "../../shared/exceptions/GenericException";
 
 export default class HttpResponseFactory {
-  static error(e: Error, statusCode = INTERNAL_SERVER_ERROR, details?: any): IHttpResponse<IHttpError> {
+  static error(e: GenericException): IHttpResponse<IHttpError> {
     return {
-      statusCode,
+      statusCode: e.statusCode,
       success: false,
-      body: {
-        name: e.name,
-        message: e.message,
-        details
-      }
+      body: e.formatError()
     }
   }
 

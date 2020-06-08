@@ -1,6 +1,8 @@
-export interface IHttpRequest<T = any> {
-  body?: T;
-  query?: any;
+export interface IHttpRequest<BODY = any, QUERY = any, PARAMS = any> {
+  body?: BODY;
+  query?: QUERY;
+  params?: PARAMS;
+  headers?: any;
 }
 
 export interface IHttpResponse<T = any> {

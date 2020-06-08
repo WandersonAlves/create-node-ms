@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "types": ["reflect-metadata"],
+    "types": ["reflect-metadata", "mocha", "chai"],
     "outDir": "dist",
     "moduleResolution": "node",
     "experimentalDecorators": true,
