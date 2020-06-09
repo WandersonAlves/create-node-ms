@@ -1,7 +1,6 @@
 import { DataRepository } from '../interfaces';
 import { injectable } from 'inversify';
 import { IUserDTO } from '../dtos/IUserDTO';
-import { logger, jsonString } from '../../shared/Logger';
 import { TRestParameters } from '../../shared/types';
 
 @injectable()
@@ -35,7 +34,8 @@ export default class UserInMemoryRepository implements DataRepository<IUserDTO> 
     throw new Error('Method not implemented.');
   }
   updateById(id: string | number, obj: Partial<IUserDTO>): Promise<IUserDTO> {
-    throw new Error('Method not implemented.');
+    this.users[id] = { ...this.users[id], ...obj };
+    return this.users[id];
   }
 
   private _match(u: IUserDTO, filter: TRestParameters<IUserDTO>) {
