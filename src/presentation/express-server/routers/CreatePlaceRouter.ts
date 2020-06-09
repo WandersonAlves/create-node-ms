@@ -14,7 +14,7 @@ export default class CreatePlaceRouter implements RequestRouter {
 
   route(req: IHttpRequest<IPlaceDTO>): Promise<IHttpResponse<IPlaceDTO | IHttpError>> {
     const { name, lat, long } = req.body;
-    const validation = new Validator().exists(name, 'name').isLatLong(lat, 'lat').isLatLong(long, 'long');
+    const validation = new Validator().isLatLong({ long, lat }, 'latLong').exists(name, 'name');
     if (!validation.hasErrors()) {
       return this.placeCase.createNewPlace(req.body);
     }

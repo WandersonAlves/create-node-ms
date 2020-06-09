@@ -10,9 +10,9 @@ export default class Validator {
     return this;
   }
 
-  isLatLong(str: string | number, field: string) {
-    if (!validator.isLatLong(str.toString())) {
-      this.errorList.push(`${field}: Isn't a valid latitude or longitude field`);
+  isLatLong({ lat, long }: { lat: string | number; long: string | number }, field: string) {
+    if (!validator.isLatLong(`${lat},${long}`)) {
+      this.errorList.push(`${field}: Isn't a valid latitude or longitude field. Maybe you forgot to send one of then`);
     }
     return this;
   }
