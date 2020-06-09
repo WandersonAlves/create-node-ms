@@ -19,6 +19,8 @@ const InjectionReferences = {
   CreatePlaceRouterRef: Symbol.for('CreatePlaceRouterRef'),
   GetPlacesRouterRef: Symbol.for('GetPlacesRouterRef'),
   GetPlacesWithCommentsRouterRef: Symbol.for('GetPlacesWithCommentsRouterRef'),
+  GetUserProfileRouterRef: Symbol.for('GetUserProfileRouterRef'),
+  UpdateUserProfileRouterRef: Symbol.for('UpdateUserProfileRouterRef'),
 };
 
 export default InjectionReferences;

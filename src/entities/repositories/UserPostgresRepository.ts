@@ -42,7 +42,19 @@ export default class UserPostgresRepository implements DataRepository<IUserDTO> 
     return savedUser;
   }
 
-  updateById(id: string | number, obj: Partial<IUserDTO>): Promise<IUserDTO> {
-    throw new Error('Method not implemented.');
+  async updateById(id: string | number, obj: Partial<IUserDTO>): Promise<IUserDTO> {
+    const user = await UserModel.findOne({
+      where: {
+        id,
+      },
+    });
+    if (!user) {
+      return null;
+    }
+    await UserModel.update(id, obj);
+    return {
+      ...user,
+      ...obj
+    };
   }
 }

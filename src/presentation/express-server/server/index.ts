@@ -11,8 +11,10 @@ import EvaluatePlaceRouter from '../routers/EvaluatePlaceRouter';
 import ExpressRouterAdapter from '../adapter/ExpressHttpRouterAdapter';
 import GetPlacesRouter from '../routers/GetPlacesRouter';
 import GetPlacesWithCommentsRouter from '../routers/GetPlaceWithCommentRouter';
+import GetUserProfileRouter from '../routers/GetUserProfileRouter';
 import InjectionReferences from '../../../container/inversify.references';
 import LogoutUserRouter from '../routers/LogoutUserRouter';
+import UpdateUserProfileRouter from '../routers/UpdateUserProfileRouter';
 
 const server = express();
 const createUserRouter = container.get<CreateUserRouter>(InjectionReferences.CreateUserRouterRef);
@@ -21,6 +23,8 @@ const logoutUserRouter = container.get<LogoutUserRouter>(InjectionReferences.Log
 const evaluatePlaceRouter = container.get<EvaluatePlaceRouter>(InjectionReferences.EvaluatePlaceRouterRef);
 const createPlaceRouter = container.get<CreatePlaceRouter>(InjectionReferences.CreatePlaceRouterRef);
 const getPlacesRouter = container.get<GetPlacesRouter>(InjectionReferences.GetPlacesRouterRef);
+const getUserProfileRouter = container.get<GetUserProfileRouter>(InjectionReferences.GetUserProfileRouterRef);
+const updateUserProfileRouter = container.get<UpdateUserProfileRouter>(InjectionReferences.UpdateUserProfileRouterRef);
 const getPlaceWithCommentsRouter = container.get<GetPlacesWithCommentsRouter>(InjectionReferences.GetPlacesWithCommentsRouterRef);
 
 server.use(expressWinston.logger(logger));
@@ -29,6 +33,9 @@ server.use(bodyParser.json());
 server.post('/v1/login', ExpressRouterAdapter.adapt(authUserRouter));
 server.post('/v1/register', ExpressRouterAdapter.adapt(createUserRouter));
 server.post('/v1/logout', CheckJWTokenMiddleware, ExpressRouterAdapter.adapt(logoutUserRouter));
+
+server.get('/v1/profile', CheckJWTokenMiddleware, ExpressRouterAdapter.adapt(getUserProfileRouter));
+server.put('/v1/profile', CheckJWTokenMiddleware, ExpressRouterAdapter.adapt(updateUserProfileRouter));
 
 server.get('/v1/places', CheckJWTokenMiddleware, ExpressRouterAdapter.adapt(getPlacesRouter));
 server.post('/v1/place', CheckJWTokenMiddleware, ExpressRouterAdapter.adapt(createPlaceRouter));
