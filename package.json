@@ -28,6 +28,7 @@
     "@types/jsonwebtoken": "^8.5.0",
     "@types/mocha": "^7.0.2",
     "@types/mongoose": "^5.7.21",
+    "@types/validator": "^13.0.0",
     "@types/winston": "^2.4.4",
     "husky": "^4.2.5",
     "husky-tslint-pre-commit": "^1.0.3",
@@ -55,6 +56,7 @@
     "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.25",
+    "validator": "^13.0.0",
     "winston": "^3.2.1"
   },
   "husky": {

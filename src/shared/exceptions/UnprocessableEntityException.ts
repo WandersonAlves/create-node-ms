@@ -1,0 +1,16 @@
+import * as httpCodes from 'http-status';
+import GenericException from './GenericException';
+
+export default class UnprocessableEntityException extends GenericException {
+  constructor(errors: any) {
+    const params = {
+      name: 'UnprocessableEntityException',
+      message: 'Fields validation failed',
+      extras: errors,
+      statusCode: httpCodes.UNPROCESSABLE_ENTITY,
+    };
+    super(params);
+
+    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
+  }
+}
