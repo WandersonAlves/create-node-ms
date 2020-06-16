@@ -1,0 +1,72 @@
+{
+  "name": "clean-node-ms",
+  "version": "0.0.1",
+  "description": "A generator for microservices with Clean Archtecture in Node",
+  "main": "index.ts",
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/*.test.ts",
+    "test:watch": "nodemon --watch ./src/**/*.ts --ext ts --exec \"mocha -r ts-node/register src/**/*.test.ts\"",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:fix": "tslint -c tslint.json 'src/**/*.ts' --fix",
+    "start:dev": "node --inspect=0.0.0.0:9229 -r ts-node/register ./src/index.ts",
+    "dev": "nodemon",
+    "release": "standard-version --release-as",
+    "clean": "rm -rf dist/",
+    "build": "yarn clean && tsc",
+    "build:docker": "docker build . -t something-service",
+    "build:webpack": "webpack --config webpack.config.js"
+  },
+  "keywords": [
+    "clean",
+    "node",
+    "kubernetes"
+  ],
+  "author": "WandersonAlves",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/chai": "^4.2.11",
+    "@types/express": "^4.17.6",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mocha": "^7.0.2",
+    "@types/mongoose": "^5.7.21",
+    "@types/validator": "^13.0.0",
+    "@types/winston": "^2.4.4",
+    "husky": "^4.2.5",
+    "husky-tslint-pre-commit": "^1.0.3",
+    "nodemon": "^2.0.4",
+    "prettier-quick": "^0.0.5",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-misc-rules": "^3.5.1",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-winston": "^4.0.3",
+    "http-status": "^1.4.2",
+    "inversify": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mocha": "^7.2.0",
+    "mongoose": "^5.9.17",
+    "pg": "^8.2.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.25",
+    "validator": "^13.0.0",
+    "winston": "^3.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node node_modules/husky-tslint-pre-commit/pre-commit.js"
+    }
+  }
+}
