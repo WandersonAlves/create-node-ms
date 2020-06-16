@@ -1,7 +1,7 @@
 {
   "name": "clean-node-ms",
   "version": "0.0.1",
-  "description": "A generator for microservices with Clean in Node",
+  "description": "A generator for microservices with Clean Archtecture in Node",
   "main": "index.ts",
   "scripts": {
     "test": "mocha -r ts-node/register src/**/*.test.ts",
@@ -10,7 +10,11 @@
     "lint:fix": "tslint -c tslint.json 'src/**/*.ts' --fix",
     "start:dev": "node --inspect=0.0.0.0:9229 -r ts-node/register ./src/index.ts",
     "dev": "nodemon",
-    "release": "standard-version --release-as"
+    "release": "standard-version --release-as",
+    "clean": "rm -rf dist/",
+    "build": "yarn clean && tsc",
+    "build:docker": "docker build . -t something-service",
+    "build:webpack": "webpack --config webpack.config.js"
   },
   "keywords": [
     "clean",
@@ -38,7 +42,8 @@
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-misc-rules": "^3.5.1",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0"
   },
   "dependencies": {
     "axios": "^0.19.2",
