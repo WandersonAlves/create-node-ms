@@ -1,4 +1,4 @@
-import { IHttpResponse, IHttpError } from "../interfaces";
+import { IHttpResponse, IHttpError } from "../../shared/interfaces";
 import GenericException from "../../shared/exceptions/GenericException";
 
 export default class HttpResponseFactory {

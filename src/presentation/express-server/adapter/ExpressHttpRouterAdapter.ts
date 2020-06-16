@@ -1,5 +1,5 @@
-import { IHttpRequest, IHttpResponse, RequestRouter } from "../../interfaces";
 import { Request, Response } from "express";
+import { RequestRouter, IHttpRequest, IHttpResponse } from "../../../shared/interfaces";
 
 export default class ExpressRouterAdapter {
   static adapt(router: RequestRouter) {

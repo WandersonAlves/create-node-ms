@@ -1,26 +1,17 @@
 const InjectionReferences = {
   // Domain / UseCases
-  AuthenticationCaseRef: Symbol.for('AuthenticationCaseRef'),
-  PlacesCaseRef: Symbol.for('PlacesCaseRef'),
-  ProfileCaseRef: Symbol.for('ProfileCaseRef'),
+  EntityCaseRef: Symbol.for('EntityCaseRef'),
   // Infra
   HTTPHandlerRef: Symbol.for('HTTPHandler'),
   DatabaseConnectionRef: Symbol.for('DatabaseConnection'),
   // Entity
-  PlaceEvaluationRepositoryRef: Symbol.for('PlaceEvaluationRepositoryRef'),
-  UserRepositoryRef: Symbol.for('UserRepository'),
-  PlaceRepositoryRef: Symbol.for('PlaceRepository'),
-  RatingRepositoryRef: Symbol.for('RatingRepository'),
+  EntityRepositoryRef: Symbol.for('EntityRepositoryRef'),
   // Routers
-  CreateUserRouterRef: Symbol.for('CreateUserRouterRef'),
-  AuthenticateUserRouterRef: Symbol.for('AuthenticateUserRouterRef'),
-  LogoutUserRouterRef: Symbol.for('LogoutUserRouterRef'),
-  EvaluatePlaceRouterRef: Symbol.for('EvaluatePlaceRouterRef'),
-  CreatePlaceRouterRef: Symbol.for('CreatePlaceRouterRef'),
-  GetPlacesRouterRef: Symbol.for('GetPlacesRouterRef'),
-  GetPlacesWithCommentsRouterRef: Symbol.for('GetPlacesWithCommentsRouterRef'),
-  GetUserProfileRouterRef: Symbol.for('GetUserProfileRouterRef'),
-  UpdateUserProfileRouterRef: Symbol.for('UpdateUserProfileRouterRef'),
+  GetEntityRouterRef: Symbol.for('GetEntityRouterRef'),
+  GetEntitiesRouterRef: Symbol.for('GetEntitiesRouterRef'),
+  PostEntityRouterRef: Symbol.for('PostEntityRouterRef'),
+  PutEntityRouterRef: Symbol.for('PutEntityRouterRef'),
+  DeleteEntityRouterRef: Symbol.for('DeleteEntityRouterRef'),
 };
 
 export default InjectionReferences;

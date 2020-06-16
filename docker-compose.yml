@@ -1,0 +1,30 @@
+version: '3.7'
+
+services:
+
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dev
+    ports:
+      - 5432:5432
+
+  entity-service:
+    image: node:11
+    volumes:
+      - ./:/usr/src/service
+    ports:
+      - 9229:9229
+    depends_on:
+      - postgres
+    command: bash -c "yarn dev"
+    working_dir: /usr/src/service
+    expose:
+      - 3200
+    environment:
+      - PORT=3200
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASS=password

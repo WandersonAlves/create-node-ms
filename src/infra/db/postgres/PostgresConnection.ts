@@ -1,11 +1,9 @@
 import { createConnection, Connection } from 'typeorm';
-import { DatabaseConnection } from '../../interfaces';
+import { DatabaseConnection } from '../../../shared/interfaces';
+import { EntityModel } from './models/EntityModel';
 import { injectable } from 'inversify';
 import { logger } from '../../../shared/Logger';
-import { UserModel } from './models/UserModel';
 import env from '../../../config/env';
-import PlaceEvaluationModel from './models/PlaceEvaluationModel';
-import PlaceModel from './models/PlaceModel';
 
 @injectable()
 export default class PostgresConnection implements DatabaseConnection {
@@ -20,7 +18,7 @@ export default class PostgresConnection implements DatabaseConnection {
         username: env.db_user,
         password: env.db_pass,
         synchronize: true,
-        entities: [UserModel, PlaceModel, PlaceEvaluationModel],
+        entities: [EntityModel],
       });
       this.connection = connection;
       return this;

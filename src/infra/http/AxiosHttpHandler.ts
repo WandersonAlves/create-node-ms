@@ -1,59 +1,31 @@
-// import { HTTPHandler, IHTTPHandlerParams } from "../interfaces";
-// import { injectable } from "inversify";
-// import Axios, { AxiosInstance } from 'axios';
-// import { IHttpResponse } from "../../presentation/interfaces";
+import { injectable } from "inversify";
+import Axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-// @injectable()
-// export default class AxiosHttpHandle implements HTTPHandler {
-//   private _axios: AxiosInstance;
+@injectable()
+export default class AxiosHttpHandle {
+  private _axios: AxiosInstance;
 
-//   constructor() {
-//     this._axios = Axios.create();
-//   }
+  constructor() {
+    this._axios = Axios.create();
+  }
 
-//   async post<T>(url: string, params?: IHTTPHandlerParams): Promise<IHttpResponse<T>> {
-//     const { data, status } = await this._axios.post<T>(url, params.data, params);
-//     return {
-//       body: data,
-//       statusCode: status,
-//       success: true
-//     };
-//   }
+  post<T>(url: string, data: any, params?: AxiosRequestConfig) {
+    return this._axios.post<T>(url, data, params);
+  }
 
-//   async put<T>(url: string, params?: IHTTPHandlerParams): Promise<IHttpResponse<T>> {
-//     const { data, status } = await this._axios.post(url, params.data, params);
-//     return {
-//       body: data,
-//       statusCode: status,
-//       success: true,
-//     };
-//   }
+  put<T>(url: string, data: any, params?: AxiosRequestConfig) {
+    return this._axios.post<T>(url, data, params);
+  }
 
-//   async patch<T>(url: string, params?: IHTTPHandlerParams): Promise<IHttpResponse<T>> {
-//     const { data, status } = await this._axios.post(url, params.data, params);
-//     return {
-//       body: data,
-//       statusCode: status,
-//       success: true,
-//     };
-//   }
+  patch<T>(url: string, data: any, params?: AxiosRequestConfig) {
+    return this._axios.post<T>(url, data, params);
+  }
 
-//   async delete<T>(url: string, params?: IHTTPHandlerParams): Promise<IHttpResponse<T>> {
-//     const { data, status } = await this._axios.delete(url, params);
-//     return {
-//       body: data,
-//       statusCode: status,
-//       success: true,
-//     };
-//   }
+  delete(url: string, params?: AxiosRequestConfig) {
+    return this._axios.delete(url, params);
+  }
 
-//   async get<T>(url: string, params?: IHTTPHandlerParams): Promise<IHttpResponse<T>> {
-//     const { data, status } = await this._axios.get<T>(url, params);
-//     return {
-//       body: data,
-//       statusCode: status,
-//       success: true,
-//     };
-//   }
-
-// }
+  get<T>(url: string, params?: AxiosRequestConfig) {
+    return this._axios.get<T>(url, params);
+  }
+}

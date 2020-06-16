@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import { DatabaseConnection } from './infra/interfaces';
+import { DatabaseConnection } from './shared/interfaces';
 import { logger } from './shared/Logger';
 import container from './container/inversify.config';
 import env from './config/env';

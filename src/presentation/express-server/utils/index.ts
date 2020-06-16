@@ -10,6 +10,7 @@ export const CheckJWTokenMiddleware = (req: Request, res: Response, next: NextFu
 
   try {
     const [, token] = authorization.split(' ');
+    // TODO Set your secret
     jwt.verify(token, 'random-secret');
     next();
   } catch (e) {
