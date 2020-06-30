@@ -15,5 +15,8 @@
     "cloud"
   ],
   "author": "WandersonAlves <wandersonalvesferreira2012@gmail.com>",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^5.1.0"
+  }
 }
