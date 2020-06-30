@@ -3,7 +3,10 @@
   "version": "0.0.1",
   "description": "A generator for microservices with Clean Archtecture in Node",
   "scripts": {
-    "create-node-ms": "node scripts/create-template"
+    "create-node-ms": "node scripts/create-template",
+    "start:dev": "node --inspect=0.0.0.0:9229 -r ts-node/register ./src/index.ts",
+    "start": "node -r ts-node/register ./index.ts",
+    "dev": "nodemon"
   },
   "keywords": [
     "clean",
@@ -16,6 +19,12 @@
   ],
   "author": "WandersonAlves <wandersonalvesferreira2012@gmail.com>",
   "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.0.14",
+    "nodemon": "^2.0.4",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.5"
+  },
   "dependencies": {
     "commander": "^5.1.0"
   }
