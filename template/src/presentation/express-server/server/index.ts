@@ -4,13 +4,13 @@ import * as expressWinston from 'express-winston';
 import { logger } from '../../../shared/Logger';
 import { RouteNotFoundMiddleware } from '../utils';
 import container from '../../../container/inversify.config';
-import DeleteEntityRouter from '../routers/DeleteEntityRouter';
+import DeleteEntityRouter from '../../routers/DeleteEntityRouter';
 import ExpressRouterAdapter from '../adapter/ExpressHttpRouterAdapter';
-import GetEntitiesRouter from '../routers/GetEntitiesRouter';
-import GetEntityRouter from '../routers/GetEntityRouter';
+import GetEntitiesRouter from '../../routers/GetEntitiesRouter';
+import GetEntityRouter from '../../routers/GetEntityRouter';
 import InjectionReferences from '../../../container/inversify.references';
-import PostEntityRouter from '../routers/PostEntityRouter';
-import PutEntityRouter from '../routers/PutEntityRouter';
+import PostEntityRouter from '../../routers/PostEntityRouter';
+import PutEntityRouter from '../../routers/PutEntityRouter';
 
 const server = express();
 const getEntitiesRouter = container.get<GetEntitiesRouter>(InjectionReferences.GetEntitiesRouterRef);

@@ -1,7 +1,7 @@
 import { injectable, inject } from "inversify";
-import { RequestRouter, IHttpRequest, IHttpResponse, IHttpError } from "../../../shared/interfaces";
-import EntityCase from "../../../useCases/EntityCase";
-import InjectionReferences from "../../../container/inversify.references";
+import { RequestRouter, IHttpRequest, IHttpResponse, IHttpError } from "../../shared/interfaces";
+import EntityCase from "../../useCases/EntityCase";
+import InjectionReferences from "../../container/inversify.references";
 
 @injectable()
 export default class DeleteEntityRouter implements RequestRouter {

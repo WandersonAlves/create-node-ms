@@ -1,14 +1,14 @@
 import { Container } from 'inversify';
 import { DataRepository, DatabaseConnection } from '../shared/interfaces';
-import DeleteEntityRouter from '../presentation/express-server/routers/DeleteEntityRouter';
+import DeleteEntityRouter from '../presentation/routers/DeleteEntityRouter';
 import EntityCase from '../useCases/EntityCase';
 import EntityPostgresRepository from '../entities/repositories/EntityPostgresRepository';
-import GetEntitiesRouter from '../presentation/express-server/routers/GetEntitiesRouter';
-import GetEntityRouter from '../presentation/express-server/routers/GetEntityRouter';
+import GetEntitiesRouter from '../presentation/routers/GetEntitiesRouter';
+import GetEntityRouter from '../presentation/routers/GetEntityRouter';
 import InjectionReferences from './inversify.references';
-import PostEntityRouter from '../presentation/express-server/routers/PostEntityRouter';
+import PostEntityRouter from '../presentation/routers/PostEntityRouter';
 import PostgresConnection from '../infra/db/postgres/PostgresConnection';
-import PutEntityRouter from '../presentation/express-server/routers/PutEntityRouter';
+import PutEntityRouter from '../presentation/routers/PutEntityRouter';
 
 const container = new Container({ defaultScope: 'Singleton' });
 
