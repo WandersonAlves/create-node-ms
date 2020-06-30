@@ -16,12 +16,11 @@ services:
       - ./:/usr/src/service
     ports:
       - 9229:9229
+      - 3200:3200
     depends_on:
       - postgres
     command: bash -c "yarn dev"
     working_dir: /usr/src/service
-    expose:
-      - 3200
     environment:
       - PORT=3200
       - DB_HOST=postgres

@@ -1,7 +1,7 @@
 import { IEntityDTO } from '../../entities/dtos/IEntityDTO';
 import { inject, injectable } from 'inversify';
 import { RequestRouter, IHttpRequest, IHttpResponse, IHttpError } from '../../shared/interfaces';
-import EntityCase from '../../useCases/EntityCase';
+import EntityCase from '../../cases/EntityCase';
 import InjectionReferences from '../../container/inversify.references';
 
 @injectable()

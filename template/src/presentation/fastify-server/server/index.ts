@@ -1,33 +1,24 @@
-import * as bodyParser from 'body-parser';
-import * as express from 'express';
-import * as expressWinston from 'express-winston';
-import { logger } from '../../../shared/Logger';
+import * as fastify from 'fastify';
 import container from '../../../container/inversify.config';
 import DeleteEntityRouter from '../../routers/DeleteEntityRouter';
-import ExpressRouteNotFoundAdapter from '../adapter/RouteNotFoundAdapter';
-import ExpressRouterAdapter from '../adapter/ExpressRouterAdapter';
+import FastifyRouteNotFoundAdapter from '../adapter/RouteNotFoundAdapter';
+import FastifyRouterAdapter from '../adapter/FastifyRouterAdapter';
 import GetEntitiesRouter from '../../routers/GetEntitiesRouter';
 import GetEntityRouter from '../../routers/GetEntityRouter';
 import InjectionReferences from '../../../container/inversify.references';
 import PostEntityRouter from '../../routers/PostEntityRouter';
 import PutEntityRouter from '../../routers/PutEntityRouter';
 
-const server = express();
+const server = fastify({ logger: true });
+
 const getEntitiesRouter = container.get<GetEntitiesRouter>(InjectionReferences.GetEntitiesRouterRef);
 const getEntityRouter = container.get<GetEntityRouter>(InjectionReferences.GetEntityRouterRef);
 const postEntityRouter = container.get<PostEntityRouter>(InjectionReferences.PostEntityRouterRef);
 const putEntityRouter = container.get<PutEntityRouter>(InjectionReferences.PutEntityRouterRef);
 const deleteEntityRouter = container.get<DeleteEntityRouter>(InjectionReferences.DeleteEntityRouterRef);
 
-server.use(expressWinston.logger(logger));
-server.use(bodyParser.json());
+server.get('/entity', FastifyRouterAdapter.adapt(getEntitiesRouter));
 
-server.get('/entity', ExpressRouterAdapter.adapt(getEntitiesRouter));
-server.get('/entity/:id', ExpressRouterAdapter.adapt(getEntityRouter));
-server.post('/entity', ExpressRouterAdapter.adapt(postEntityRouter));
-server.put('/entity/:id', ExpressRouterAdapter.adapt(putEntityRouter));
-server.delete('/entity/:id', ExpressRouterAdapter.adapt(deleteEntityRouter));
-
-server.use(ExpressRouteNotFoundAdapter.adapt());
+server.setNotFoundHandler(FastifyRouteNotFoundAdapter.adapt());
 
 export default server;
