@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 import { expect } from 'chai';
 import { OK } from 'http-status';
-import container from '../container/inversify.config';
-import EntityCase from './EntityCase';
-import EntityInMemoryRepository from '../entities/repositories/EntityInMemoryRepository';
-import InjectionReferences from '../container/inversify.references';
+import container from '../../src/container/inversify.config';
+import EntityCase from '../../src/cases/EntityCase';
+import EntityInMemoryRepository from '../../src/entities/repositories/EntityInMemoryRepository';
+import InjectionReferences from '../../src/container/inversify.references';
 
 const _bindEntityRepoMock = () => {
   container.unbind(InjectionReferences.EntityRepositoryRef);
