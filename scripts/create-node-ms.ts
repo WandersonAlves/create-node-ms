@@ -58,4 +58,12 @@ export const CreateNodeMsCmd = async (params) => {
   cp.execSync(`cd ${serviceDir} && ${useNpm ? "npm i" : "yarn"}`, {
     stdio: "inherit",
   });
+  if (!noCommit) {
+    cp.execSync(
+      `cd ${serviceDir} && git init && git add . && git commit -m "feat: first commit :rocket:"`,
+      {
+        stdio: "inherit",
+      }
+    );
+  }
 };
