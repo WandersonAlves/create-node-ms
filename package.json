@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A generator for microservices with Clean Archtecture in Node",
   "scripts": {
-    "create-node-ms": "node scripts/create-node-ms",
+    "create-node-ms": "node lib/index.js",
     "start": "node -r ts-node/register ./index.ts",
     "build": "tsc",
     "dev": "nodemon"
