@@ -1,6 +1,6 @@
 {
   "name": "create-node-ms",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A generator for microservices with Clean Archtecture in Node",
   "scripts": {
     "create-node-ms": "node lib/index.js",
@@ -28,10 +28,10 @@
     "nodemon": "^2.0.4",
     "standard-version": "^8.0.2",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.5",
-    "winston": "^3.3.3"
+    "typescript": "^3.9.5"
   },
   "dependencies": {
-    "commander": "^5.1.0"
+    "commander": "^5.1.0",
+    "winston": "^3.3.3"
   }
 }
