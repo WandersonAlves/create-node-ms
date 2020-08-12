@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.3...v0.0.4) (2020-08-12)
+
+
+### Bug Fixes
+
+* remove template folder from npmignore ([1add253](https://github.com/WandersonAlves/create-node-ms/commit/1add253dbe891227152a387abf9e7c7b907d7159))
+
 ### [0.0.3](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.2...v0.0.3) (2020-08-12)
 
 
