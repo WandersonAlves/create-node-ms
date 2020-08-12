@@ -1,6 +1,6 @@
 {
   "name": "create-node-ms",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A generator for microservices with Clean Archtecture in Node",
   "scripts": {
     "create-node-ms": "node lib/index.js",
@@ -8,6 +8,9 @@
     "build": "tsc",
     "release": "standard-version --release-as",
     "dev": "nodemon"
+  },
+  "bin": {
+    "create-node-ms": "./lib/index.js"
   },
   "keywords": [
     "clean",
