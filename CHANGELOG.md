@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.4...v0.0.5) (2020-08-12)
+
+
+### Features
+
+* git init and commit ([df4f2ca](https://github.com/WandersonAlves/create-node-ms/commit/df4f2ca32413407f3acc22485db857f19313f379))
+* rename files based on --entityName ([b4053b8](https://github.com/WandersonAlves/create-node-ms/commit/b4053b8c6bd8ce926f3c04463e89b3ee117f6908))
+
 ### [0.0.4](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.3...v0.0.4) (2020-08-12)
 
 
