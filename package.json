@@ -6,6 +6,7 @@
     "create-node-ms": "node lib/index.js",
     "start": "node -r ts-node/register ./index.ts",
     "build": "tsc",
+    "release": "standard-version --release-as",
     "dev": "nodemon"
   },
   "keywords": [
@@ -22,6 +23,7 @@
   "devDependencies": {
     "@types/node": "^14.0.14",
     "nodemon": "^2.0.4",
+    "standard-version": "^8.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.5",
     "winston": "^3.3.3"
