@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.2...v0.0.3) (2020-08-12)
+
+
+### Bug Fixes
+
+* install winston as required dep ([a3e9ae7](https://github.com/WandersonAlves/create-node-ms/commit/a3e9ae79c113cc86e584a3166bf79d379a7eee2e))
+* rename npmrc to npmignore ([8b549a4](https://github.com/WandersonAlves/create-node-ms/commit/8b549a4efd531f1c7137fc5c5326dd1ac9af40a4))
+
 ### [0.0.2](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.1...v0.0.2) (2020-08-12)
 
 ### 0.0.1 (2020-08-12)
