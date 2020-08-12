@@ -1,5 +1,5 @@
 import { program } from "commander";
-import { CreateTemplateCmd } from "./scripts/create-template";
+import { CreateNodeMsCmd } from "./scripts/create-node-ms";
 
 program
   .version("0.0.1", "-v, --version")
@@ -8,6 +8,6 @@ program
   .option("--useNpm", "Use npm to install dependencies")
   .option("-p, --path <projectPath>", "Generated project path")
   .requiredOption("-pn, --projectName <projectName>", "Project name")
-  .action(CreateTemplateCmd);
+  .action(CreateNodeMsCmd);
 
 program.parse(process.argv);
