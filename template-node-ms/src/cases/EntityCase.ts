@@ -1,5 +1,5 @@
 import { DataRepository, IHttpResponse, IHttpError } from '../shared/interfaces';
-import { IEntityDTO } from '../entities/dtos/IEntityDTO';
+import { IEntityDTO } from '../dtos/IEntityDTO';
 import { injectable, inject } from 'inversify';
 import { OK, CREATED } from 'http-status';
 import ExceptionHandler from '../shared/decorators/ExceptionHandler';

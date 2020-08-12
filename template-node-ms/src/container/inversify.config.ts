@@ -2,7 +2,7 @@ import { Container } from 'inversify';
 import { DataRepository, DatabaseConnection } from '../shared/interfaces';
 import DeleteEntityRouter from '../presentation/routers/DeleteEntityRouter';
 import EntityCase from '../cases/EntityCase';
-import EntityPostgresRepository from '../entities/repositories/EntityPostgresRepository';
+import EntityPostgresRepository from '../repositories/EntityPostgresRepository';
 import GetEntitiesRouter from '../presentation/routers/GetEntitiesRouter';
 import GetEntityRouter from '../presentation/routers/GetEntityRouter';
 import InjectionReferences from './inversify.references';

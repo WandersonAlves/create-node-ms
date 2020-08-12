@@ -1,7 +1,7 @@
-import { DataRepository } from '../../shared/interfaces';
+import { DataRepository } from '../shared/interfaces';
 import { IEntityDTO } from '../dtos/IEntityDTO';
 import { injectable } from 'inversify';
-import { TRestParameters } from '../../shared/types';
+import { TRestParameters } from '../shared/types';
 
 @injectable()
 export default class EntityUpperInMemoryRepository implements DataRepository<IEntityDTO> {

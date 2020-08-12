@@ -1,4 +1,4 @@
-import { IEntityDTO } from "../../entities/dtos/IEntityDTO";
+import { IEntityDTO } from "../../dtos/IEntityDTO";
 import { injectable, inject } from "inversify";
 import { RequestRouter, IHttpRequest, IHttpResponse, IHttpError } from "../../shared/interfaces";
 import EntityCase from "../../cases/EntityCase";

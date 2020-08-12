@@ -1,9 +1,9 @@
-import { DataRepository } from '../../shared/interfaces';
-import { EntityModel } from '../../infra/db/postgres/models/EntityModel';
+import { DataRepository } from '../shared/interfaces';
+import { EntityModel } from '../infra/db/postgres/models/EntityModel';
 import { FindConditions } from 'typeorm';
 import { IEntityDTO } from '../dtos/IEntityDTO';
 import { injectable } from 'inversify';
-import { TRestParameters } from '../../shared/types';
+import { TRestParameters } from '../shared/types';
 
 @injectable()
 export default class EntityUpperPostgresRepository implements DataRepository<IEntityDTO> {
