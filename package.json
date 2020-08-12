@@ -5,6 +5,7 @@
   "scripts": {
     "create-node-ms": "node scripts/create-node-ms",
     "start": "node -r ts-node/register ./index.ts",
+    "build": "tsc",
     "dev": "nodemon"
   },
   "keywords": [
@@ -22,7 +23,8 @@
     "@types/node": "^14.0.14",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.5",
+    "winston": "^3.3.3"
   },
   "dependencies": {
     "commander": "^5.1.0"
