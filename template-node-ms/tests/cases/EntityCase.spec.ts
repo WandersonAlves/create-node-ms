@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { OK } from 'http-status';
 import container from '../../src/container/inversify.config';
 import EntityCase from '../../src/cases/EntityCase';
-import EntityInMemoryRepository from '../../src/entities/repositories/EntityInMemoryRepository';
+import EntityInMemoryRepository from '../../src/repositories/EntityInMemoryRepository';
 import InjectionReferences from '../../src/container/inversify.references';
 
 const _bindEntityRepoMock = () => {
