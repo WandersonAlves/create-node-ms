@@ -11,6 +11,7 @@ program
   .requiredOption("-pn, --projectName <projectName>", "Project name")
   .requiredOption("-e, --entityName <entityName>", "Name of the first entity")
   .option("-ep, --entityPluralName <entityPluralName>", "Pluralized name of the entity")
+  .option("--verbose", "Output verbose info")
   .action(CreateNodeMsCmd);
 
 program.parse(process.argv);
