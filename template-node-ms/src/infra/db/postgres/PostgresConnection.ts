@@ -1,6 +1,6 @@
 import { createConnection, Connection } from 'typeorm';
 import { DatabaseConnection } from '../../../shared/interfaces';
-import { EntityModel } from './models/EntityModel';
+import { D_Entity_DModel } from './models/D_Entity_DModel';
 import { injectable } from 'inversify';
 import { logger } from '../../../shared/Logger';
 import env from '../../../config/env';
@@ -18,7 +18,7 @@ export default class PostgresConnection implements DatabaseConnection {
         username: env.db_user,
         password: env.db_pass,
         synchronize: true,
-        entities: [EntityModel],
+        entities: [D_Entity_DModel],
       });
       this.connection = connection;
       return this;

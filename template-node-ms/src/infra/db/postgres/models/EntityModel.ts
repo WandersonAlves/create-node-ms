@@ -1,6 +1,6 @@
 import { BaseEntity } from 'typeorm';
-import { IEntityDTO } from '../../../../dtos/IEntityDTO';
+import { ID_Entity_DDTO } from '../../../../dtos/ID_Entity_DDTO';
 
-export class EntityModel extends BaseEntity implements IEntityDTO {
+export class D_Entity_DModel extends BaseEntity implements ID_Entity_DDTO {
   // TODO Implement Model
 }

@@ -13,7 +13,15 @@ export default function ExceptionHandler(customFn?: (e: Error) => any) {
         if (customFn) {
           return customFn(err);
         }
-        return HttpResponseFactory.error(new GenericException({ name: err.name, message: err.message }));
+        return HttpResponseFactory.error(
+          new GenericException({
+            name: err.name,
+            message: err.message,
+            extras: {
+              stacktrace: err.stack,
+            },
+          }),
+        );
       }
     };
     return descriptor;

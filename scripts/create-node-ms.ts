@@ -64,10 +64,10 @@ export const CreateNodeMsCmd = async ({
   await processTemplate(
     serviceDir,
     [
-      ["entity", entityNameLowerCase],
-      ["Entity", entityNameCapitalized],
-      ["entities", entitiesNameLowerCase],
-      ["Entities", entitiesNameCapitalized],
+      ["D_entity_D", entityNameLowerCase],
+      ["D_Entity_D", entityNameCapitalized],
+      ["D_entities_D", entitiesNameLowerCase],
+      ["D_Entities_D", entitiesNameCapitalized],
     ],
     [
       ["entity", entityNameLowerCase],

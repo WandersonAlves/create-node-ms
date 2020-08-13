@@ -2,17 +2,17 @@ import 'reflect-metadata';
 import { expect } from 'chai';
 import { OK } from 'http-status';
 import container from '../../src/container/inversify.config';
-import EntityCase from '../../src/cases/EntityCase';
-import EntityInMemoryRepository from '../../src/repositories/EntityInMemoryRepository';
+import D_Entity_DCase from '../../src/cases/D_Entity_DCase';
+import D_Entity_DInMemoryRepository from '../../src/repositories/D_Entity_DInMemoryRepository';
 import InjectionReferences from '../../src/container/inversify.references';
 
-const _bindEntityRepoMock = () => {
-  container.unbind(InjectionReferences.EntityRepositoryRef);
-  container.bind(InjectionReferences.EntityRepositoryRef).to(EntityInMemoryRepository);
+const _bindD_Entity_DRepoMock = () => {
+  container.unbind(InjectionReferences.D_Entity_DRepositoryRef);
+  container.bind(InjectionReferences.D_Entity_DRepositoryRef).to(D_Entity_DInMemoryRepository);
 };
 
 const _getUseCase = () => {
-  return container.get<EntityCase>(InjectionReferences.EntityCaseRef);
+  return container.get<D_Entity_DCase>(InjectionReferences.D_Entity_DCaseRef);
 };
 
 describe('Authentication Use Case', () => {
@@ -28,9 +28,9 @@ describe('Authentication Use Case', () => {
     container.restore();
   });
 
-  it("Should get entities", async () => {
-    _bindEntityRepoMock();
-    const result = await _getUseCase().getEntities();
+  it("Should get D_entities_D", async () => {
+    _bindD_Entity_DRepoMock();
+    const result = await _getUseCase().getD_Entities_D();
     expect(result.statusCode).equal(OK);
   });
 });
