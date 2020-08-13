@@ -82,6 +82,9 @@ export const CreateNodeMsCmd = async ({
     stdio: "inherit",
   });
 
+  logger.info("Running lint...");
+  cp.execSync(`cd ${serviceDir} && ${useNpm ? 'npm run lint:fix' : 'yarn lint:fix'}`)
+
   if (!noCommit) {
     logger.info("Setup git...");
     cp.execSync(
@@ -91,5 +94,5 @@ export const CreateNodeMsCmd = async ({
       }
     );
   }
-  logger.info(`Done!\ncd to ${serviceDir}`);
+  logger.info(`Done! cd to ${serviceDir}`);
 };
