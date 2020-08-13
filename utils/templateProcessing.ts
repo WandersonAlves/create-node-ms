@@ -1,6 +1,5 @@
 import { resolve } from "path";
 import { renameSync, readdirSync, readFileSync, writeFileSync } from "fs";
-import { logger } from "./logger";
 
 type RenamingParams = [string, string][];
 
@@ -32,15 +31,17 @@ type RenamingParams = [string, string][];
  * the second position is the replace string
  * @param fileRenaming array that contains arrays of strings. The first position is the search string
  * the second position is the replace string
+ * @param cb A function that receives the current fileName been operated
  */
 export const processTemplate = async (
   serviceDir: string,
   contentRenaming: RenamingParams,
-  fileRenaming: RenamingParams
+  fileRenaming: RenamingParams,
+  cb?: (str: string) => void
 ) => {
   const files: string[] = await recursiveGetFileList(serviceDir);
   for (const file of files) {
-    logger.debug(file, { label: "FileRename" });
+    cb ? cb(file) : null;
     renameFileContent(file, ...contentRenaming);
     renameSync(
       file,

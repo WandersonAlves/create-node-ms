@@ -74,7 +74,8 @@ export const CreateNodeMsCmd = async ({
       ["Entity", entityNameCapitalized],
       ["entities", entitiesNameLowerCase],
       ["Entities", entitiesNameCapitalized],
-    ]
+    ],
+    (fileName) => logger.verbose(fileName, { label: "FileRename" })
   );
 
   logger.info('Installing depedencies...');
