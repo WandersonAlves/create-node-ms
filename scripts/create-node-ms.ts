@@ -13,6 +13,7 @@ export const CreateNodeMsCmd = async ({
   projectPath,
   entityName,
   entityPluralName,
+  verbose
 }: {
   noCommit: boolean;
   projectName: string;
@@ -20,6 +21,7 @@ export const CreateNodeMsCmd = async ({
   projectPath: string;
   entityName: string;
   entityPluralName: string;
+  verbose: boolean;
 }) => {
   const entityNameLowerCase = entityName.toLowerCase();
   const entitiesNameLowerCase = entityPluralName
@@ -28,7 +30,9 @@ export const CreateNodeMsCmd = async ({
   const entitiesNameCapitalized = capitalizeString(entitiesNameLowerCase);
   const entityNameCapitalized = capitalizeString(entityNameLowerCase);
 
-  logger.debug(
+  logger.level = verbose ? 'verbose' : 'info'
+
+  logger.verbose(
     `create-node-ms params: ${jsonString({
       noCommit,
       projectName,
@@ -40,20 +44,23 @@ export const CreateNodeMsCmd = async ({
   );
 
   const rootDir = path.join(__filename);
-  logger.debug(`RootDir: ${rootDir}`);
+  logger.verbose(`RootDir: ${rootDir}`);
   const currentDir = cp.execSync("pwd").toString().trim();
-  logger.debug(`CurrentDir: ${currentDir}`);
+  logger.verbose(`CurrentDir: ${currentDir}`);
   const serviceDir = `${currentDir}/${projectName}`;
-  logger.debug(`ServiceDir: ${serviceDir}`);
+  logger.verbose(`ServiceDir: ${serviceDir}`);
   const cpTemplatePath = path.join(rootDir, "..", "..", "..", TEMPLATE_FOLDER);
-  logger.debug(`CPTemplateDir: ${cpTemplatePath}`);
+  logger.verbose(`CPTemplateDir: ${cpTemplatePath}`);
   const cpTemplatePackageJson = path.join(cpTemplatePath, ".package.json");
-  logger.debug(`CPTemplatePackageJson: ${cpTemplatePackageJson}`);
+  logger.verbose(`CPTemplatePackageJson: ${cpTemplatePackageJson}`);
 
+  logger.info('Creating service folder...');
   cp.execSync(`mkdir ${projectName}`);
+  logger.info('Copying files...');
   cp.execSync(`cp -r ${cpTemplatePath}. ${serviceDir}/`);
   cp.execSync(`cp -r ${cpTemplatePackageJson} ${serviceDir}/package.json`);
 
+  logger.info('Processing template...');
   await processTemplate(
     serviceDir,
     [
@@ -70,11 +77,13 @@ export const CreateNodeMsCmd = async ({
     ]
   );
 
+  logger.info('Installing depedencies...');
   cp.execSync(`cd ${serviceDir} && ${useNpm ? "npm i" : "yarn"}`, {
     stdio: "inherit",
   });
 
   if (!noCommit) {
+    logger.info("Setup git...");
     cp.execSync(
       `cd ${serviceDir} && git init && git add . && git commit -m "feat: first commit :rocket:"`,
       {
@@ -82,4 +91,5 @@ export const CreateNodeMsCmd = async ({
       }
     );
   }
+  logger.info(`Done!\ncd to ${serviceDir}`);
 };
