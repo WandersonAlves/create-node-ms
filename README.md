@@ -18,6 +18,7 @@ yarn dev
 - `-p, --path`: Absolute or relative path to create the project
 - `--useNpm`: Use npm instead of yarn to install depedencies
 - `--noCommit`: Don't do a first commit
+- `--verbose`: Output verbose info
 
 ## What's inside?
 
