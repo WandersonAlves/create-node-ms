@@ -7,7 +7,8 @@
     "start": "node -r ts-node/register ./index.ts",
     "build": "tsc",
     "release": "standard-version --release-as",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "format": "prettier --write '**/*.ts'"
   },
   "bin": {
     "create-node-ms": "./lib/index.js"
@@ -29,6 +30,8 @@
     "@types/node": "^14.0.14",
     "husky": "^4.2.5",
     "nodemon": "^2.0.4",
+    "prettier": "^2.1.1",
+    "pretty-quick": "^3.0.0",
     "standard-version": "^8.0.2",
     "ts-node": "^8.10.2",
     "typescript": "^4.0.2"
@@ -52,7 +55,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "pretty-quick --staged"
     }
   }
 }
