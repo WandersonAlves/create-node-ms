@@ -68,7 +68,7 @@ export const CreateNodeMsCmd = async ({
       ["D_Entity_D", entityNameCapitalized],
       ["D_entities_D", entitiesNameLowerCase],
       ["D_Entities_D", entitiesNameCapitalized],
-      ["$projectName$", projectName]
+      ["D_ProjectName_D", projectName]
     ],
     [
       ["entity", entityNameLowerCase],
