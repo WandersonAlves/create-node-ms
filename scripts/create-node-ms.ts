@@ -1,10 +1,10 @@
-import * as path from "path";
-import * as cp from "child_process";
-import { logger, jsonString } from "../utils/logger";
-import { capitalizeString } from "../utils/miscUtils";
-import { processTemplate } from "../utils/templateProcessing";
+import * as path from 'path';
+import * as cp from 'child_process';
+import { logger, jsonString } from '../utils/logger';
+import { capitalizeString } from '../utils/miscUtils';
+import { processTemplate } from '../utils/templateProcessing';
 
-const TEMPLATE_FOLDER = "template-node-ms/";
+const TEMPLATE_FOLDER = 'template-node-ms/';
 
 export const CreateNodeMsCmd = async ({
   noCommit,
@@ -13,7 +13,7 @@ export const CreateNodeMsCmd = async ({
   projectPath,
   entityName,
   entityPluralName,
-  verbose
+  verbose,
 }: {
   noCommit: boolean;
   projectName: string;
@@ -24,13 +24,11 @@ export const CreateNodeMsCmd = async ({
   verbose: boolean;
 }) => {
   const entityNameLowerCase = entityName.toLowerCase();
-  const entitiesNameLowerCase = entityPluralName
-    ? entityPluralName.toLowerCase()
-    : entityNameLowerCase + "s";
+  const entitiesNameLowerCase = entityPluralName ? entityPluralName.toLowerCase() : entityNameLowerCase + 's';
   const entitiesNameCapitalized = capitalizeString(entitiesNameLowerCase);
   const entityNameCapitalized = capitalizeString(entityNameLowerCase);
 
-  logger.level = verbose ? 'verbose' : 'info'
+  logger.level = verbose ? 'verbose' : 'info';
 
   logger.verbose(
     `create-node-ms params: ${jsonString({
@@ -40,18 +38,18 @@ export const CreateNodeMsCmd = async ({
       projectPath,
       entityName,
       entityPluralName,
-    })}`
+    })}`,
   );
 
   const rootDir = path.join(__filename);
   logger.verbose(`RootDir: ${rootDir}`);
-  const currentDir = cp.execSync("pwd").toString().trim();
+  const currentDir = cp.execSync('pwd').toString().trim();
   logger.verbose(`CurrentDir: ${currentDir}`);
   const serviceDir = `${currentDir}/${projectName}`;
   logger.verbose(`ServiceDir: ${serviceDir}`);
-  const cpTemplatePath = path.join(rootDir, "..", "..", "..", TEMPLATE_FOLDER);
+  const cpTemplatePath = path.join(rootDir, '..', '..', '..', TEMPLATE_FOLDER);
   logger.verbose(`CPTemplateDir: ${cpTemplatePath}`);
-  const cpTemplatePackageJson = path.join(cpTemplatePath, ".package.json");
+  const cpTemplatePackageJson = path.join(cpTemplatePath, '.package.json');
   logger.verbose(`CPTemplatePackageJson: ${cpTemplatePackageJson}`);
 
   logger.info('Creating service folder...');
@@ -64,37 +62,34 @@ export const CreateNodeMsCmd = async ({
   await processTemplate(
     serviceDir,
     [
-      ["D_entity_D", entityNameLowerCase],
-      ["D_Entity_D", entityNameCapitalized],
-      ["D_entities_D", entitiesNameLowerCase],
-      ["D_Entities_D", entitiesNameCapitalized],
-      ["D_ProjectName_D", projectName]
+      ['D_entity_D', entityNameLowerCase],
+      ['D_Entity_D', entityNameCapitalized],
+      ['D_entities_D', entitiesNameLowerCase],
+      ['D_Entities_D', entitiesNameCapitalized],
+      ['D_ProjectName_D', projectName],
     ],
     [
-      ["entity", entityNameLowerCase],
-      ["Entity", entityNameCapitalized],
-      ["entities", entitiesNameLowerCase],
-      ["Entities", entitiesNameCapitalized],
+      ['entity', entityNameLowerCase],
+      ['Entity', entityNameCapitalized],
+      ['entities', entitiesNameLowerCase],
+      ['Entities', entitiesNameCapitalized],
     ],
-    (fileName) => logger.verbose(fileName, { label: "FileRename" })
+    fileName => logger.verbose(fileName, { label: 'FileRename' }),
   );
 
   logger.info('Installing depedencies...');
-  cp.execSync(`cd ${serviceDir} && ${useNpm ? "npm i" : "yarn"}`, {
-    stdio: "inherit",
+  cp.execSync(`cd ${serviceDir} && ${useNpm ? 'npm i' : 'yarn'}`, {
+    stdio: 'inherit',
   });
 
-  logger.info("Running lint...");
-  cp.execSync(`cd ${serviceDir} && ${useNpm ? 'npm run lint:fix' : 'yarn lint:fix'}`)
+  logger.info('Running lint...');
+  cp.execSync(`cd ${serviceDir} && ${useNpm ? 'npm run lint:fix' : 'yarn lint:fix'}`);
 
   if (!noCommit) {
-    logger.info("Setup git...");
-    cp.execSync(
-      `cd ${serviceDir} && git init && git add . && git commit -m "feat: first commit :rocket:"`,
-      {
-        stdio: "inherit",
-      }
-    );
+    logger.info('Setup git...');
+    cp.execSync(`cd ${serviceDir} && git init && git add . && git commit -m "feat: first commit :rocket:"`, {
+      stdio: 'inherit',
+    });
   }
   logger.info(`Done! cd to ${serviceDir}`);
 };

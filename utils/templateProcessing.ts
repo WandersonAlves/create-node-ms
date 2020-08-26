@@ -1,5 +1,5 @@
-import { resolve } from "path";
-import { renameSync, readdirSync, readFileSync, writeFileSync } from "fs";
+import { resolve } from 'path';
+import { renameSync, readdirSync, readFileSync, writeFileSync } from 'fs';
 
 type RenamingParams = [string, string][];
 
@@ -37,7 +37,7 @@ export const processTemplate = async (
   serviceDir: string,
   contentRenaming: RenamingParams,
   fileRenaming: RenamingParams,
-  cb?: (str: string) => void
+  cb?: (str: string) => void,
 ) => {
   const files: string[] = await recursiveGetFileList(serviceDir);
   for (const file of files) {
@@ -45,10 +45,7 @@ export const processTemplate = async (
     renameFileContent(file, ...contentRenaming);
     renameSync(
       file,
-      fileRenaming.reduce(
-        (prev, acc) => prev.replace(new RegExp(acc[0], "g"), acc[1]),
-        file
-      )
+      fileRenaming.reduce((prev, acc) => prev.replace(new RegExp(acc[0], 'g'), acc[1]), file),
     );
   }
 };
@@ -56,22 +53,19 @@ export const processTemplate = async (
 const recursiveGetFileList = async (dir: string) => {
   const dirents = readdirSync(dir, { withFileTypes: true });
   const files = await Promise.all(
-    dirents.map((dirent) => {
+    dirents.map(dirent => {
       const res = resolve(dir, dirent.name);
       return dirent.isDirectory() ? recursiveGetFileList(res) : res;
-    })
+    }),
   );
   return Array.prototype.concat(...files);
 };
 
 const renameFileContent = (filePath: string, ...searchReplaces: RenamingParams) => {
-  const fileContent = readFileSync(filePath, { encoding: "utf-8" });
+  const fileContent = readFileSync(filePath, { encoding: 'utf-8' });
   let replacedContent = fileContent;
   for (const [searchString, replaceString] of searchReplaces) {
-    replacedContent = replacedContent.replace(
-      new RegExp(searchString, "g"),
-      replaceString
-    );
+    replacedContent = replacedContent.replace(new RegExp(searchString, 'g'), replaceString);
   }
-  writeFileSync(filePath, replacedContent, { encoding: "utf-8" });
+  writeFileSync(filePath, replacedContent, { encoding: 'utf-8' });
 };
