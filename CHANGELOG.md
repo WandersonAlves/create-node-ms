@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.6...v0.0.7) (2020-08-27)
+
+### Features
+
+- **core:** add dev scripts to test templating ([1fb7a90](https://github.com/WandersonAlves/create-node-ms/commit/1fb7a90663b71bc60df02ae35f0dfae5eea09517))
+
+### Bug Fixes
+
+- **core:** handle --projectPath param ([0b15a5b](https://github.com/WandersonAlves/create-node-ms/commit/0b15a5b7e3f4302ab4b3ae62780a56e81110d9b3))
+
 ### [0.0.6](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.5...v0.0.6) (2020-08-26)
 
 ### Features
