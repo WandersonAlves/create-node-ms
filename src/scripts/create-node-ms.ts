@@ -41,17 +41,27 @@ export const CreateNodeMsCmd = async ({
     })}`,
   );
 
+  // Get the current running script dir
+  // It can be "src/scripts" or "lib/scripts" (dev and npx, global context)
   const rootDir = path.join(__dirname);
   logger.verbose(`RootDir: ${rootDir}`);
+  // Get the current folder
   const currentDir = cp.execSync('pwd').toString().trim();
   logger.verbose(`CurrentDir: ${currentDir}`);
+  // Maybe the user sets a --projectPath option
+  // We join the currentDir with the projectPath to get the final path to output the template
   const serviceDir = path.join(path.join(currentDir, projectPath || ''), projectName);
   logger.verbose(`ServiceDir: ${serviceDir}`);
+  // This is the path of the template
+  // We need this to copy files and rename contents
   const cpTemplatePath = path.join(rootDir, '..', '..', TEMPLATE_FOLDER);
   logger.verbose(`CPTemplateDir: ${cpTemplatePath}`);
+  // Node has problems when handling the package.json file, so we renamed it to ".package.json" to not
+  // conflict with anything else
   const cpTemplatePackageJson = path.join(cpTemplatePath, '.package.json');
   logger.verbose(`CPTemplatePackageJson: ${cpTemplatePackageJson}`);
 
+  // Now we have all folder references. The heavy work begins now...
   logger.info('Creating service folder...');
   cp.execSync(`mkdir ${serviceDir}`);
   logger.info('Copying files...');
