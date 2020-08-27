@@ -10,5 +10,5 @@
     "inlineSourceMap": true,
     "lib": ["es2017"]
   },
-  "include": ["index.ts", "./utils/*.ts"],
+  "include": ["./src/index.ts"]
 }

@@ -41,19 +41,19 @@ export const CreateNodeMsCmd = async ({
     })}`,
   );
 
-  const rootDir = path.join(__filename);
+  const rootDir = path.join(__dirname);
   logger.verbose(`RootDir: ${rootDir}`);
   const currentDir = cp.execSync('pwd').toString().trim();
   logger.verbose(`CurrentDir: ${currentDir}`);
-  const serviceDir = `${currentDir}/${projectName}`;
+  const serviceDir = path.join(path.join(currentDir, projectPath || ''), projectName);
   logger.verbose(`ServiceDir: ${serviceDir}`);
-  const cpTemplatePath = path.join(rootDir, '..', '..', '..', TEMPLATE_FOLDER);
+  const cpTemplatePath = path.join(rootDir, '..', '..', TEMPLATE_FOLDER);
   logger.verbose(`CPTemplateDir: ${cpTemplatePath}`);
   const cpTemplatePackageJson = path.join(cpTemplatePath, '.package.json');
   logger.verbose(`CPTemplatePackageJson: ${cpTemplatePackageJson}`);
 
   logger.info('Creating service folder...');
-  cp.execSync(`mkdir ${projectName}`);
+  cp.execSync(`mkdir ${serviceDir}`);
   logger.info('Copying files...');
   cp.execSync(`cp -r ${cpTemplatePath}. ${serviceDir}/`);
   cp.execSync(`cp -r ${cpTemplatePackageJson} ${serviceDir}/package.json`);
