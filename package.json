@@ -4,7 +4,10 @@
   "description": "A generator for microservices with Clean Archtecture in Node",
   "scripts": {
     "create-node-ms": "node lib/index.js",
-    "start": "node -r ts-node/register ./index.ts",
+    "dev:prepare": "mkdir ../create-node-ms-junk",
+    "dev:gen": "node -r ts-node/register ./index.ts -p ../create-node-ms-junk",
+    "dev:clean": "rm -rf ../create-node-ms-junk",
+    "start:help": "node -r ts-node/register ./index.ts --help",
     "build": "tsc",
     "release": "standard-version --release-as",
     "dev": "nodemon",
@@ -37,6 +40,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
+    "app-root-path": "^3.0.0",
     "commander": "^5.1.0",
     "winston": "^3.3.3"
   },
