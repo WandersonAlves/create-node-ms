@@ -4,13 +4,13 @@
   "description": "A generator for microservices with Clean Architecture in Node",
   "scripts": {
     "create-node-ms": "node lib/index.js",
+    "dev": "yarn dev:prepare && yarn dev:gen",
     "dev:prepare": "mkdir ../create-node-ms-junk",
-    "dev:gen": "node -r ts-node/register ./src/index.ts -p ../create-node-ms-junk",
+    "dev:gen": "node -r ts-node/register ./src/index.ts -p ../create-node-ms-junk --verbose",
     "dev:clean": "rm -rf ../create-node-ms-junk",
     "start:help": "node -r ts-node/register ./src/index.ts --help",
     "build": "tsc",
     "release": "standard-version --release-as",
-    "dev": "nodemon",
     "format": "prettier --write '**/*.ts'"
   },
   "bin": {
