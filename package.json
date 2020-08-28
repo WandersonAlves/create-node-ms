@@ -1,7 +1,7 @@
 {
   "name": "create-node-ms",
   "version": "0.0.8",
-  "description": "A generator for microservices with Clean Archtecture in Node",
+  "description": "A generator for microservices with Clean Architecture in Node",
   "scripts": {
     "create-node-ms": "node lib/index.js",
     "dev:prepare": "mkdir ../create-node-ms-junk",
