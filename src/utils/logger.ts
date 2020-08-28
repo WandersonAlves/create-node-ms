@@ -1,10 +1,11 @@
 import { createLogger, format, transports } from 'winston';
+
 const { printf, colorize } = format;
 const colorizer = colorize();
 
 const timestampFormatter = () =>
   new Date().toLocaleString('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
+    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   });
 
 const consoleFormatter = printf(({ stack, level, message, label, timestamp }: { [key: string]: string }) => {
@@ -18,6 +19,9 @@ const baseLogger = createLogger({
   defaultMeta: { label: 'main' },
   // @ts-ignore
   format: format.combine(format.errors({ stack: true }), format.timestamp({ format: timestampFormatter })),
+  transports: new transports.Console({
+    format: consoleFormatter,
+  }),
 });
 
 /**
@@ -25,11 +29,5 @@ const baseLogger = createLogger({
  * @param obj An object
  */
 export const jsonString = (obj: any) => `\n${JSON.stringify(obj, null, 2)}\n`;
-
-baseLogger.add(
-  new transports.Console({
-    format: consoleFormatter,
-  }),
-);
 
 export const logger = baseLogger;
