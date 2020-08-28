@@ -87,7 +87,7 @@ export const CreateNodeMsCmd = async ({
     fileName => logger.verbose(fileName, { label: 'FileRename' }),
   );
 
-  logger.info('Installing depedencies...');
+  logger.info('Installing dependencies...');
   cp.execSync(`cd ${serviceDir} && ${useNpm ? 'npm i' : 'yarn'}`, {
     stdio: 'inherit',
   });

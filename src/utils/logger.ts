@@ -21,7 +21,7 @@ const baseLogger = createLogger({
 });
 
 /**
- * Returns a pretty represetation of a json for a give object
+ * Returns a pretty representation of a json for a give object
  * @param obj An object
  */
 export const jsonString = (obj: any) => `\n${JSON.stringify(obj, null, 2)}\n`;
