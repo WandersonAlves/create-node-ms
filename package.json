@@ -10,7 +10,7 @@
     "dev:clean": "rm -rf ../create-node-ms-junk",
     "start:help": "node -r ts-node/register ./src/index.ts --help",
     "build": "tsc",
-    "release": "yarn build && standard-version -a",
+    "release": "yarn build && git add . && standard-version -a",
     "format": "prettier --write '**/*.ts'"
   },
   "bin": {
