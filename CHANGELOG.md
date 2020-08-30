@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.12...v0.0.13) (2020-08-30)
+
+### Bug Fixes
+
+- **core:** typo on cp gitignore ([4beb696](https://github.com/WandersonAlves/create-node-ms/commit/4beb696210252ad3c58e3d1f21acec53bd73507b))
+
 ### [0.0.12](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.11...v0.0.12) (2020-08-30)
 
 ### [0.0.11](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.9...v0.0.11) (2020-08-30)
