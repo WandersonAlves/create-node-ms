@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.8...v0.0.9) (2020-08-30)
+
+### Bug Fixes
+
+- **core:** copy .gitignore ([b4d55b2](https://github.com/WandersonAlves/create-node-ms/commit/b4d55b2ef896f2401a3c168fa219c55c3da10c04)), closes [#7](https://github.com/WandersonAlves/create-node-ms/issues/7)
+- **core:** typo in package.json ([24bc03f](https://github.com/WandersonAlves/create-node-ms/commit/24bc03feed2ded17f8754b04350052f57e76e742))
+- **core:** typos ([5fd35d5](https://github.com/WandersonAlves/create-node-ms/commit/5fd35d5741bccb48dbf3a1b533db75ffbad4cffd))
+
 ### [0.0.8](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.7...v0.0.8) (2020-08-27)
 
 ### [0.0.7](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.6...v0.0.7) (2020-08-27)
