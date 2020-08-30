@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.11](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.9...v0.0.11) (2020-08-30)
+
+### Bug Fixes
+
+- **core:** rename .gitignore to .gitignore.sample ([1dd0b34](https://github.com/WandersonAlves/create-node-ms/commit/1dd0b340e81eb897fd7976780f1de32523eb7f2f))
+
 ### [0.0.10](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.9...v0.0.10) (2020-08-30)
 
 ### [0.0.9](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.8...v0.0.9) (2020-08-30)
