@@ -10,6 +10,7 @@ export const createProject = (serviceDir: string, templatePath: string) => {
   // Node has problems when handling the package.json file, so we renamed it to ".package.json" to not
   // conflict with anything else
   execSync(`cp -r ${join(templatePath, '.package.json')} ${serviceDir}/package.json`);
+  execSync(`cp -r ${join(templatePath, '.gitignore')} ${serviceDir}/.gitignore`);
 };
 
 export const installNodeDeps = (serviceDir: string, useNpm?: boolean) => {
