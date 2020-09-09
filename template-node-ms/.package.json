@@ -8,7 +8,7 @@
     "test:feature": "mocha -r ts-node/register tests/feature/**/*.spec.ts",
     "test:watch": "nodemon --watch ./src/**/*.ts --ext ts --exec \"mocha -r ts-node/register src/**/*.test.ts\"",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "lint:fix": "tslint -c tslint.json 'src/**/*.ts' --fix",
+    "lint:fix": "tslint -c tslint.json 'src/**/*.ts' 'tests/**/*.ts' --fix",
     "start:dev": "node --inspect=0.0.0.0:9229 -r ts-node/register ./src/index.ts",
     "dev": "nodemon",
     "release": "standard-version --release-as",

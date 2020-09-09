@@ -6,7 +6,7 @@ import { injectable } from 'inversify';
 import { TRestParameters } from '../shared/types';
 
 @injectable()
-export default class D_Entity_DUpperPostgresRepository implements DataRepository<ID_Entity_DDTO> {
+export default class D_Entity_DPostgresRepository implements DataRepository<ID_Entity_DDTO> {
   async removeById(id: string | number): Promise<null> {
     throw new Error("Method not implemented.");
   }

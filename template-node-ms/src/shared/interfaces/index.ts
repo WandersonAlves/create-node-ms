@@ -5,6 +5,10 @@ export interface IPaginationRequestParams {
   limit?: number;
 }
 
+export interface UseCase {
+  execute(any?: any): Promise<IHttpResponse>;
+}
+
 export abstract class DataRepository<T = any> {
   abstract find(filter?: TRestParameters<T>): Promise<T[]>;
   abstract findOne(filter?: TRestParameters<T>): Promise<T>;

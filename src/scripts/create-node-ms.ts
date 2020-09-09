@@ -6,8 +6,6 @@ import { processTemplate, RenamingParams } from '../core/template-processing';
 import { join } from 'path';
 import { execSync } from 'child_process';
 
-const TEMPLATE_FOLDER = 'template-node-ms/';
-
 export const CreateNodeMsCmd = async ({
   noCommit,
   projectName,
@@ -25,6 +23,7 @@ export const CreateNodeMsCmd = async ({
   entityPluralName: string;
   verbose: boolean;
 }) => {
+  const TEMPLATE_FOLDER = 'template-node-ms/';
   const entityNameLowerCase = entityName.toLowerCase();
   const entitiesNameLowerCase = entityPluralName ? entityPluralName.toLowerCase() : entityNameLowerCase + 's';
   const entitiesNameCapitalized = capitalizeString(entitiesNameLowerCase);

@@ -4,7 +4,7 @@ import { injectable } from 'inversify';
 import { TRestParameters } from '../shared/types';
 
 @injectable()
-export default class D_Entity_DUpperInMemoryRepository implements DataRepository<ID_Entity_DDTO> {
+export default class D_Entity_DInMemoryRepository implements DataRepository<ID_Entity_DDTO> {
   private D_entity_DPlural: ID_Entity_DDTO[] = [];
 
   find(filter?: TRestParameters<ID_Entity_DDTO>): Promise<ID_Entity_DDTO[]> {
