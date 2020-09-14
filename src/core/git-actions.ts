@@ -3,14 +3,16 @@ import { execSync } from 'child_process';
 
 export const gitInit = (serviceDir: string) => {
   logger.info('Starting git...');
-  execSync(`cd ${serviceDir} && git init`, {
+  execSync('git init', {
     stdio: 'inherit',
+    cwd: serviceDir,
   });
 };
 
 export const gitFirstCommit = (serviceDir: string) => {
   logger.info('Doing first commit, yay...');
-  execSync(`cd ${serviceDir} && git add . && git commit -m "feat: first commit :rocket:"`, {
+  execSync('git add . && git commit -m "feat: first commit :rocket:"', {
     stdio: 'inherit',
+    cwd: serviceDir,
   });
 };
