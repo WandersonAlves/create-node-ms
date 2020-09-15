@@ -9,6 +9,6 @@ describe('API :: D_Entity_DCase :: GET /D_entities_D/', () => {
     container.snapshot();
   });
   it('Should return 200 when fetch D_entities_D', (done) => {
-    request.get('/D_entities_D').expect(200, done);
+    request.get('/D_entity_D').expect(200, done);
   });
 });
