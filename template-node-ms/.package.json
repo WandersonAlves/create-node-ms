@@ -17,7 +17,7 @@
     "release": "standard-version --release-as",
     "clean": "rm -rf dist/",
     "build": "yarn clean && tsc",
-    "build:docker": "docker build . -t something-service",
+    "build:docker": "docker build . -t D_ProjectName_D",
     "build:webpack": "webpack --config webpack.config.js"
   },
   "license": "ISC",
