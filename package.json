@@ -11,6 +11,7 @@
     "dev:prepare": "mkdir ../create-node-ms-junk",
     "dev:gen": "node -r ts-node/register ./src/index.ts -p ../create-node-ms-junk --verbose",
     "dev:clean": "rm -rf ../create-node-ms-junk",
+    "start:template": "code ../create-node-ms-junk/test-service",
     "start:help": "node -r ts-node/register ./src/index.ts --help",
     "build": "tsc",
     "release": "yarn build && git add . && standard-version -a",
