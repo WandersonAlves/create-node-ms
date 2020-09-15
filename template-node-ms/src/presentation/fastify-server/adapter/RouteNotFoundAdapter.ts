@@ -5,7 +5,7 @@ import RouteNotFoundMiddleware from '../../../shared/server/RouteNotFoundMiddlew
 export default class ExpressRouteNotFoundAdapter {
   static adapt() {
     return (request: FastifyRequest, reply: FastifyReply<any>) => {
-      const originalUrl = request.originalUrl;
+      const originalUrl = request.url;
       const method = request.method;
       return reply.status(NOT_FOUND).send(RouteNotFoundMiddleware(originalUrl, method));
     };
