@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.14...v0.0.15) (2020-09-15)
+
+### Features
+
+- **template-node:** upgrade node deps ([6560b29](https://github.com/WandersonAlves/create-node-ms/commit/6560b29d5375643207dc6770270efe94e8896d6a))
+
+### Bug Fixes
+
+- **template-node:** docker build image name ([2cb3e22](https://github.com/WandersonAlves/create-node-ms/commit/2cb3e225ccf90720638f28925eeba22fde27bd96))
+- **template-node:** fastify deps and webpack build ([887dbd4](https://github.com/WandersonAlves/create-node-ms/commit/887dbd4b0ef584410385ca50b35ddc306bc7618b))
+- **template-node:** typo in feature test ([4b99231](https://github.com/WandersonAlves/create-node-ms/commit/4b992315637369ff2cda50f5e887bfe7cc819176))
+- **template-node:** typo in repository ([b39108e](https://github.com/WandersonAlves/create-node-ms/commit/b39108ed147f0b04297b0f4a499472068e503cc7))
+- **template-node:** use .spec on unit test files ([a91bc37](https://github.com/WandersonAlves/create-node-ms/commit/a91bc3735a24c183370a915220a9cf016ee87e64))
+
 ### [0.0.14](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.13...v0.0.14) (2020-09-09)
 
 ### [0.0.13](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.12...v0.0.13) (2020-08-30)
