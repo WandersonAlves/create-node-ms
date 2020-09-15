@@ -8,8 +8,8 @@
   "scripts": {
     "create-node-ms": "node lib/index.js",
     "dev": "yarn dev:prepare && yarn dev:gen",
-    "dev:prepare": "mkdir ../create-node-ms-junk",
-    "dev:gen": "node -r ts-node/register ./src/index.ts -p ../create-node-ms-junk --verbose",
+    "dev:prepare": "yarn dev:clean && mkdir ../create-node-ms-junk",
+    "dev:gen": "node -r ts-node/register ./src/index.ts -p ../create-node-ms-junk --verbose  --projectName test-service -e test",
     "dev:clean": "rm -rf ../create-node-ms-junk",
     "start:template": "code ../create-node-ms-junk/test-service",
     "start:help": "node -r ts-node/register ./src/index.ts --help",

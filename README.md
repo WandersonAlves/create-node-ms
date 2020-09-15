@@ -47,8 +47,11 @@ yarn dev
 
 ## Contributing
 
-- Clone this repo
-- Run `yarn build` to generate new lib files when you alter things
-- Test your repo running `node clean-node-ms/lib/index.js -pn <project-name> -e <entity-name> --verbose`
+- Fork and clone this repo
+- Make changes
+- Run `yarn dev` to create a new service with your code changes
+  - This will remove `../create-node-ms-junk` folder
+  - Create a `../create-node-ms-junk/` folder
+  - And generate a new service named `test-service` on `../create-node-ms-junk/` folder
 - Commit your changes (this project has `commitlint` configured)
 - Send a PR :rocket:
