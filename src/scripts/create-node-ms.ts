@@ -1,5 +1,5 @@
 import { gitInit, gitFirstCommit } from '../core/git-actions';
-import { installNodeDeps, runLint, createProject } from '../core/node-template-actions';
+import { installNodeDeps, runLint, createNodeProject } from '../core/node-template-actions';
 import { logger, jsonString } from '../utils/logger';
 import { capitalizeString } from '../utils/string-utils';
 import { processTemplate, RenamingParams } from '../core/template-processing';
@@ -59,7 +59,7 @@ export const CreateNodeMsCmd = async ({
   logger.debug(`TemplatePath: ${templatePath}`);
 
   // Now we have all folder references. The heavy work begins now...
-  createProject(serviceDir, templatePath);
+  createNodeProject(serviceDir, templatePath);
 
   const fileContentRenaming: RenamingParams = [
     ['D_entity_D', entityNameLowerCase],

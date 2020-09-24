@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 import { join } from 'path';
 import { copySync, moveSync, mkdirSync } from 'fs-extra';
 
-export const createProject = (serviceDir: string, templatePath: string) => {
+export const createNodeProject = (serviceDir: string, templatePath: string) => {
   logger.info('Creating service folder...');
   mkdirSync(serviceDir);
   logger.info('Copying files...');
