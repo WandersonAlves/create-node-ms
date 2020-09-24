@@ -12,6 +12,7 @@ export const createProject = (serviceDir: string, templatePath: string) => {
   // conflict with anything else
   moveSync(join(serviceDir, '.package.json'), join(serviceDir, 'package.json'));
   moveSync(join(serviceDir, 'gitignore'), join(serviceDir, '.gitignore'));
+  moveSync(join(serviceDir, 'env'), join(serviceDir, '.env'));
 };
 
 export const installNodeDeps = (serviceDir: string, useNpm?: boolean) => {
