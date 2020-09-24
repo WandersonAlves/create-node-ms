@@ -6,7 +6,7 @@ export default class HttpResponseFactory {
     return {
       statusCode: e.statusCode,
       success: false,
-      body: e.formatError()
+      body: e.formatError ? e.formatError() : null
     }
   }
 
