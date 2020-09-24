@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { request } from '../config';
-import container from '../../../src/container/inversify.config';
+import container from '../../../src/infra/container/inversify.config';
 
 describe('API :: D_Entity_DCase :: GET /D_entities_D/', () => {
   beforeEach(() => {
