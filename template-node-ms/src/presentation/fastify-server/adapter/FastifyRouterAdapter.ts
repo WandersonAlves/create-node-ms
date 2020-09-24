@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from 'fastify';
-import { RequestRouter, IHttpResponse, IHttpRequest } from '../../../shared/interfaces';
+import { RequestRouter, IHttpResponse, IHttpRequest } from '../../../shared/contracts';
 
 export default class FastifyRouterAdapter {
   static adapt(router: RequestRouter) {

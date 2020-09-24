@@ -1,4 +1,4 @@
-import { DataRepository } from '../shared/interfaces';
+import { DataRepository } from '../shared/contracts';
 import { ID_Entity_DDTO } from '../dtos/ID_Entity_DDTO';
 import { injectable } from 'inversify';
 import { TRestParameters } from '../shared/types';

@@ -1,7 +1,7 @@
 import { ID_Entity_DDTO } from "../../dtos/ID_Entity_DDTO";
 import { injectable, inject } from "inversify";
-import { RequestRouter, IHttpRequest, IHttpResponse, IHttpError, UseCase } from "../../shared/interfaces";
-import InjectionReferences from "../../container/inversify.references";
+import { RequestRouter, IHttpRequest, IHttpResponse, IHttpError, UseCase } from "../../shared/contracts";
+import InjectionReferences from "../../infra/container/inversify.references";
 
 @injectable()
 export default class CreateD_Entity_DRouter implements RequestRouter {

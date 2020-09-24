@@ -1,9 +1,9 @@
 import { fastify } from 'fastify';
-import container from '../../../container/inversify.config';
+import container from '../../../infra/container/inversify.config';
 import FastifyRouteNotFoundAdapter from '../adapter/RouteNotFoundAdapter';
 import FastifyRouterAdapter from '../adapter/FastifyRouterAdapter';
 import GetD_Entities_DRouter from '../../routers/GetD_Entities_DRouter';
-import InjectionReferences from '../../../container/inversify.references';
+import InjectionReferences from '../../../infra/container/inversify.references';
 
 const server = fastify({ logger: true });
 

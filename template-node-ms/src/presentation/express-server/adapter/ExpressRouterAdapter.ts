@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { RequestRouter, IHttpRequest, IHttpResponse } from "../../../shared/interfaces";
+import { RequestRouter, IHttpRequest, IHttpResponse } from "../../../shared/contracts";
 
 export default class ExpressRouterAdapter {
   static adapt(router: RequestRouter) {

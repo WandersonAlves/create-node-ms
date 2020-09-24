@@ -1,4 +1,4 @@
-import { DataRepository } from '../shared/interfaces';
+import { DataRepository } from '../shared/contracts';
 import { D_Entity_DModel } from '../infra/db/postgres/models/D_Entity_DModel';
 import { FindConditions } from 'typeorm';
 import { ID_Entity_DDTO } from '../dtos/ID_Entity_DDTO';

@@ -1,10 +1,10 @@
-import { DataRepository, IHttpResponse, IHttpError, UseCase } from '../shared/interfaces';
+import { DataRepository, IHttpResponse, IHttpError, UseCase } from '../shared/contracts';
 import { ID_Entity_DDTO } from '../dtos/ID_Entity_DDTO';
 import { injectable, inject } from 'inversify';
 import { CREATED } from 'http-status';
 import ExceptionHandler from '../shared/decorators/ExceptionHandler';
 import HttpResponseFactory from '../presentation/factory/HttpResponseFactory';
-import InjectionReferences from '../container/inversify.references';
+import InjectionReferences from '../infra/container/inversify.references';
 
 @injectable()
 export default class CreateD_Entity_DCase implements UseCase {

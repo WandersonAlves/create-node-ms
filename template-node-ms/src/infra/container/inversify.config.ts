@@ -1,12 +1,12 @@
 import { Container } from 'inversify';
-import { DataRepository, DatabaseConnection } from '../shared/interfaces';
-import D_Entity_DPostgresRepository from '../repositories/D_Entity_DPostgresRepository';
-import GetD_Entities_DRouter from '../presentation/routers/GetD_Entities_DRouter';
+import { DataRepository, DatabaseConnection } from '../../shared/contracts';
+import D_Entity_DPostgresRepository from '../../repositories/D_Entity_DPostgresRepository';
+import GetD_Entities_DRouter from '../../presentation/routers/GetD_Entities_DRouter';
 import InjectionReferences from './inversify.references';
-import CreateD_Entity_DCase from '../cases/CreateD_Entity_DCase';
-import GetD_Entities_DCase from '../cases/GetD_Entities_DCase';
-import CreateD_Entity_DRouter from '../presentation/routers/CreateD_Entity_DRouter';
-import MockConnection from '../infra/db/mock/MockConnection';
+import CreateD_Entity_DCase from '../../cases/CreateD_Entity_DCase';
+import GetD_Entities_DCase from '../../cases/GetD_Entities_DCase';
+import CreateD_Entity_DRouter from '../../presentation/routers/CreateD_Entity_DRouter';
+import MockConnection from '../db/mock/MockConnection';
 
 const container = new Container({ defaultScope: 'Singleton' });
 

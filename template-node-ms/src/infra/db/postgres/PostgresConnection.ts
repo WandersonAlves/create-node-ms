@@ -1,9 +1,9 @@
 import { createConnection, Connection } from 'typeorm';
-import { DatabaseConnection } from '../../../shared/interfaces';
+import { DatabaseConnection } from '../../../shared/contracts';
 import { D_Entity_DModel } from './models/D_Entity_DModel';
 import { injectable } from 'inversify';
 import { logger } from '../../../shared/Logger';
-import env from '../../../config/env';
+import env from '../../config/env';
 
 @injectable()
 export default class PostgresConnection implements DatabaseConnection {

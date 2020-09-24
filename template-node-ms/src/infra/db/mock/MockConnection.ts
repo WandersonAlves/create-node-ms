@@ -1,4 +1,4 @@
-import { DatabaseConnection } from "../../../shared/interfaces";
+import { DatabaseConnection } from "../../../shared/contracts";
 import { injectable } from "inversify";
 
 @injectable()

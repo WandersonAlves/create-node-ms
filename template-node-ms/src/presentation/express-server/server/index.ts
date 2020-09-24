@@ -2,11 +2,11 @@ import * as bodyParser from 'body-parser';
 import * as express from 'express';
 import * as expressWinston from 'express-winston';
 import { logger } from '../../../shared/Logger';
-import container from '../../../container/inversify.config';
+import container from '../../../infra/container/inversify.config';
 import ExpressRouteNotFoundAdapter from '../adapter/RouteNotFoundAdapter';
 import ExpressRouterAdapter from '../adapter/ExpressRouterAdapter';
 import GetD_Entities_DRouter from '../../routers/GetD_Entities_DRouter';
-import InjectionReferences from '../../../container/inversify.references';
+import InjectionReferences from '../../../infra/container/inversify.references';
 import CreateD_Entity_DRouter from '../../routers/CreateD_Entity_DRouter';
 
 const server = express();
