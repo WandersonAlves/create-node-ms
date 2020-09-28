@@ -23,5 +23,5 @@ npx create-node-ms --verbose  --projectName test-service -e test --noCommit
 cd test-service && yarn build
 
 # Done!
-sh -c "echo '🦄  Everything went good'"
+sh -c "echo '🦄  Everything is working!'"
 sh -c "echo '🚀  Ready to ship'"
