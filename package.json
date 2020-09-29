@@ -14,7 +14,8 @@
     "start:template": "code ../create-node-ms-junk/test-service",
     "start:help": "node -r ts-node/register ./src/index.ts --help",
     "build": "tsc",
-    "release": "yarn build && git add . && standard-version -a",
+    "prerelease": "yarn build",
+    "release": "git add ./lib && standard-version -a",
     "format": "prettier --write '**/*.ts'",
     "test:e2e": "docker build --no-cache -t create-node-ms-e2e-test . && docker run create-node-ms-e2e-test"
   },
