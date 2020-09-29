@@ -17,7 +17,6 @@ const consoleFormatter = printf(({ stack, level, message, label, timestamp }: { 
 const baseLogger = createLogger({
   level: 'info',
   defaultMeta: { label: 'main' },
-  // @ts-ignore
   format: format.combine(format.errors({ stack: true }), format.timestamp({ format: timestampFormatter })),
   transports: new transports.Console({
     format: consoleFormatter,
