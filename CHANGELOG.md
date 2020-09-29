@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.21](https://github.com/wandersonalves/create-node-ms/compare/v0.0.15...v0.1.21) (2020-09-29)
+
+### Features
+
+- **core:** add e2e testing :rocket: ([2f5c187](https://github.com/wandersonalves/create-node-ms/commit/2f5c1871e99a63023ebc11fb86f8d7bd5b5e97ea))
+- **core:** add env file ([ae5d538](https://github.com/wandersonalves/create-node-ms/commit/ae5d538ee631d7727e7d6ef0b48f4261d0eb9764))
+- **template-node:** add class-validator ([a42755a](https://github.com/wandersonalves/create-node-ms/commit/a42755abb9bff250d9241ede3316dbcb16945b35))
+
+### Bug Fixes
+
+- **core:** remove [@ts-ignore](https://github.com/ts-ignore) ([30e8256](https://github.com/wandersonalves/create-node-ms/commit/30e8256e0e3ad729eadd451147f139a47021cd50))
+- **core:** typo ([28e7d52](https://github.com/wandersonalves/create-node-ms/commit/28e7d521a4d1d466af9c6925f03a7c292107b894))
+- **template-node:** container import path on tests ([f6543dc](https://github.com/wandersonalves/create-node-ms/commit/f6543dc7458952f2a7e6faa79f551e4bd3545047))
+- **template-node:** null check on error() ([bdea23f](https://github.com/wandersonalves/create-node-ms/commit/bdea23f4190d88dfbcb57a1a05d30c5aacacd121))
+- **template-node:** UnprocessableObjectException name collision ([2380736](https://github.com/wandersonalves/create-node-ms/commit/2380736e91638c0d28183df898e6e1a4f5ae66bf))
+
 ### [0.0.15](https://github.com/WandersonAlves/create-node-ms/compare/v0.0.14...v0.0.15) (2020-09-15)
 
 ### Features
