@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](https://github.com/wandersonalves/create-node-ms/compare/v0.1.21...v0.1.22) (2020-10-05)
+
+### Bug Fixes
+
+- **core:** add files to npmignore ([5657792](https://github.com/wandersonalves/create-node-ms/commit/56577927b45517efdef96284c4d2b7d174038c2f))
+- **template-node:** use projectName on compose ([adf6526](https://github.com/wandersonalves/create-node-ms/commit/adf6526273f120cd23f8731408085bfa6bc3bc63))
+
 ### [0.1.21](https://github.com/wandersonalves/create-node-ms/compare/v0.0.15...v0.1.21) (2020-09-29)
 
 ### Features
