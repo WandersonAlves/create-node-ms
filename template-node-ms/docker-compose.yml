@@ -10,7 +10,7 @@ services:
     ports:
       - 5432:5432
 
-  D_entity_D-service:
+  D_ProjectName_D:
     image: node:11
     volumes:
       - ./:/usr/src/service
