@@ -1,0 +1,18 @@
+service: D_ProjectName_D
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ${env:AWS_REGION}
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+functions:
+  randomNumber:
+    handler: src/lambdas/RandomNumber.handle
+    events:
+      - http:
+          path: /random-number
+          method: get

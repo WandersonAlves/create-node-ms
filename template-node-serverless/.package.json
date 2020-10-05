@@ -1,0 +1,59 @@
+{
+  "name": "D_ProjectName_D",
+  "version": "0.0.1",
+  "description": "Change me pls",
+  "main": "index.ts",
+  "engines": {
+    "node": ">=10.22.0"
+  },
+  "scripts": {
+    "test": "yarn test:unit && yarn test:feature",
+    "test:unit": "mocha -r ts-node/register tests/cases/**/*.spec.ts",
+    "test:feature": "mocha -r ts-node/register tests/feature/**/*.spec.ts",
+    "test:watch": "nodemon --watch ./src/**/*.ts --ext ts --exec \"mocha -r ts-node/register src/**/*.test.ts\"",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint:fix": "tslint -c tslint.json 'src/**/*.ts' 'tests/**/*.ts' --fix",
+    "start:dev": "sls offline --watch",
+    "dev": "nodemon",
+    "release": "standard-version --release-as",
+    "clean": "rm -rf dist/",
+    "build": "yarn clean && tsc",
+    "build:docker": "docker build . -t D_ProjectName_D",
+    "build:webpack": "webpack --config webpack.config.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^8.0.3",
+    "husky": "^4.2.5",
+    "husky-tslint-pre-commit": "^1.0.3",
+    "nodemon": "^2.0.4",
+    "prettier-quick": "^0.0.5",
+    "serverless-offline": "^6.8.0",
+    "serverless-plugin-typescript": "^1.1.9",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-misc-rules": "^3.5.1",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "http-status": "^1.4.2",
+    "inversify": "^5.0.1",
+    "mocha": "^8.1.3",
+    "reflect-metadata": "^0.1.13",
+    "winston": "^3.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node node_modules/husky-tslint-pre-commit/pre-commit.js"
+    }
+  }
+}

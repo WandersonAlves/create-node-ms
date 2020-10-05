@@ -12,7 +12,7 @@ Currently has only a node template (`template-node-ms`), but in the future we'll
 ## Quick Overview
 
 ```
-npx create-node-ms -pn test-service -e Test
+npx create-node-ms <template-name> -pn test-service -e Test
 cd test-service
 yarn dev
 ```
@@ -27,9 +27,9 @@ yarn dev
 - `--noCommit`: Don't do a first commit
 - `--verbose`: Output verbose info
 
-## Templates Details
+## Templates
 
-### `template-node-ms`
+### template-node-ms (`node-ms`)
 
 - Rest server: express | fastify
 - IoC|DI: InversifyJS
@@ -38,6 +38,12 @@ yarn dev
 - Build: webpack + https://github.com/astefanutti/scratch-node
 
 > To build the final version of your service, run `yarn build`, `yarn build:webpack` and `yarn build:docker`
+
+### template-node-serverless (`node-serverless`)
+
+- Serverless Framework
+- IoC|DI: InversifyJS
+- Testing: mocha + chai
 
 ## Roadmap
 
