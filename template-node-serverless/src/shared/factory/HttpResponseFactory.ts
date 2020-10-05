@@ -1,5 +1,5 @@
 import { IHttpResponse, IHttpError } from '../../shared/contracts';
-import GenericException from '../../shared/exceptions/GenericException';
+import GenericException from '../exceptions/GenericException';
 
 export default class HttpResponseFactory {
   static error(e: GenericException): IHttpResponse<IHttpError> {

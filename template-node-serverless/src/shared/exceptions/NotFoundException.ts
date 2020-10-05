@@ -1,7 +1,7 @@
 import { NOT_FOUND } from 'http-status';
 import GenericException from './GenericException';
 
-export default class HublogNotFoundException extends GenericException {
+export default class NotFoundException extends GenericException {
   constructor(idObject) {
     const parseFields = (obj: { [param: string]: any }) => {
       let string = '';
@@ -13,12 +13,12 @@ export default class HublogNotFoundException extends GenericException {
       return string;
     };
     const params = {
-      name: 'HublogNotFoundException',
-      message: `Hublog with values ${parseFields(idObject)}not found`,
+      name: 'NotFoundException',
+      message: `Query with values ${parseFields(idObject)}not found`,
       statusCode: NOT_FOUND,
     };
     super(params);
 
-    Object.setPrototypeOf(this, HublogNotFoundException.prototype);
+    Object.setPrototypeOf(this, NotFoundException.prototype);
   }
 }
