@@ -1,13 +1,17 @@
 import { logger } from '../utils/logger';
 import { execSync } from 'child_process';
 import { join } from 'path';
-import { copySync, moveSync, mkdirSync } from 'fs-extra';
+import { copySync, moveSync, mkdirSync, copy } from 'fs-extra';
 
-export const createNodeProject = (serviceDir: string, templatePath: string) => {
+export const createNodeProject = (serviceDir: string, templatePath: string, sharedFilesPath?: string) => {
   logger.info('Creating service folder...');
   mkdirSync(serviceDir);
   logger.info('Copying files...');
   copySync(templatePath, serviceDir);
+  if (sharedFilesPath) {
+    logger.info('Copying shared files...');
+    copySync(sharedFilesPath, serviceDir);
+  }
   // Node has problems when handling the package.json file, so we renamed it to ".package.json" to not
   // conflict with anything else
   moveSync(join(serviceDir, '.package.json'), join(serviceDir, 'package.json'));

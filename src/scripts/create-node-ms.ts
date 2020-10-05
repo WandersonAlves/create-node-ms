@@ -58,8 +58,10 @@ export const CreateNodeMsCmd = async ({
   const templatePath = join(rootDir, '..', '..', TEMPLATE_FOLDER);
   logger.debug(`TemplatePath: ${templatePath}`);
 
+  const sharedTemplatePath = join(rootDir, '..', '..', 'shared-template-node/');
+
   // Now we have all folder references. The heavy work begins now...
-  createNodeProject(serviceDir, templatePath);
+  createNodeProject(serviceDir, templatePath, sharedTemplatePath);
 
   const fileContentRenaming: RenamingParams = [
     ['D_entity_D', entityNameLowerCase],
