@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/wandersonalves/create-node-ms/compare/v0.1.22...v0.1.23) (2020-10-05)
+
+### Bug Fixes
+
+- **node-serverless:** import params ([dab5aa7](https://github.com/wandersonalves/create-node-ms/commit/dab5aa74c43ed47f6f3fe3283dbae6300c3c4497))
+
 ### [0.1.22](https://github.com/wandersonalves/create-node-ms/compare/v0.1.21...v0.1.22) (2020-10-05)
 
 ### Bug Fixes
