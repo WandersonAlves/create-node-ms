@@ -6,6 +6,7 @@ provider:
   region: ${env:AWS_REGION}
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-plugin-typescript
   - serverless-offline
 
