@@ -16,7 +16,6 @@ const consoleFormatter = printf(({ stack, level, message, label, timestamp }: { 
 const baseLogger = createLogger({
   level: process.env.NODE_ENV === 'production' ? 'info' : 'debug',
   defaultMeta: { label: 'main' },
-  // @ts-ignore
   format: format.combine(format.errors({ stack: true }), format.timestamp({ format: timestampFormatter })),
 });
 
