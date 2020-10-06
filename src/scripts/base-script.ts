@@ -80,12 +80,16 @@ export const GenerateNodeProject = async ({
     logger.verbose(fileName, { label: 'FileRename' }),
   );
 
+  if (!noCommit) {
+    gitInit(serviceDir);
+  }
+
   installNodeDeps(serviceDir, useNpm);
   runLint(serviceDir, useNpm);
 
   if (!noCommit) {
-    gitInit(serviceDir);
     gitFirstCommit(serviceDir);
   }
+
   logger.info(`Done! cd to ${serviceDir}`);
 };

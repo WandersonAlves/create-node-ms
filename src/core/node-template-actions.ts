@@ -25,6 +25,11 @@ export const installNodeDeps = (serviceDir: string, useNpm?: boolean) => {
     stdio: 'inherit',
     cwd: serviceDir,
   });
+  logger.info('Setup husky...');
+  execSync(`${useNpm ? 'npm i husky --save-dev' : 'yarn add husky -D'}`, {
+    stdio: 'inherit',
+    cwd: serviceDir,
+  });
 };
 
 export const runLint = (serviceDir: string, useNpm?: boolean) => {
