@@ -16,10 +16,7 @@
     "start:dev": "sls offline --watch",
     "dev": "nodemon",
     "release": "standard-version --release-as",
-    "clean": "rm -rf dist/",
-    "build": "yarn clean && tsc",
-    "build:docker": "docker build . -t D_ProjectName_D",
-    "build:webpack": "webpack --config webpack.config.js"
+    "clean": "rm -rf dist/"
   },
   "license": "ISC",
   "devDependencies": {
@@ -34,19 +31,17 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsdoc": "^30.6.3",
     "eslint-plugin-prefer-arrow": "^1.2.2",
-    "eslint-plugin-react": "^7.21.3",
     "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
     "husky": "^4.2.5",
     "husky-tslint-pre-commit": "^1.0.3",
+    "lint-staged": "^10.4.0",
     "nodemon": "^2.0.4",
     "prettier-quick": "^0.0.5",
     "serverless-dotenv-plugin": "^3.0.0",
     "serverless-offline": "^6.8.0",
     "serverless-plugin-typescript": "^1.1.9",
     "ts-node": "^8.10.2",
-    "typescript": "^4.0.2",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "typescript": "^4.0.2"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -60,7 +55,11 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "node node_modules/husky-tslint-pre-commit/pre-commit.js"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.ts": ["yarn lint:fix"]
   }
 }
