@@ -30,7 +30,6 @@ module.exports = {
     'eslint-plugin-import',
     'eslint-plugin-jsdoc',
     'eslint-plugin-prefer-arrow',
-    'eslint-plugin-react',
     '@typescript-eslint',
     'sort-imports-es6-autofix',
   ],
@@ -170,9 +169,6 @@ module.exports = {
     'prefer-const': 'error',
     'quote-props': 'off',
     radix: 'error',
-    'react/jsx-curly-spacing': 'off',
-    'react/jsx-equals-spacing': 'off',
-    'react/jsx-wrap-multilines': 'off',
     'space-before-function-paren': 'off',
     'space-in-parens': ['off', 'never'],
     'spaced-comment': [
