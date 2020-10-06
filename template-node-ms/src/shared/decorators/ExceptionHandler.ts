@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { logger } from '../Logger';
 import GenericException from '../exceptions/GenericException';
 import HttpResponseFactory from '../../presentation/factory/HttpResponseFactory';
