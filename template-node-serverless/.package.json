@@ -14,7 +14,7 @@
     "lint": "eslint -c .eslintrc.js --ext .ts ./src/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "start:dev": "sls offline --watch",
-    "dev": "nodemon",
+    "dev": "yarn start:dev",
     "release": "standard-version --release-as",
     "clean": "rm -rf dist/"
   },
@@ -34,7 +34,6 @@
     "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.4.0",
-    "nodemon": "^2.0.4",
     "prettier-quick": "^0.0.5",
     "serverless-dotenv-plugin": "^3.0.0",
     "serverless-offline": "^6.8.0",
