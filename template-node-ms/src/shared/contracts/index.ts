@@ -8,7 +8,7 @@ export interface IPaginationRequestParams {
 export interface UseCase {
   execute(any?: any): Promise<IHttpResponse>;
 }
-
+// tslint:disable-next-line: max-classes-per-file
 export abstract class DataRepository<T = any> {
   abstract find(filter?: TRestParameters<T>): Promise<T[]>;
   abstract findOne(filter?: TRestParameters<T>): Promise<T>;
@@ -17,6 +17,7 @@ export abstract class DataRepository<T = any> {
   abstract updateById(id: string | number, obj: Partial<T>): Promise<T>;
   abstract removeById(id: string | number): Promise<null>;
 }
+// tslint:disable-next-line: max-classes-per-file
 export abstract class DatabaseConnection {
   abstract async connect(): Promise<this>;
   abstract async disconnect(): Promise<void>;
@@ -40,7 +41,7 @@ export interface IHttpError {
   message: string;
   details?: any;
 }
-
+// tslint:disable-next-line: max-classes-per-file
 export abstract class RequestRouter {
   abstract route(req: IHttpRequest): Promise<IHttpResponse>;
 }
