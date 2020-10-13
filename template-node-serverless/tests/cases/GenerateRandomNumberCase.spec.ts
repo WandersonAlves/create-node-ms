@@ -1,8 +1,8 @@
 import 'reflect-metadata';
-import { expect } from 'chai';
 import { IHttpResponse } from '../../src/shared/contracts';
-import container from '../../src/infra/container/inversify.config';
+import { expect } from 'chai';
 import GenerateRandomNumberCase from '../../src/cases/GenerateRandomNumberCase';
+import container from '../../src/infra/container/inversify.config';
 
 const _bindHublogRepoMock = () => null;
 
@@ -25,7 +25,7 @@ describe('GenerateRandomNumberCase', () => {
 
   it('Should get a random number between 1 and 10', async () => {
     _bindHublogRepoMock();
-    const result: IHttpResponse<any> = await _getUseCase().execute();
+    const result = (await _getUseCase().execute()) as IHttpResponse<{ number: number }>;
     expect(result.body.number).to.be.within(1, 10);
   });
 });
