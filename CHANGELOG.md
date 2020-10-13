@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.24](https://github.com/wandersonalves/create-node-ms/compare/v0.1.23...v0.1.24) (2020-10-13)
+
+### Bug Fixes
+
+- **node:** add back tslint comments ([6bf1851](https://github.com/wandersonalves/create-node-ms/commit/6bf1851bb2a822a5831f14b76bde43b900661b65))
+- **node:** remove [@ts-ignore](https://github.com/ts-ignore) ([a13ceee](https://github.com/wandersonalves/create-node-ms/commit/a13ceeee83d8acddb57eb02d7b867fed3a365438))
+- **node-serverless:** add dotenv plugin ([589482c](https://github.com/wandersonalves/create-node-ms/commit/589482cb601ec4f54bf86c7eb4cf6bfc86cc706e))
+- **node-serverless:** add husky dep ([1b997e3](https://github.com/wandersonalves/create-node-ms/commit/1b997e3c27ef94f151259806788cfec31f97186d))
+- **node-serverless:** adjust package.json ([e0d02ae](https://github.com/wandersonalves/create-node-ms/commit/e0d02ae9749425c8ba32448ea7f745be1d515c85))
+- **node-serverless:** migrate from tslint to eslint ([6d15add](https://github.com/wandersonalves/create-node-ms/commit/6d15add6e39b30e7954e945c2cc7bbb635ee502b))
+- **node-serverless:** remove eslint-react ([56dcafa](https://github.com/wandersonalves/create-node-ms/commit/56dcafac81526279b7994aca35145fd17316b178))
+- **node-serverless:** remove index file ([1116e63](https://github.com/wandersonalves/create-node-ms/commit/1116e636f5acf9b8f974350622888ec8b9039148))
+- **node-serverless:** trying to fix husky hooks not installing on first install ([919c72d](https://github.com/wandersonalves/create-node-ms/commit/919c72d479205d5ce22ee32dd5de51c3378b7905))
+
 ### [0.1.23](https://github.com/wandersonalves/create-node-ms/compare/v0.1.22...v0.1.23) (2020-10-05)
 
 ### Bug Fixes
