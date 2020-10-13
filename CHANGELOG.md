@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.25](https://github.com/wandersonalves/create-node-ms/compare/v0.1.24...v0.1.25) (2020-10-13)
+
+### Bug Fixes
+
+- **node:** add test files to tsconfig ([ba407a0](https://github.com/wandersonalves/create-node-ms/commit/ba407a02f56c33d4ff836b0efe0b5f7e0b74bb6e))
+- **node-serverless:** dev script ([c57335a](https://github.com/wandersonalves/create-node-ms/commit/c57335ac5124ae9da75c176ee3a0d1331d2c23b5))
+- **node-serverless:** unsafe member access ([c5c0edd](https://github.com/wandersonalves/create-node-ms/commit/c5c0edd6c4cef35f07b6f50d8028a9ecdeada1df))
+- **node-serverless:** use interface instead abstract class ([d2b3e66](https://github.com/wandersonalves/create-node-ms/commit/d2b3e66c298a0910ee29f53de89e4a4d968489e6))
+
 ### [0.1.24](https://github.com/wandersonalves/create-node-ms/compare/v0.1.23...v0.1.24) (2020-10-13)
 
 ### Bug Fixes
