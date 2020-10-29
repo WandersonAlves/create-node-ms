@@ -22,6 +22,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@types/aws-lambda": "^8.10.64",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^8.0.3",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
