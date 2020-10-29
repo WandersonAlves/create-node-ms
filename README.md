@@ -1,6 +1,6 @@
 # clean-node-ms (Under construction)
 
-A optionated group of boilerplates to help you build nice micro-services :bowtie:
+A optionated group of templates to help you build nice micro-services :bowtie:
 
 Currently has only a node template (`template-node-ms`), but in the future we'll have:
 
