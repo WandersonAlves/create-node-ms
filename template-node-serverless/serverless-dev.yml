@@ -5,9 +5,14 @@ provider:
   runtime: nodejs12.x
   region: ${env:AWS_REGION}
 
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-plugin-typescript
+  - serverless-offline
+
 functions:
   randomNumber:
-    handler: dist/lambdas/RandomNumber.handle
+    handler: src/lambdas/RandomNumber.handle
     events:
       - http:
           path: /random-number
