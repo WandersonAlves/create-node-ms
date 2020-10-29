@@ -1,4 +1,5 @@
 import { TRestParameters } from '../types';
+import HttpResponse from '../responses/HttpResponse';
 
 export interface IPaginationRequestParams {
   skip?: number;
@@ -6,7 +7,7 @@ export interface IPaginationRequestParams {
 }
 
 export interface UseCase {
-  execute(any?: any): Promise<IHttpResponse>;
+  execute(any?: any): Promise<HttpResponse<any>>;
 }
 
 export interface DataRepository<T = any> {
@@ -30,18 +31,13 @@ export interface IHttpRequest<BODY = any, QUERY = any, PARAMS = any> {
   headers?: any;
 }
 
-export interface IHttpResponse<T = any> {
-  success: boolean;
-  statusCode: number;
-  body?: T;
-}
-
 export interface IHttpError {
   name: string;
   message: string;
-  details?: any;
+  statusCode: number;
+  extras?: any;
 }
 
 export interface RequestRouter {
-  route(req: IHttpRequest): Promise<IHttpResponse>;
+  route(req: IHttpRequest): Promise<HttpResponse<any>>;
 }

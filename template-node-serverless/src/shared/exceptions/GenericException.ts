@@ -1,3 +1,4 @@
+import { IHttpError } from '../contracts';
 import { INTERNAL_SERVER_ERROR } from 'http-status';
 
 export default class GenericException extends Error {
@@ -13,7 +14,7 @@ export default class GenericException extends Error {
     Object.setPrototypeOf(this, GenericException.prototype);
   }
 
-  formatError() {
+  formatError(): IHttpError {
     return {
       name: this.name,
       message: this.message,

@@ -1,4 +1,4 @@
-import HttpResponseFactory from '../factory/HttpResponseFactory';
+import HttpResponseFactory from '../responses/HttpResponse';
 import RouteNotFoundException from '../exceptions/RouteNotFoundException';
 
 const RouteNotFoundMiddleware = (originalUrl: string, method: string) =>

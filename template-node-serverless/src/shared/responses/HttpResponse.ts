@@ -1,8 +1,12 @@
-import { IHttpResponse, IHttpError } from '../../shared/contracts';
+import { IHttpError } from '../contracts';
 import GenericException from '../exceptions/GenericException';
 
-export default class HttpResponseFactory {
-  static error(e: GenericException): IHttpResponse<IHttpError> {
+export default abstract class HttpResponse<T> {
+  statusCode: number;
+  success: boolean;
+  body: T;
+
+  static error(e: GenericException): HttpResponse<IHttpError> {
     return {
       statusCode: e.statusCode,
       success: false,
@@ -10,7 +14,7 @@ export default class HttpResponseFactory {
     };
   }
 
-  static success<T>(statusCode: number, response: T): IHttpResponse<T> {
+  static success<G>(statusCode: number, response: G): HttpResponse<G> {
     return {
       success: true,
       statusCode,
