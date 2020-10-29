@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.33](https://github.com/wandersonalves/create-node-ms/compare/v0.1.31...v0.1.33) (2020-10-29)
+
+### Features
+
+- **node-serverless:** add @types/aws-lambda ([0bcfa87](https://github.com/wandersonalves/create-node-ms/commit/0bcfa87d483541d47adb0865dcff92affbc20576))
+
+### Bug Fixes
+
+- **node-serverless:** add missing build script ([77f8325](https://github.com/wandersonalves/create-node-ms/commit/77f832530ef677c05d2c9230091e0ca0eeb8f119))
+- **node-serverless:** move tslint to shared folder ([00e246a](https://github.com/wandersonalves/create-node-ms/commit/00e246a16141532225eaabe29c3943bc46ac4e19))
+
 ### [0.1.31](https://github.com/wandersonalves/create-node-ms/compare/v0.1.30...v0.1.31) (2020-10-29)
 
 ### [0.1.30](https://github.com/wandersonalves/create-node-ms/compare/v0.1.25...v0.1.30) (2020-10-29)
