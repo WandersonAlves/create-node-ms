@@ -16,7 +16,8 @@
     "start:dev": "sls offline --watch --config serverless-dev.yml",
     "dev": "yarn start:dev",
     "release": "standard-version --release-as",
-    "clean": "rm -rf dist/"
+    "clean": "rm -rf dist/",
+    "build": "tsc"
   },
   "license": "ISC",
   "devDependencies": {
