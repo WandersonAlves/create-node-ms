@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.30](https://github.com/wandersonalves/create-node-ms/compare/v0.1.25...v0.1.30) (2020-10-29)
+
+### Features
+
+- **node-serverless:** add serverless dev config ([c38cf49](https://github.com/wandersonalves/create-node-ms/commit/c38cf493325896df2d6af75d4bd980550be902ee))
+
+### Bug Fixes
+
+- **node:** add missing commitlint ([eb661e3](https://github.com/wandersonalves/create-node-ms/commit/eb661e315fd9b04ed56d7e3ca64708968aa7481d))
+
 ### [0.1.25](https://github.com/wandersonalves/create-node-ms/compare/v0.1.24...v0.1.25) (2020-10-13)
 
 ### Bug Fixes
