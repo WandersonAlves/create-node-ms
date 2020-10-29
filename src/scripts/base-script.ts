@@ -76,8 +76,9 @@ export const GenerateNodeProject = async ({
     ['Entities', entitiesNameCapitalized],
   ];
 
+  logger.info('Processing template...', { label: 'template' });
   await processTemplate(serviceDir, fileContentRenaming, fileNameRenaming, fileName =>
-    logger.verbose(fileName, { label: 'FileRename' }),
+    logger.verbose(fileName, { label: 'template' }),
   );
 
   if (!noCommit) {

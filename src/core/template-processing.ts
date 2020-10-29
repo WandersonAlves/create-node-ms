@@ -1,6 +1,5 @@
 import { resolve } from 'path';
 import { renameSync, readdirSync, readFileSync, writeFileSync } from 'fs';
-import { logger } from '../utils/logger';
 
 export type RenamingParams = [string, string][];
 
@@ -40,7 +39,6 @@ export const processTemplate = async (
   fileRenaming: RenamingParams,
   cb?: (str: string) => void,
 ) => {
-  logger.info('Processing template...');
   const files: string[] = await recursiveGetFileList(serviceDir);
   for (const file of files) {
     cb ? cb(file) : null;

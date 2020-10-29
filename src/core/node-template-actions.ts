@@ -4,12 +4,12 @@ import { join } from 'path';
 import { copySync, moveSync, mkdirSync, copy } from 'fs-extra';
 
 export const createNodeProject = (serviceDir: string, templatePath: string, sharedFilesPath?: string) => {
-  logger.info('Creating service folder...');
+  logger.info('Creating service folder...', { label: 'template' });
   mkdirSync(serviceDir);
-  logger.info('Copying files...');
+  logger.info('Copying files...', { label: 'template' });
   copySync(templatePath, serviceDir);
   if (sharedFilesPath) {
-    logger.info('Copying shared files...');
+    logger.info('Copying shared files...', { label: 'template' });
     copySync(sharedFilesPath, serviceDir);
   }
   // Node has problems when handling the package.json file, so we renamed it to ".package.json" to not
@@ -20,22 +20,17 @@ export const createNodeProject = (serviceDir: string, templatePath: string, shar
 };
 
 export const installNodeDeps = (serviceDir: string, useNpm?: boolean) => {
-  logger.info('Installing dependencies...');
+  logger.info('Installing dependencies...', { label: 'install' });
   execSync(`${useNpm ? 'npm i' : 'yarn'}`, {
-    stdio: 'inherit',
-    cwd: serviceDir,
-  });
-  logger.info('Setup husky...');
-  execSync(`${useNpm ? 'npm i husky --save-dev' : 'yarn add husky -D'}`, {
     stdio: 'inherit',
     cwd: serviceDir,
   });
 };
 
 export const runLint = (serviceDir: string, useNpm?: boolean) => {
-  logger.info('Running lint...');
-  execSync(`${useNpm ? 'npm run lint:fix' : 'yarn lint:fix'}`, {
-    stdio: 'inherit',
+  logger.info('Running lint...', { label: 'install' });
+  const stdout = execSync(`${useNpm ? 'npm run lint:fix' : 'yarn lint:fix'}`, {
     cwd: serviceDir,
   });
+  logger.verbose(stdout.toString(), { label: 'install' });
 };
