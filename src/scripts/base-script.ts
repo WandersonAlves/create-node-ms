@@ -9,6 +9,7 @@ interface GenerateNodeProjectParams {
   projectPath: string;
   projectName: string;
   TEMPLATE_FOLDER: string;
+  SHARED_TEMPLATE_FOLDER?: string;
   entityNameLowerCase?: string;
   entityNameCapitalized?: string;
   entitiesNameLowerCase?: string;
@@ -22,6 +23,7 @@ export const GenerateNodeProject = async ({
   projectPath,
   projectName,
   TEMPLATE_FOLDER,
+  SHARED_TEMPLATE_FOLDER,
   entitiesNameCapitalized,
   entitiesNameLowerCase,
   entityNameCapitalized,
@@ -56,7 +58,7 @@ export const GenerateNodeProject = async ({
   const templatePath = join(rootDir, '..', '..', TEMPLATE_FOLDER);
   logger.debug(`TemplatePath: ${templatePath}`);
 
-  const sharedTemplatePath = join(rootDir, '..', '..', 'shared-template-node/');
+  const sharedTemplatePath = join(rootDir, '..', '..', SHARED_TEMPLATE_FOLDER);
 
   // Now we have all folder references. The heavy work begins now...
   createNodeProject(serviceDir, templatePath, sharedTemplatePath);

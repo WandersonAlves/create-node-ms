@@ -1,8 +1,21 @@
 import { GenerateNodeProject } from './base-script';
 
-export const CreateNodeServerless = async ({ noCommit, projectName, useNpm, projectPath, verbose }) => {
+export const CreateNodeServerlessExpress = async ({ noCommit, projectName, useNpm, projectPath, verbose }) => {
   await GenerateNodeProject({
-    TEMPLATE_FOLDER: 'template-node-serverless',
+    TEMPLATE_FOLDER: 'template-node-serverless-express',
+    SHARED_TEMPLATE_FOLDER: 'shared-template-node-serverless',
+    projectName,
+    projectPath,
+    noCommit,
+    useNpm,
+    verbose,
+  });
+};
+
+export const CreateNodeServerlessLambda = async ({ noCommit, projectName, useNpm, projectPath, verbose }) => {
+  await GenerateNodeProject({
+    TEMPLATE_FOLDER: 'template-node-serverless-lambda',
+    SHARED_TEMPLATE_FOLDER: 'shared-template-node-serverless',
     projectName,
     projectPath,
     noCommit,

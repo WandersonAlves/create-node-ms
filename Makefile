@@ -2,5 +2,7 @@ dev:
 				yarn dev
 e2e:
 				yarn test:e2e
-code-serverless:
-				code ../create-node-ms-junk/test-serverless
+code-nse:
+				code ../create-node-ms-junk/serverless-express
+code-nsl:
+				code ../create-node-ms-junk/serverless-lambda
