@@ -55,10 +55,10 @@ export const GenerateNodeProject = async ({
   logger.debug(`ServiceDir: ${serviceDir}`);
   // This is the path of the template
   // We need this to copy files and rename contents
-  const templatePath = join(rootDir, '..', '..', TEMPLATE_FOLDER);
+  const templatePath = join(rootDir, '..', '..', './templates', TEMPLATE_FOLDER);
   logger.debug(`TemplatePath: ${templatePath}`);
 
-  const sharedTemplatePath = join(rootDir, '..', '..', SHARED_TEMPLATE_FOLDER);
+  const sharedTemplatePath = join(rootDir, '..', '..', './shared-templates', SHARED_TEMPLATE_FOLDER);
 
   // Now we have all folder references. The heavy work begins now...
   createNodeProject(serviceDir, templatePath, sharedTemplatePath);

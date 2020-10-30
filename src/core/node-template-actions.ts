@@ -1,7 +1,7 @@
 import { logger } from '../utils/logger';
 import { execSync } from 'child_process';
 import { join } from 'path';
-import { copySync, moveSync, mkdirSync, copy } from 'fs-extra';
+import { copySync, moveSync, mkdirSync } from 'fs-extra';
 
 export const createNodeProject = (serviceDir: string, templatePath: string, sharedFilesPath?: string) => {
   logger.info('Creating service folder...', { label: 'template' });
