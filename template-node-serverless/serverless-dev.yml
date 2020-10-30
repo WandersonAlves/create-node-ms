@@ -6,14 +6,13 @@ provider:
   region: ${env:AWS_REGION}
 
 plugins:
+  - serverless-offline
   - serverless-dotenv-plugin
   - serverless-plugin-typescript
-  - serverless-offline
 
 functions:
-  randomNumber:
-    handler: src/lambdas/RandomNumber.handle
+  server:
+    handler: src/index.handler
     events:
-      - http:
-          path: /random-number
-          method: get
+      - http: ANY /
+      - http: ANY /{proxy+}
