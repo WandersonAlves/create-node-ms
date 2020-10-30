@@ -56,8 +56,10 @@
         2,
         "always",
         [
-          "node",
-          "node-serverless",
+          "node-ms",
+          "nse",
+          "nsl",
+          "serverless",
           "core",
           "lib"
         ]
