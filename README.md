@@ -4,8 +4,8 @@ A optionated group of templates to help you build nice micro-services (and aws l
 
 Currently has two templates:
 
-- template-node-ms
-- template-node-serverless
+- node-ms
+- node-serverless-(express | lambda)
 
 Are planned these templates:
 
@@ -17,7 +17,7 @@ Are planned these templates:
 ## Quick Overview
 
 ```
-npx create-node-ms <template-name> -pn test-service -e Test
+npx create-node-ms <template-name> -pn test-service
 cd test-service
 yarn dev
 ```
@@ -32,7 +32,9 @@ yarn dev
 
 ## Templates
 
-### template-node-ms (`node-ms`)
+### node-ms
+
+> `npx create-node-ms node-ms -pn test-service -e test`
 
 - Rest server: express | fastify
 - IoC|DI: InversifyJS
@@ -47,9 +49,13 @@ yarn dev
 - `-e, --entityName`(**required**): Name of first entity (name used to create interfaces and etc.)
 - `-ep, --entityPluralName`: Pluralized name of the entity
 
-### template-node-serverless (`node-serverless`)
+### node-serverless (`node-serverless-express` | `node-serverless-lambda`)
 
-- Serverless Framework + `serverless-offline`
+Comes with two serverless flavors: express (`node-serverless-express` or `nse`) and lambda (`node-serverless-lambda` or `nsl`)
+
+> `npx create-node-ms nse -pn serverless-express`
+
+- Serverless Framework + `serverless-offline` using `aws-serverless-express` or raw lambda file
 - IoC|DI: InversifyJS
 - Testing: mocha + chai
 - Build: Typescript
@@ -63,9 +69,9 @@ yarn dev
 
 - Fork and clone this repo
 - Make changes
-- Run `yarn dev` to create a new service with your code changes
+- Run `yarn dev`, `yarn dev:nse` or `yarn dev:nsl` to create a new template with your code changes
   - This will remove `../create-node-ms-junk` folder
   - Create a `../create-node-ms-junk/` folder
-  - And generate a new service named `test-service` on `../create-node-ms-junk/` folder
+  - And generate a new project with the name declared on your dev command on `../create-node-ms-junk/` folder
 - Commit your changes (this project has `commitlint` configured)
 - Send a PR :rocket:
