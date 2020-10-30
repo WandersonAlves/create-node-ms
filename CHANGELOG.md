@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/wandersonalves/create-node-ms/compare/v0.1.33...v0.2.0) (2020-10-30)
+
+### Features
+
+- **core:** add commands shortcut, add lambda/express serverless templates ([4c49928](https://github.com/wandersonalves/create-node-ms/commit/4c49928c283df9a80663622dbc3d857a3c333af0))
+- **node-serverless:** use aws-serverless-express ([ec730c7](https://github.com/wandersonalves/create-node-ms/commit/ec730c772f0916ef1c03b350c47e654fd9232c4b))
+
 ### [0.1.33](https://github.com/wandersonalves/create-node-ms/compare/v0.1.31...v0.1.33) (2020-10-29)
 
 ### Features
