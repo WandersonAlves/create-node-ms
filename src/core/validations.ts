@@ -22,10 +22,12 @@ export const environmentVerification = (cmmds: string[]) => {
   };
 
   const validations: Array<{ cmd: string; exists: boolean }> = [
-    ...cmmds.map(cmd => ({
-      cmd,
-      exists: hasCommand(cmd),
-    })),
+    ...cmmds
+      .filter(cmd => cmd)
+      .map(cmd => ({
+        cmd,
+        exists: hasCommand(cmd),
+      })),
   ];
 
   const missingEnv = validations.filter(val => (val.exists ? false : true));
