@@ -25,6 +25,7 @@ export const CreateNodeMsCmd = async ({
 
   await GenerateNodeProject({
     TEMPLATE_FOLDER: 'template-node-ms',
+    SHARED_TEMPLATE_FOLDER: 'shared-template-node',
     projectName,
     projectPath,
     entityNameLowerCase,
