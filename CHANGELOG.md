@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/wandersonalves/create-node-ms/compare/v0.2.0...v0.3.0) (2020-11-04)
+
+### Features
+
+- **core:** environment verification per template ([0af85da](https://github.com/wandersonalves/create-node-ms/commit/0af85da582d787b490204e3599c5058698106aa7))
+
 ## [0.2.0](https://github.com/wandersonalves/create-node-ms/compare/v0.1.33...v0.2.0) (2020-10-30)
 
 ### Features
