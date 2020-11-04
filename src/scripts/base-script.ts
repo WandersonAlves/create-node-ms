@@ -61,7 +61,7 @@ export const GenerateNodeProject = async ({
 
   const sharedTemplatePath = join(rootDir, '..', '..', './shared-templates', SHARED_TEMPLATE_FOLDER);
 
-  environmentVerification([useNpm ? 'npm' : 'yarn', 'git']);
+  environmentVerification([useNpm ? 'npm' : 'yarn', noCommit ? undefined : 'git']);
 
   logger.info('🐱 Everything went fine', { label: 'environmentVerification' });
 
