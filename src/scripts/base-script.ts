@@ -1,3 +1,4 @@
+import { environmentVerification } from './../core/validations';
 import { gitFirstCommit, gitInit } from './../core/git-actions';
 import { createNodeProject, installNodeDeps, runLint } from './../core/node-template-actions';
 import { processTemplate, RenamingParams } from './../core/template-processing';
@@ -59,6 +60,10 @@ export const GenerateNodeProject = async ({
   logger.debug(`TemplatePath: ${templatePath}`);
 
   const sharedTemplatePath = join(rootDir, '..', '..', './shared-templates', SHARED_TEMPLATE_FOLDER);
+
+  environmentVerification([useNpm ? 'npm' : 'yarn', 'git']);
+
+  logger.info('🐱 Everything went fine', { label: 'environmentVerification' });
 
   // Now we have all folder references. The heavy work begins now...
   createNodeProject(serviceDir, templatePath, sharedTemplatePath);
