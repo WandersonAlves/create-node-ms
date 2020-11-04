@@ -59,12 +59,14 @@ export const GenerateNodeProject = async ({
   const templatePath = join(rootDir, '..', '..', './templates', TEMPLATE_FOLDER);
   logger.debug(`TemplatePath: ${templatePath}`);
 
-  const sharedTemplatePath = join(rootDir, '..', '..', './shared-templates', SHARED_TEMPLATE_FOLDER);
-
   environmentVerification([useNpm ? 'npm' : 'yarn', noCommit ? undefined : 'git']);
 
   logger.info('🐱 Everything went fine', { label: 'environmentVerification' });
 
+  let sharedTemplatePath: string;
+  if (SHARED_TEMPLATE_FOLDER) {
+    sharedTemplatePath = join(rootDir, '..', '..', './shared-templates', SHARED_TEMPLATE_FOLDER);
+  }
   // Now we have all folder references. The heavy work begins now...
   createNodeProject(serviceDir, templatePath, sharedTemplatePath);
 
