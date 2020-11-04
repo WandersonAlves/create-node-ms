@@ -19,8 +19,23 @@ npm set registry "$localRegistryAddress"
 npm publish --tag e2e
 
 # Finally run a e2e test
-npx create-node-ms --verbose  --projectName test-service -e test --noCommit
+npx create-node-ms node-ms --verbose  -pn test-service -e test --noCommit
 cd test-service && yarn build
+
+sh -c "echo '✅ node-ms e2e done'"
+cd ..
+
+npx create-node-ms nse -pn serverless-express --noCommit
+cd serverless-express && yarn build
+
+sh -c "echo '✅ node-serverless-express e2e done'"
+cd ..
+
+npx create-node-ms nsl -pn serverless-lambda --noCommit
+cd serverless-lambda && yarn build
+
+sh -c "echo '✅ node-serverless-lambda e2e done'"
+cd ..
 
 # Done!
 sh -c "echo '🦄  Everything is working!'"
