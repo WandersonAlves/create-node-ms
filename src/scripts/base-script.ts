@@ -36,12 +36,16 @@ export const GenerateNodeProject = async ({
   logger.level = verbose ? 'debug' : 'info';
 
   logger.verbose(
-    `create-node-ms params: ${jsonString({
-      noCommit,
+    jsonString({
+      TEMPLATE_FOLDER,
+      SHARED_TEMPLATE_FOLDER,
       projectName,
-      useNpm,
       projectPath,
-    })}`,
+      noCommit,
+      useNpm,
+      verbose,
+    }),
+    { label: 'params' },
   );
   // Get the current running script dir
   // It can be "src/scripts" or "lib/scripts" (dev and npx, global context)
