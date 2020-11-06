@@ -5,6 +5,7 @@ import { processTemplate, RenamingParams } from './../core/template-processing';
 import { execSync } from 'child_process';
 import { join } from 'path';
 import { jsonString, logger } from './../utils/logger';
+import { removeSync } from 'fs-extra';
 
 interface GenerateNodeProjectParams {
   projectPath: string;
@@ -73,6 +74,11 @@ export const GenerateNodeProject = async ({
   }
   // Now we have all folder references. The heavy work begins now...
   createNodeProject(serviceDir, templatePath, sharedTemplatePath);
+
+  // If user runs nse, delete cases folder
+  if (TEMPLATE_FOLDER === 'template-node-serverless-express') {
+    removeSync(join(serviceDir, 'src', 'cases'));
+  }
 
   const fileContentRenaming: RenamingParams = [
     ['D_entity_D', entityNameLowerCase],
