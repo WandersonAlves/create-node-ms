@@ -1,15 +1,11 @@
 import { Container } from 'inversify';
 import AxiosHttpHandle from '../http/AxiosHttpHandler';
-import GenerateRandomNumberCase from '../../cases/GenerateRandomNumberCase';
-import GetRandomNumberRouter from '../../server/routers/GetRandomNumberRouter';
+import RandomNumberContainer from '../../modules/RandomNumber/RandomNumberContainer';
 
+// Merge container modules
 const container = new Container({ defaultScope: 'Singleton' });
 
-// Domain / Use Cases
-container.bind<GenerateRandomNumberCase>(GenerateRandomNumberCase).toSelf();
-
-// Routes
-container.bind<GetRandomNumberRouter>(GetRandomNumberRouter).toSelf();
+container.load(RandomNumberContainer);
 
 // Infra
 container.bind<AxiosHttpHandle>(AxiosHttpHandle).toSelf();
