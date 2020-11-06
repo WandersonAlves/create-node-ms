@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { expect } from 'chai';
-import GenerateRandomNumberCase from '../../src/cases/GenerateRandomNumberCase';
+import GenerateRandomNumberCase from '../../src/modules/RandomNumber/GenerateRandomNumber/GenerateRandomNumberCase';
 import HttpResponse from '../../src/shared/responses/HttpResponse';
 import container from '../../src/infra/container/inversify.config';
 
