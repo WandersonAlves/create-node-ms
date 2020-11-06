@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.7](https://github.com/wandersonalves/create-node-ms/compare/v0.3.0...v0.3.7) (2020-11-06)
+
+### Features
+
+- **nse:** use module pattern ([d5392c1](https://github.com/wandersonalves/create-node-ms/commit/d5392c138babcf28f744bcfcbb25d5517824799c))
+
+### Bug Fixes
+
+- **core:** add shared template to node-ms command ([93de52c](https://github.com/wandersonalves/create-node-ms/commit/93de52c9165982d8aa085aec2c544c7e5d162947))
+- **core:** don't validate git when noCommit is present ([8de17c1](https://github.com/wandersonalves/create-node-ms/commit/8de17c1c0a6c6ae0d82833fca00f14d31a5c7a2c))
+- **core:** remove undefined cmds on validation ([12a0cd9](https://github.com/wandersonalves/create-node-ms/commit/12a0cd96068bb9d74fc3baff4a394853d88a6cf2))
+- **core:** validate shared template ([ca9535b](https://github.com/wandersonalves/create-node-ms/commit/ca9535bc128d2a9be1b52ba802f5fa3e2e2c4db2))
+- **node-ms:** wrong import paths ([d6fcd16](https://github.com/wandersonalves/create-node-ms/commit/d6fcd1600b1d7ce4d4c2f8669b85e1a0567b3af5))
+- **nse:** remove 'cases' folder ([eef7e8d](https://github.com/wandersonalves/create-node-ms/commit/eef7e8dec7ac935ef64c61d7f2dc69c1498156cc))
+
 ### [0.3.5](https://github.com/wandersonalves/create-node-ms/compare/v0.3.0...v0.3.5) (2020-11-04)
 
 ### Bug Fixes
