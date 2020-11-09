@@ -40,6 +40,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.4.0",
     "prettier-quick": "^0.0.5",
+    "serverless": "^2.11.1",
     "serverless-dotenv-plugin": "^3.0.0",
     "serverless-offline": "^6.8.0",
     "serverless-plugin-typescript": "^1.1.9",

@@ -60,6 +60,8 @@ Comes with two serverless flavors: express (`node-serverless-express` or `nse`) 
 - Testing: mocha + chai
 - Build: Typescript
 
+Has configuration for debugging within vscode (see .vscode/launch.json)
+
 ## Roadmap
 
 - Better README
