@@ -2,3 +2,4 @@ scripts/
 utils/
 tasks/
 Makefile
+src/

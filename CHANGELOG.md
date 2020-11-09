@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.9](https://github.com/wandersonalves/create-node-ms/compare/v0.3.8...v0.3.9) (2020-11-09)
+
+### Bug Fixes
+
+- **nse,nsl:** wrong interface paths ([dcd7bd8](https://github.com/wandersonalves/create-node-ms/commit/dcd7bd8ee03e58be7db86e77e537f1c3a8e9685e))
+
 ### [0.3.8](https://github.com/wandersonalves/create-node-ms/compare/v0.3.0...v0.3.8) (2020-11-06)
 
 ### Features

@@ -1,6 +1,6 @@
 {
   "name": "create-node-ms",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "engines": {
     "node": ">=10.22.0"
   },
@@ -13,7 +13,7 @@
     "dev:prepare": "yarn dev:clean && mkdir ../create-node-ms-junk",
     "dev:clean": "rm -rf ../create-node-ms-junk",
     "start": "node -r ts-node/register ./src/index.ts",
-    "build": "tsc",
+    "build": "rm -rf ./lib && tsc",
     "prerelease": "yarn build",
     "release": "git add ./lib && npx standard-version",
     "format": "prettier --write '**/*.ts'",
