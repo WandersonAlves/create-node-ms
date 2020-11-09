@@ -21,8 +21,9 @@ export default function ExceptionHandler(customFn?: (e: Error) => any) {
           new GenericException({
             name: err.name,
             message: err.message,
+            statusCode: err?.response?.status,
             extras: {
-              stacktrace: err.stack,
+              data: err?.response?.data,
             },
           }),
         );
