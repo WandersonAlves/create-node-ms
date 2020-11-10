@@ -7,14 +7,14 @@
     "node": ">=10.22.0"
   },
   "scripts": {
-    "test": "yarn test:unit && yarn test:feature",
+    "test": "D_npyarn_D test:unit && D_npyarn_D test:feature",
     "test:unit": "mocha -r ts-node/register tests/cases/**/*.spec.ts",
     "test:feature": "mocha -r ts-node/register tests/feature/**/*.spec.ts",
     "test:watch": "nodemon --watch ./src/**/*.ts --ext ts --exec \"mocha -r ts-node/register src/**/*.test.ts\"",
     "lint": "eslint -c .eslintrc.js --ext .ts ./src/**/*.ts",
-    "lint:fix": "yarn lint --fix",
+    "lint:fix": "D_npyarn_D lint --fix",
     "start:dev": "SLS_DEBUG=* && node --inspect ./node_modules/.bin/sls offline --watch --config serverless-dev.yml",
-    "dev": "yarn start:dev",
+    "dev": "D_npyarn_D start:dev",
     "release": "standard-version --release-as",
     "clean": "rm -rf dist/",
     "build": "tsc"
@@ -61,6 +61,6 @@
     }
   },
   "lint-staged": {
-    "*.ts": ["yarn lint:fix"]
+    "*.ts": ["D_npyarn_D lint:fix"]
   }
 }
