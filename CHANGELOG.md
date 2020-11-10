@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.12](https://github.com/wandersonalves/create-node-ms/compare/v0.3.11...v0.3.12) (2020-11-10)
+
+### Bug Fixes
+
+- **core:** check useNpm on packages.json ([ffd5ab9](https://github.com/wandersonalves/create-node-ms/commit/ffd5ab90195cb951106fa93f11200509d4a13a87))
+
 ### [0.3.11](https://github.com/wandersonalves/create-node-ms/compare/v0.3.10...v0.3.11) (2020-11-09)
 
 ### Bug Fixes
