@@ -13,9 +13,9 @@
     "test:watch": "nodemon --watch ./src/**/*.ts --ext ts --exec \"mocha -r ts-node/register src/**/*.test.ts\"",
     "lint": "eslint -c .eslintrc.js --ext .ts ./src/**/*.ts",
     "lint:fix": "D_npyarn_D lint --fix",
-    "start:dev": "sls offline --watch --config serverless-dev.yml",
+    "start:dev": "SLS_DEBUG=* && node --inspect ./node_modules/.bin/sls offline --watch --config serverless-dev.yml -s dev",
     "dev": "D_npyarn_D start:dev",
-    "release": "standard-version --release-as",
+    "release": "npx standard-version --release-as",
     "clean": "rm -rf dist/",
     "build": "tsc"
   },
