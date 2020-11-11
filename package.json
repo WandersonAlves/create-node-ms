@@ -7,11 +7,14 @@
   "description": "A generator for microservices with Clean Architecture in Node",
   "scripts": {
     "create-node-ms": "node lib/index.js",
-    "dev": "yarn dev:prepare && node -r ts-node/register ./src/index.ts node-ms -p ../create-node-ms-junk --verbose  --projectName test-service -e test",
-    "dev:nse": "yarn dev:prepare && node -r ts-node/register ./src/index.ts nse -p ../create-node-ms-junk -pn serverless-express --verbose",
-    "dev:nsl": "yarn dev:prepare && node -r ts-node/register ./src/index.ts nsl -p ../create-node-ms-junk -pn serverless-lambda --verbose",
-    "dev:prepare": "yarn dev:clean && mkdir ../create-node-ms-junk",
+    "dev:ms": "yarn dev:prepare node-ms -p ../create-node-ms-junk --verbose  --projectName test-service -e test",
+    "dev:nse": "yarn dev:prepare nse -p ../create-node-ms-junk -pn serverless-express --verbose",
+    "dev:nsl": "yarn dev:prepare nsl -p ../create-node-ms-junk -pn serverless-lambda --verbose",
+    "dev:nsl:deps": "yarn dev:prepare nsl -p ../create-node-ms-junk -pn deps-test --verbose -d date-fns lodash -D @types/lodash",
+    "dev:prepare": "yarn dev:clean && mkdir ../create-node-ms-junk && node -r ts-node/register ./src/index.ts ",
     "dev:clean": "rm -rf ../create-node-ms-junk",
+    "dev:help": "node -r ts-node/register ./src/index.ts --help",
+    "dev": "node -r ts-node/register ./src/index.ts ",
     "start": "node -r ts-node/register ./src/index.ts",
     "build": "rm -rf ./lib && tsc",
     "prerelease": "yarn build",
@@ -46,7 +49,7 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "commander": "^5.1.0",
+    "commander": "^6.2.0",
     "fs-extra": "^9.0.1",
     "winston": "^3.3.3"
   },

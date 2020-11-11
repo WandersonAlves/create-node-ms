@@ -1,6 +1,12 @@
 import { environmentVerification } from './../core/validations';
 import { gitFirstCommit, gitInit } from './../core/git-actions';
-import { createNodeProject, installNodeDeps, runLint } from './../core/node-template-actions';
+import {
+  createNodeProject,
+  installExtraDeps,
+  installExtraDevDeps,
+  installNodeDeps,
+  runLint,
+} from './../core/node-template-actions';
 import { processTemplate, RenamingParams } from './../core/template-processing';
 import { execSync } from 'child_process';
 import { join } from 'path';
@@ -19,6 +25,8 @@ interface GenerateNodeProjectParams {
   useNpm?: boolean;
   noCommit?: boolean;
   verbose?: boolean;
+  addDeps?: string[];
+  addDevDeps?: string[];
 }
 
 export const GenerateNodeProject = async ({
@@ -33,9 +41,10 @@ export const GenerateNodeProject = async ({
   noCommit,
   useNpm,
   verbose,
+  addDeps,
+  addDevDeps,
 }: GenerateNodeProjectParams) => {
   logger.level = verbose ? 'debug' : 'info';
-
   logger.verbose(
     jsonString({
       TEMPLATE_FOLDER,
@@ -45,6 +54,8 @@ export const GenerateNodeProject = async ({
       noCommit,
       useNpm,
       verbose,
+      addDeps,
+      addDevDeps,
     }),
     { label: 'params' },
   );
@@ -105,6 +116,14 @@ export const GenerateNodeProject = async ({
   }
 
   installNodeDeps(serviceDir, useNpm);
+
+  if (addDeps.length) {
+    installExtraDeps(serviceDir, addDeps, useNpm);
+  }
+  if (addDevDeps.length) {
+    installExtraDevDeps(serviceDir, addDevDeps, useNpm);
+  }
+
   runLint(serviceDir, useNpm);
 
   if (!noCommit) {

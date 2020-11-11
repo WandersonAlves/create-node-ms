@@ -39,6 +39,8 @@ program
   .option('-p, --projectPath <projectPath>', 'Generated project path')
   .requiredOption('-pn, --projectName <projectName>', 'Project name')
   .requiredOption('-e, --entityName <entityName>', 'Name of the first entity')
+  .option('-d, --addDeps <addDeps...>', 'Install extra depedencies')
+  .option('-D, --addDevDeps <addDevDeps...>', 'Install extra dev depedencies')
   .option('-ep, --entityPluralName <entityPluralName>', 'Pluralized name of the entity')
   .option('--verbose', 'Output verbose info')
   .action(CreateNodeMsCmd);

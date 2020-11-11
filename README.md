@@ -29,6 +29,8 @@ yarn dev
 - `--useNpm`: Use npm instead of yarn to install depedencies
 - `--noCommit`: Don't do a first commit
 - `--verbose`: Output verbose info
+- `-d, --addDeps`: Add extra depedencies that are not installed by default
+- `-D, --addDevDeps`: Add dev extra depedencies that are not installed by default
 
 ## Templates
 

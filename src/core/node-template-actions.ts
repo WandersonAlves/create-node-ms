@@ -34,3 +34,16 @@ export const runLint = (serviceDir: string, useNpm?: boolean) => {
   });
   logger.verbose(stdout.toString(), { label: 'install' });
 };
+
+export const installExtraDeps = (serviceDir: string, packages: string[], useNpm?: boolean) => {
+  logger.info('Installing extra depedencies...', { label: 'install' });
+  execSync(`${useNpm ? 'npm i' : 'yarn add'} ${packages.join(' ')}`, { stdio: 'inherit', cwd: serviceDir });
+};
+
+export const installExtraDevDeps = (serviceDir: string, packages: string[], useNpm?: boolean) => {
+  logger.info('Installing extra dev depedencies...', { label: 'install' });
+  execSync(`${useNpm ? 'npm i' : 'yarn add'} ${packages.join(' ')} ${useNpm ? '--save-dev' : '-D'}`, {
+    stdio: 'inherit',
+    cwd: serviceDir,
+  });
+};
