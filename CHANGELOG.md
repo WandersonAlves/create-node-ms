@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.20](https://github.com/wandersonalves/create-node-ms/compare/v0.3.11...v0.3.20) (2020-11-11)
+
+### Features
+
+- **nsl,nse:** allow add extra deps from cli ([db28ebe](https://github.com/wandersonalves/create-node-ms/commit/db28ebe6547abf2210a04b3a4dcf954753d47c5a)), closes [#5](https://github.com/wandersonalves/create-node-ms/issues/5)
+
+### Bug Fixes
+
+- **core:** check useNpm on packages.json ([ffd5ab9](https://github.com/wandersonalves/create-node-ms/commit/ffd5ab90195cb951106fa93f11200509d4a13a87))
+- **nsl:** serverless debugging ([b045b2d](https://github.com/wandersonalves/create-node-ms/commit/b045b2d1c495eaaf8ad050897032c51124a8e25b))
+- **nsl,nse:** add serverless devDep ([d55517f](https://github.com/wandersonalves/create-node-ms/commit/d55517f3ab5b65b8f7bb42b11e323cff98af3fa0))
+
 ### [0.3.12](https://github.com/wandersonalves/create-node-ms/compare/v0.3.11...v0.3.12) (2020-11-10)
 
 ### Bug Fixes
