@@ -128,10 +128,10 @@ export const GenerateNodeProject = async ({
 
   installNodeDeps(serviceDir, useNpm);
 
-  if (addDeps.length) {
+  if (addDeps?.length) {
     installExtraDeps(serviceDir, addDeps, useNpm);
   }
-  if (addDevDeps.length) {
+  if (addDevDeps?.length) {
     installExtraDevDeps(serviceDir, addDevDeps, useNpm);
   }
 
