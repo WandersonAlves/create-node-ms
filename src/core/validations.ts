@@ -33,13 +33,8 @@ export const environmentVerification = (cmmds: string[]) => {
   const missingEnv = validations.filter(val => (val.exists ? false : true));
 
   validations.forEach(val =>
-    val.exists
-      ? logger.info(`✅ ${val.cmd} found!`, { label })
-      : logger.error(`⛔️ Missing ${val.cmd} command on ths environment`, { label }),
+    val.exists ? logger.info(`✅ '${val.cmd}' found!`, { label }) : logger.error(`⛔️ '${val.cmd}' not found :(`, { label }),
   );
 
-  if (missingEnv.length) {
-    logger.error('Fix the errors above');
-    process.exit(1);
-  }
+  return missingEnv;
 };

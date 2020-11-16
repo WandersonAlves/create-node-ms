@@ -78,9 +78,20 @@ export const GenerateNodeProject = async ({
   const sharedTemplatePath = join(rootDir, '..', '..', './shared-templates', SHARED_TEMPLATE_FOLDER);
   logger.debug(`SharedTemplatePath: ${sharedTemplatePath}`);
 
-  environmentVerification([useNpm ? 'npm' : 'yarn', noCommit ? undefined : 'git']);
+  const missingEnv = environmentVerification([useNpm ? 'npm' : 'yarn', noCommit ? undefined : 'git']);
 
-  logger.info('🐱 Everything went fine', { label: 'environmentVerification' });
+  if (missingEnv.some(e => e.cmd === 'yarn' && e.exists === false)) {
+    useNpm = true;
+    missingEnv.shift();
+    logger.warn('Yarn not found, using npm instead', { label: 'environmentVerification' });
+  }
+
+  if (missingEnv.length) {
+    logger.error('Fix the errors above', { label: 'environmentVerification' });
+    process.exit(1);
+  }
+
+  logger.info('🐱 Everything went well', { label: 'environmentVerification' });
 
   // Now we have all folder references. The heavy work begins now...
   createNodeProject(serviceDir, templatePath, sharedTemplatePath);
