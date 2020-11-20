@@ -29,10 +29,10 @@ export const installNodeDeps = (serviceDir: string, useNpm?: boolean) => {
 
 export const runLint = (serviceDir: string, useNpm?: boolean) => {
   logger.info('Running lint...', { label: 'install' });
-  const stdout = execSync(`${useNpm ? 'npm run lint:fix' : 'yarn lint:fix'}`, {
+  execSync(`${useNpm ? 'npm run lint:fix' : 'yarn lint:fix'}`, {
     cwd: serviceDir,
+    stdio: 'inherit',
   });
-  logger.verbose(stdout.toString(), { label: 'install' });
 };
 
 export const installExtraDeps = (serviceDir: string, packages: string[], useNpm?: boolean) => {
