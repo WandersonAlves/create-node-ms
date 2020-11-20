@@ -2,6 +2,7 @@ import { environmentVerification } from './../core/validations';
 import { gitFirstCommit, gitInit } from './../core/git-actions';
 import {
   createNodeProject,
+  getPaths,
   installExtraDeps,
   installExtraDevDeps,
   installNodeDeps,
@@ -61,22 +62,12 @@ export const GenerateNodeProject = async ({
   );
   // Get the current running script dir
   // It can be "src/scripts" or "lib/scripts" (dev and npx, global context)
-  const rootDir = join(__dirname);
-  logger.debug(`RootDir: ${rootDir}`);
-  // Get the current folder
-  const currentDir = execSync('pwd').toString().trim();
-  logger.debug(`CurrentDir: ${currentDir}`);
-  // Maybe the user sets a --projectPath option
-  // We join the currentDir with the projectPath to get the final path to output the template
-  const serviceDir = join(join(currentDir, projectPath || ''), projectName);
-  logger.debug(`ServiceDir: ${serviceDir}`);
-  // This is the path of the template
-  // We need this to copy files and rename contents
-  const templatePath = join(rootDir, '..', '..', './templates', TEMPLATE_FOLDER);
-  logger.debug(`TemplatePath: ${templatePath}`);
-
-  const sharedTemplatePath = join(rootDir, '..', '..', './shared-templates', SHARED_TEMPLATE_FOLDER);
-  logger.debug(`SharedTemplatePath: ${sharedTemplatePath}`);
+  const { genTemplatePath, templatePath, sharedTemplatePath } = getPaths({
+    TEMPLATE_FOLDER,
+    SHARED_TEMPLATE_FOLDER,
+    projectName,
+    projectPath,
+  });
 
   const missingEnv = environmentVerification([useNpm ? 'npm' : 'yarn', noCommit ? undefined : 'git']);
 
@@ -94,11 +85,11 @@ export const GenerateNodeProject = async ({
   logger.info('🐱 Everything went well', { label: 'environmentVerification' });
 
   // Now we have all folder references. The heavy work begins now...
-  createNodeProject(serviceDir, templatePath, sharedTemplatePath);
+  createNodeProject(genTemplatePath, templatePath, sharedTemplatePath);
 
   // If user runs nse, delete cases folder
   if (TEMPLATE_FOLDER === 'template-node-serverless-express') {
-    removeSync(join(serviceDir, 'src', 'cases'));
+    removeSync(join(genTemplatePath, 'src', 'cases'));
   }
 
   const fileContentRenaming: RenamingParams = [
@@ -118,28 +109,28 @@ export const GenerateNodeProject = async ({
   ];
 
   logger.info('Processing template...', { label: 'template' });
-  await processTemplate(serviceDir, fileContentRenaming, fileNameRenaming, fileName =>
+  await processTemplate(genTemplatePath, fileContentRenaming, fileNameRenaming, fileName =>
     logger.verbose(fileName, { label: 'template' }),
   );
 
   if (!noCommit) {
-    gitInit(serviceDir);
+    gitInit(genTemplatePath);
   }
 
-  installNodeDeps(serviceDir, useNpm);
+  installNodeDeps(genTemplatePath, useNpm);
 
   if (addDeps?.length) {
-    installExtraDeps(serviceDir, addDeps, useNpm);
+    installExtraDeps(genTemplatePath, addDeps, useNpm);
   }
   if (addDevDeps?.length) {
-    installExtraDevDeps(serviceDir, addDevDeps, useNpm);
+    installExtraDevDeps(genTemplatePath, addDevDeps, useNpm);
   }
 
-  runLint(serviceDir, useNpm);
+  runLint(genTemplatePath, useNpm);
 
   if (!noCommit) {
-    gitFirstCommit(serviceDir);
+    gitFirstCommit(genTemplatePath);
   }
 
-  logger.info(`Done! cd to ${serviceDir}`);
+  logger.info(`Done! cd to ${genTemplatePath}`);
 };

@@ -47,3 +47,30 @@ export const installExtraDevDeps = (serviceDir: string, packages: string[], useN
     cwd: serviceDir,
   });
 };
+
+interface GetPathsParams {
+  projectPath: string;
+  projectName: string;
+  TEMPLATE_FOLDER: string;
+  SHARED_TEMPLATE_FOLDER: string;
+}
+
+export const getPaths = ({ projectPath, projectName, SHARED_TEMPLATE_FOLDER, TEMPLATE_FOLDER }: GetPathsParams) => {
+  const rootPath = join(__dirname);
+  logger.debug(`RootPath: ${rootPath}`);
+  // Get the current folder
+  const currentPath = process.env.PWD;
+  logger.debug(`CurrentPath: ${currentPath}`);
+  // Maybe the user sets a --projectPath option
+  // We join the currentDir with the projectPath to get the final path to output the template
+  const genTemplatePath = join(join(currentPath, projectPath || ''), projectName);
+  logger.debug(`ServiceDir: ${genTemplatePath}`);
+  // This is the path of the template
+  // We need this to copy files and rename contents
+  const templatePath = join(rootPath, '..', '..', './templates', TEMPLATE_FOLDER);
+  logger.debug(`TemplatePath: ${templatePath}`);
+
+  const sharedTemplatePath = join(rootPath, '..', '..', './shared-templates', SHARED_TEMPLATE_FOLDER);
+  logger.debug(`SharedTemplatePath: ${sharedTemplatePath}`);
+  return { genTemplatePath, templatePath, sharedTemplatePath };
+};
