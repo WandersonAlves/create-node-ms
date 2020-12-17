@@ -5,9 +5,9 @@ import ExceptionHandler from '../../../shared/decorators/ExceptionHandler';
 import HttpResponse from '../../../shared/responses/HttpResponse';
 
 @injectable()
-export default class GenerateRandomNumberCase implements UseCase {
+export default class GenerateRandomNumberCase implements UseCase<{ number: Number }, IHttpError> {
   @ExceptionHandler()
-  async execute(): Promise<HttpResponse<{ number: number } | IHttpError>> {
+  async execute() {
     const number = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
     return HttpResponse.success(OK, { number });
   }

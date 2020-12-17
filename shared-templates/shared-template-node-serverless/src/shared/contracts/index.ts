@@ -6,8 +6,13 @@ export interface IPaginationRequestParams {
   limit?: number;
 }
 
-export interface UseCase {
-  execute(any?: any): Promise<HttpResponse<any>>;
+export interface UseCaseParams<H = any, B = any> {
+  headers?: H;
+  body?: B;
+}
+
+export interface UseCase<Success = any, Fail = any> {
+  execute(params?: UseCaseParams): Promise<HttpResponse<Success | Fail>>;
 }
 
 export interface DataRepository<T = any> {
