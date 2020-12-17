@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.23](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.11...v0.3.23) (2020-12-17)
+
+### Features
+
+- **nse:** better UseCase interface ([3e6f64f](https://github.com/WandersonAlves/create-node-ms/commit/3e6f64f17da7b14482a3ea2af30367c0f38f8b3e))
+- change to npm when yarn isn't found ([714feb9](https://github.com/WandersonAlves/create-node-ms/commit/714feb91d3835adfabeb03a12d9f289b10235928))
+- **nsl,nse:** allow add extra deps from cli ([db28ebe](https://github.com/WandersonAlves/create-node-ms/commit/db28ebe6547abf2210a04b3a4dcf954753d47c5a)), closes [#5](https://github.com/WandersonAlves/create-node-ms/issues/5)
+
+### Bug Fixes
+
+- undefined length on addDeps ([f8b5979](https://github.com/WandersonAlves/create-node-ms/commit/f8b5979e5473ab91f5debc9a9a880b0fe4cd4a33))
+- **core:** check useNpm on packages.json ([ffd5ab9](https://github.com/WandersonAlves/create-node-ms/commit/ffd5ab90195cb951106fa93f11200509d4a13a87))
+- **nsl:** serverless debugging ([b045b2d](https://github.com/WandersonAlves/create-node-ms/commit/b045b2d1c495eaaf8ad050897032c51124a8e25b))
+- **nsl,nse:** add serverless devDep ([d55517f](https://github.com/WandersonAlves/create-node-ms/commit/d55517f3ab5b65b8f7bb42b11e323cff98af3fa0))
+
 ### [0.3.22](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.11...v0.3.22) (2020-11-16)
 
 ### Features
