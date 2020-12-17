@@ -95,6 +95,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-misused-new': 'error',
     '@typescript-eslint/no-namespace': 'error',
+    '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-parameter-properties': 'off',
     '@typescript-eslint/no-require-imports': 'error',
     '@typescript-eslint/no-unused-expressions': 'error',
