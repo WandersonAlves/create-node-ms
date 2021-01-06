@@ -1,6 +1,6 @@
 {
   "name": "create-node-ms",
-  "version": "0.3.25",
+  "version": "0.3.28",
   "engines": {
     "node": ">=10.22.0"
   },
