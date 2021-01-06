@@ -5,9 +5,14 @@ provider:
   runtime: nodejs12.x
   region: ${env:AWS_REGION}
 
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+  - serverless-plugin-typescript
+
 functions:
   server:
-    handler: dist/index.handler
+    handler: src/index.handler
     events:
       - http: ANY /
       - http: ANY /{proxy+}
