@@ -17,7 +17,8 @@
     "dev": "D_npyarn_D start:dev",
     "release": "npx standard-version --release-as",
     "clean": "rm -rf dist/",
-    "build": "tsc"
+    "build": "tsc",
+    "build:webpack": "webpack --config webpack.config.js"
   },
   "license": "ISC",
   "devDependencies": {
