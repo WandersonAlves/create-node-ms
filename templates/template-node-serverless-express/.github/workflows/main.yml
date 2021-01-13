@@ -1,0 +1,36 @@
+name: Deploy to AWS with Webpack
+on:
+  push:
+    branches: ['main']
+jobs:
+  deploy_zip:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node12.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.x'
+      - name: Install
+        run: yarn
+      - name: Build Typescript
+        run: yarn build
+      - name: Build Webpack
+        run: yarn build:webpack
+      - name: Zip Build
+        run: zip deployment.zip -r build
+      - name: Deploy to Lambda
+        uses: appleboy/lambda-action@master
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: ${{ secrets.FUNCTION_NAME }}
+          zip_file: deployment.zip
+          memory_size: 128
+          timeout: 3
+          handler: build/build.handler
+          role: ${{ secrets.ROLE }}
+          runtime: nodejs12.x
