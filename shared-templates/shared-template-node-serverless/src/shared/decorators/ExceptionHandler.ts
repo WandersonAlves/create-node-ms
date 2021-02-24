@@ -5,6 +5,7 @@
 import { CreateGenericError } from '../../utils';
 import { logger } from '../Logger';
 
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export default function ExceptionHandler(customFn?: (e: Error) => any) {
   return (target: object, name: string | symbol, descriptor: PropertyDescriptor) => {
     const original = descriptor.value;
