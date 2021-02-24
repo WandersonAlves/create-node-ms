@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.29](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.28...v0.3.29) (2021-02-24)
+
+### Features
+
+- **nse:** add github action to deploy ([13577ff](https://github.com/WandersonAlves/create-node-ms/commit/13577fffa28adbe76544b2ced80600de61ea6057))
+
+### Bug Fixes
+
+- **nsl:** disable prefer-arrow on ExceptionHandler ([43d0162](https://github.com/WandersonAlves/create-node-ms/commit/43d0162da21b3d30b3ab50362f0689a03e160ddd))
+- type error on nse ([c542f77](https://github.com/WandersonAlves/create-node-ms/commit/c542f7741ce01c74693b76fb9448db3b13a95392))
+- **nse:** add missing build:webpack cmd ([41e9ad2](https://github.com/WandersonAlves/create-node-ms/commit/41e9ad27b5468b0a46163e755eb8c8141bfc0f5b))
+- **nse:** move spec files ([8b30d74](https://github.com/WandersonAlves/create-node-ms/commit/8b30d7404b3f758ba56f0b85b01a8fd94aabd0cc))
+
 ### [0.3.28](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.11...v0.3.28) (2021-01-06)
 
 ### Features
