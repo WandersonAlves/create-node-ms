@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.30](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.29...v0.3.30) (2021-06-10)
+
+### Features
+
+- **nse:** update generator ([229300d](https://github.com/WandersonAlves/create-node-ms/commit/229300dd533e121568736926d1217f994bfc4f17))
+- **nsl:** update generator ([a03f980](https://github.com/WandersonAlves/create-node-ms/commit/a03f980aee501db391b1cedbd060e7469c24f002))
+
 ### [0.3.29](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.28...v0.3.29) (2021-02-24)
 
 ### Features
