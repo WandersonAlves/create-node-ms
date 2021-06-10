@@ -1,22 +1,37 @@
-import { AxiosError } from 'axios';
-import GenericException from '../shared/exceptions/GenericException';
-import HttpResponse from '../shared/responses/HttpResponse';
-import container from '../infra/container/inversify.config';
+import { GetFromContainer } from '../infra/container/inversify.config';
+import { Newable } from '../shared/types';
+import { Router } from 'express';
+import ExpressRouterAdapter from '../shared/adapters/ExpressRouterAdapter';
 
-type Newable<T> = new (...args: any[]) => T;
+/**
+ * Creates a express route using the build pattern
+ */
+export class RoutesBuilder {
+  private _router = Router();
 
-export const GetFromContainer = <T>(obj: Newable<T>) => container.get<T>(obj);
+  get(url: string | string[], requestRouter: Newable) {
+    this._router.get(url, ExpressRouterAdapter.adapt(GetFromContainer(requestRouter)));
+    return this;
+  }
+  post(url: string | string[], requestRouter: Newable) {
+    this._router.post(url, ExpressRouterAdapter.adapt(GetFromContainer(requestRouter)));
+    return this;
+  }
+  put(url: string | string[], requestRouter: Newable) {
+    this._router.put(url, ExpressRouterAdapter.adapt(GetFromContainer(requestRouter)));
+    return this;
+  }
+  delete(url: string | string[], requestRouter: Newable) {
+    this._router.delete(url, ExpressRouterAdapter.adapt(GetFromContainer(requestRouter)));
+    return this;
+  }
+  patch(url: string | string[], requestRouter: Newable) {
+    this._router.patch(url, ExpressRouterAdapter.adapt(GetFromContainer(requestRouter)));
+    return this;
+  }
+  build() {
+    return this._router;
+  }
+}
 
-export const CreateGenericError = (err: AxiosError) =>
-  HttpResponse.error(
-    new GenericException({
-      name: err.name,
-      message: err.message,
-      statusCode: err?.response?.status,
-      extras: {
-        data: err?.response?.data,
-        url: err?.response?.config?.url,
-        method: err?.response?.config?.method,
-      },
-    }),
-  );
+export const Range = (start: number, end: number) => Array.from({ length: end - start + 1 }, (v, k) => k + start);

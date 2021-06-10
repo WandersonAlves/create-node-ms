@@ -1,6 +1,12 @@
 node_modules/
 dist/
 .env
+.*.env
 .build
+html/
+build/
 coverage/
 .nyc_output/
+*.log
+*.zip
+__pycache__

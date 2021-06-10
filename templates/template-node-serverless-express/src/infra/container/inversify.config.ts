@@ -1,4 +1,5 @@
 import { Container } from 'inversify';
+import { Newable } from '../../shared/types';
 import AxiosHttpHandle from '../http/AxiosHttpHandler';
 import RandomNumberContainer from '../../modules/RandomNumber/RandomNumberContainer';
 
@@ -11,3 +12,5 @@ container.load(RandomNumberContainer);
 container.bind<AxiosHttpHandle>(AxiosHttpHandle).toSelf();
 
 export default container;
+
+export const GetFromContainer = <T>(obj: Newable<T>) => container.get<T>(obj);

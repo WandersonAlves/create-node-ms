@@ -2,24 +2,30 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import { CreateGenericError } from '../../utils';
-import { logger } from '../Logger';
+import GenericException from '../exceptions/GenericException';
+import HttpResponse from '../responses/HttpResponse';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
-export default function ExceptionHandler(customFn?: (e: Error) => any) {
-  return (target: object, name: string | symbol, descriptor: PropertyDescriptor) => {
-    const original = descriptor.value;
-    descriptor.value = async function (...args) {
-      try {
-        return await original.apply(this, args);
-      } catch (err) {
-        logger.error(err);
-        if (customFn) {
-          return customFn(err);
-        }
-        return CreateGenericError(err);
-      }
-    };
-    return descriptor;
+export default function ExceptionHandler(target: object, name: string | symbol, descriptor: PropertyDescriptor) {
+  const original = descriptor.value;
+  descriptor.value = async function (...args) {
+    try {
+      return await original.apply(this, args);
+    } catch (err) {
+      console.error(err);
+      return HttpResponse.error(
+        new GenericException({
+          name: err.name,
+          message: err.message,
+          statusCode: err?.response?.status,
+          extras: {
+            data: err?.response?.data,
+            url: err?.response?.config?.url,
+            method: err?.response?.config?.method,
+          },
+        }),
+      );
+    }
   };
+  return descriptor;
 }

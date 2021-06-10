@@ -1,4 +1,4 @@
-import { TRestParameters } from '../types';
+import { TRestParameters, UnkownParams } from '../types';
 import HttpResponse from '../responses/HttpResponse';
 
 export interface IPaginationRequestParams {
@@ -6,13 +6,14 @@ export interface IPaginationRequestParams {
   limit?: number;
 }
 
-export interface UseCaseParams<H = any, B = any> {
+export interface UseCaseParams<H = any, B = any, Q = any> {
   headers?: H;
   body?: B;
+  query?: Q;
 }
 
-export interface UseCase<Success = any, Fail = any> {
-  execute(params?: UseCaseParams): Promise<HttpResponse<Success | Fail>>;
+export interface UseCase {
+  execute({ headers, body }: UseCaseParams): Promise<HttpResponse<any>>;
 }
 
 export interface DataRepository<T = any> {
@@ -29,20 +30,26 @@ export interface DatabaseConnection {
   disconnect(): Promise<void>;
 }
 
-export interface IHttpRequest<BODY = any, QUERY = any, PARAMS = any> {
+export interface IHttpRequest<BODY = any, QUERY = any, PARAMS = any, HEADERS = any> {
   body?: BODY;
   query?: QUERY;
   params?: PARAMS;
-  headers?: any;
+  headers?: HEADERS;
 }
 
-export interface IHttpError {
+export interface IHttpError<T = any> {
   name: string;
   message: string;
   statusCode: number;
-  extras?: any;
+  extras?: ErrorResponseBody<T>;
+}
+
+export interface ErrorResponseBody<T = UnkownParams> {
+  data: T;
+  url: string;
+  method: string;
 }
 
 export interface RequestRouter {
-  route(req: IHttpRequest): Promise<HttpResponse<any>>;
+  route({ headers, body }: IHttpRequest): Promise<HttpResponse<any>>;
 }

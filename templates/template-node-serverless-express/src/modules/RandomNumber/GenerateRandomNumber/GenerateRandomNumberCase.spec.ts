@@ -1,8 +1,7 @@
 import 'reflect-metadata';
-import { GetFromContainer } from '../../../utils';
 import { expect } from 'chai';
 import GenerateRandomNumberCase from './GenerateRandomNumberCase';
-import HttpResponse from '../../../shared/responses/HttpResponse';
+import TestContainer from '../../../mocks/TestContainer';
 import container from '../../../infra/container/inversify.config';
 
 describe('GenerateRandomNumberCase', () => {
@@ -19,7 +18,7 @@ describe('GenerateRandomNumberCase', () => {
   });
 
   it('Should get a random number between 1 and 10', async () => {
-    const result = (await GetFromContainer(GenerateRandomNumberCase).execute()) as HttpResponse<{ number: number }>;
+    const result = await new TestContainer(GenerateRandomNumberCase).get().execute({});
     expect(result.body.number).to.be.within(1, 10);
   });
 });

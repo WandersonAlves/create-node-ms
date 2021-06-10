@@ -11,6 +11,8 @@ module.exports = {
     libraryTarget: 'commonjs2',
   },
   optimization: {
-    minimize: false,
+    minimize: true,
+    removeAvailableModules: true,
+    mangleExports: 'size',
   },
 };

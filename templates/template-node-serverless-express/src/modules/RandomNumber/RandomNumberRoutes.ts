@@ -1,10 +1,6 @@
-import { GetFromContainer } from '../../utils';
-import { Router } from 'express';
-import ExpressRouterAdapter from '../../shared/adapters/ExpressRouterAdapter';
+import { RoutesBuilder } from '../../utils';
 import GenerateRandomNumberRouter from './GenerateRandomNumber/GenerateRandomNumberRouter';
 
-const RandomNumberRoute = Router();
+const RandomNumberRoutes = new RoutesBuilder().get('/', GenerateRandomNumberRouter).build();
 
-RandomNumberRoute.get('/', ExpressRouterAdapter.adapt(GetFromContainer(GenerateRandomNumberRouter)));
-
-export default RandomNumberRoute;
+export default RandomNumberRoutes;
