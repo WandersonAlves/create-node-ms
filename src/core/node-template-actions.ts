@@ -5,7 +5,12 @@ import { copySync, moveSync, mkdirSync } from 'fs-extra';
 
 export const createNodeProject = (serviceDir: string, templatePath: string, sharedFilesPath?: string) => {
   logger.info('Creating service folder...', { label: 'template' });
-  mkdirSync(serviceDir);
+  try {
+    mkdirSync(serviceDir);
+  } catch (e) {
+    logger.error(`Folder at path ${serviceDir} already exists. Delete it or chose another project name`);
+    process.exit(1);
+  }
   logger.info('Copying files...', { label: 'template' });
   copySync(templatePath, serviceDir);
   if (sharedFilesPath) {
