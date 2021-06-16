@@ -27,7 +27,7 @@ yarn dev
 - `-pn, --projectName`(**required**): Project name
 - `-p, --path`: Absolute or relative path to create the project
 - `--useNpm`: Use npm instead of yarn to install depedencies
-- `--noCommit`: Don't do a first commit
+- `--noCommit`: Don't do a first commit. If you has git, but not configured a name/email, git will fail to commit.
 - `--verbose`: Output verbose info
 - `-d, --addDeps`: Add extra depedencies that are not installed by default
 - `-D, --addDevDeps`: Add dev extra depedencies that are not installed by default
