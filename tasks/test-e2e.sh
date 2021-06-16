@@ -25,12 +25,6 @@ cd serverless-lambda-npm && npm run build
 sh -c "echo '✅ node-serverless-lambda-npm e2e done'"
 cd ..
 
-npx create-node-ms node-ms --verbose  -pn test-service -e test --noCommit
-cd test-service && yarn build
-
-sh -c "echo '✅ node-ms e2e done'"
-cd ..
-
 npx create-node-ms nse -pn serverless-express --noCommit
 cd serverless-express && yarn build
 
@@ -41,6 +35,12 @@ npx create-node-ms nsl -pn serverless-lambda --noCommit
 cd serverless-lambda && yarn build
 
 sh -c "echo '✅ node-serverless-lambda e2e done'"
+cd ..
+
+npx create-node-ms node-ms --verbose  -pn test-service -e test --noCommit
+cd test-service && yarn build
+
+sh -c "echo '✅ node-ms e2e done'"
 cd ..
 
 # Done!
