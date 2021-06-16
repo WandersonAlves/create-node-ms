@@ -11,8 +11,15 @@ export const gitInit = (serviceDir: string) => {
 
 export const gitFirstCommit = (serviceDir: string) => {
   logger.info('Doing first commit, yay...');
-  const stdout = execSync('git add . && git commit -m "feat: first commit :rocket:"', {
-    cwd: serviceDir,
-  });
-  logger.info(stdout.toString(), { label: 'git' });
+  try {
+    const stdout = execSync('git add . && git commit -m "feat: first commit :rocket:"', {
+      cwd: serviceDir,
+    });
+    logger.info(stdout.toString(), { label: 'git' });
+  } catch (e) {
+    logger.error(
+      'Error when trying to make a commit. Please check if you have a user.email and user.name in your git global config',
+    );
+    process.exit(1);
+  }
 };
