@@ -37,12 +37,6 @@ cd serverless-lambda && yarn build
 sh -c "echo '✅ node-serverless-lambda e2e done'"
 cd ..
 
-npx create-node-ms node-ms --verbose  -pn test-service -e test --noCommit
-cd test-service && yarn build
-
-sh -c "echo '✅ node-ms e2e done'"
-cd ..
-
 # Done!
 sh -c "echo '🦄  Everything is working!'"
 sh -c "echo '🚀  Ready to ship'"
