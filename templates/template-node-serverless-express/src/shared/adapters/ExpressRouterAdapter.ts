@@ -15,11 +15,8 @@ export default class ExpressRouterAdapter {
         query: req.apiGateway.event.queryStringParameters,
         headers: normalizedHeaders,
       };
-
-      const detailedResponse = req?.apiGateway?.event?.headers?.detailedResponse ? true : false;
       const httpResponse = await router.route(httpRequest);
-
-      return resp.json(detailedResponse ? httpResponse : httpResponse.body);
+      return resp.json(httpResponse);
     };
   }
 
