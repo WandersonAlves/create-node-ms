@@ -16,7 +16,7 @@ export default class ExpressRouterAdapter {
         headers: normalizedHeaders,
       };
       const httpResponse = await router.route(httpRequest);
-      return resp.json(httpResponse);
+      return resp.status(httpResponse.statusCode).json(httpResponse);
     };
   }
 
