@@ -7,9 +7,9 @@
     "node": ">=10.22.0"
   },
   "scripts": {
-    "test": "D_npyarn_D test:unit && D_npyarn_D test:feature",
-    "test:unit": "mocha -r ts-node/register tests/cases/**/*.spec.ts",
-    "test:feature": "mocha -r ts-node/register tests/feature/**/*.spec.ts",
+    "test": "D_npyarn_D test:unit",
+    "test:unit": "mocha -r ts-node/register src/**/*.spec.ts",
+    "test:coverage": "nyc --reporter=lcov --reporter=text-summary yarn test:unit",
     "test:watch": "nodemon --watch ./src/**/*.ts --ext ts --exec \"mocha -r ts-node/register src/**/*.test.ts\"",
     "lint": "eslint -c .eslintrc.js --ext .ts ./src/**/*.ts",
     "lint:fix": "D_npyarn_D lint --fix",
