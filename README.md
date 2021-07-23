@@ -1,18 +1,11 @@
-# clean-node-ms (Under construction)
+# clean-node-ms
 
-A optionated group of templates to help you build nice micro-services (and aws lamdas) :bowtie:
+A optionated group of templates to help you build nice micro-services (in aws lamda) :bowtie:
 
 Currently has two templates:
 
-- node-ms
-- node-serverless-(express | lambda)
-
-Are planned these templates:
-
-- template-go-ms
-- template-go-queue-consumer
-- template-go-queue-producer
-- template-node-cron
+- node-serverless-express (nse)
+- node-serverless-lambda (nsl)
 
 ## Quick Overview
 
@@ -34,23 +27,6 @@ yarn dev
 
 ## Templates
 
-### node-ms
-
-> `npx create-node-ms node-ms -pn test-service -e test`
-
-- Rest server: express | fastify
-- IoC|DI: InversifyJS
-- Database: postgres
-- Testing: mocha + chai
-- Build: TypeScript + Webpack + https://github.com/astefanutti/scratch-node
-
-> To build the final version of your service, run `yarn build`, `yarn build:webpack` and `yarn build:docker`
-
-#### Options
-
-- `-e, --entityName`(**required**): Name of first entity (name used to create interfaces and etc.)
-- `-ep, --entityPluralName`: Pluralized name of the entity
-
 ### node-serverless (`node-serverless-express` | `node-serverless-lambda`)
 
 Comes with two serverless flavors: express (`node-serverless-express` or `nse`) and lambda (`node-serverless-lambda` or `nsl`)
@@ -60,14 +36,9 @@ Comes with two serverless flavors: express (`node-serverless-express` or `nse`) 
 - Serverless Framework + `serverless-offline` using `aws-serverless-express` or raw lambda file
 - IoC|DI: InversifyJS
 - Testing: mocha + chai
-- Build: Typescript
+- Build: Typescript + Webpack
 
 Has configuration for debugging within vscode (see .vscode/launch.json)
-
-## Roadmap
-
-- Better README
-- Options for REST ms, queue ms, job ms, etc...
 
 ## Contributing
 
