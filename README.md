@@ -44,7 +44,7 @@ Has configuration for debugging within vscode (see .vscode/launch.json)
 
 - Fork and clone this repo
 - Make changes
-- Run `yarn dev`, `yarn dev:nse` or `yarn dev:nsl` to create a new template with your code changes
+- Run `yarn dev`, `yarn dev:nse` or `yarn dev:nsl` (or `make code-nse` || `make code-nsl`) to create a new template with your code changes
   - This will remove `../create-node-ms-junk` folder
   - Create a `../create-node-ms-junk/` folder
   - And generate a new project with the name declared on your dev command on `../create-node-ms-junk/` folder
