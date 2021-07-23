@@ -6,7 +6,7 @@ import ExpressRouterAdapter from '../shared/adapters/ExpressRouterAdapter';
 /**
  * Creates a express route using the build pattern
  */
-export class RoutesBuilder {
+export default class RoutesBuilder {
   private _router = Router();
 
   get(url: string | string[], requestRouter: Newable) {
@@ -33,5 +33,3 @@ export class RoutesBuilder {
     return this._router;
   }
 }
-
-export const Range = (start: number, end: number) => Array.from({ length: end - start + 1 }, (v, k) => k + start);
