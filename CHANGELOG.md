@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.31](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.30...v0.3.31) (2021-07-23)
+
+### Bug Fixes
+
+- **nse:** forward HttpResponse statusCode in ExpressRouterAdapter ([5a33f81](https://github.com/WandersonAlves/create-node-ms/commit/5a33f8146e66378f9edd98daee7ea16da2546e4a))
+- **nse:** remove detailedResponse header from ExpressRouterAdapter ([f8a1196](https://github.com/WandersonAlves/create-node-ms/commit/f8a1196573b1dd11f89067832f08b005ba756792))
+- **nse,nsl:** jsdoc/newline-after-description estlint rule ([2eeb03a](https://github.com/WandersonAlves/create-node-ms/commit/2eeb03a50e2f1f1253ca3eda66ef87f191411250))
+- **nse,nsl:** update test scripts ([8690b8b](https://github.com/WandersonAlves/create-node-ms/commit/8690b8bdae22345f724d387bcb1f87700344a17d))
+
 ### [0.3.30](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.29...v0.3.30) (2021-06-10)
 
 ### Features
