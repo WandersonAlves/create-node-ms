@@ -3,7 +3,7 @@ import { execSync } from 'child_process';
 
 export const gitInit = (serviceDir: string) => {
   logger.info('Starting git...');
-  const stdout = execSync('git init', {
+  const stdout = execSync('git init -b main', {
     cwd: serviceDir,
   });
   logger.info(stdout.toString(), { label: 'git' });
