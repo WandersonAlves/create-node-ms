@@ -25,6 +25,11 @@
   "bin": {
     "create-node-ms": "./lib/index.js"
   },
+  "files": [
+    "lib/**/*",
+    "shared-templates/**/*",
+    "templates/**/*"
+  ],
   "keywords": [
     "clean",
     "node",
