@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.37](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.36...v0.3.37) (2021-12-14)
+
+### Bug Fixes
+
+- use main branch when creating projects ([de558a4](https://github.com/WandersonAlves/create-node-ms/commit/de558a42795c0a2bb047bf6a5d451750bc197f4b))
+
 ### [0.3.36](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.35...v0.3.36) (2021-12-14)
 
 ### [0.3.35](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.34...v0.3.35) (2021-12-14)
