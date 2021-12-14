@@ -1,37 +1,23 @@
-import { UnkownParams } from '../types';
-import HttpResponse from '../responses/HttpResponse';
+import HttpResponse from '@shared/responses/HttpResponse';
 
-export interface UseCaseParams<H = any, B = any, Q = any, P = any> {
+export interface HttpRequestParams<B = any, Q = any, P = any, H = any> {
   headers?: H;
   body?: B;
   query?: Q;
-  pathParams?: P;
+  params?: P;
 }
 
 export interface UseCase {
-  execute({ headers, body }: UseCaseParams): Promise<HttpResponse<any>>;
+  execute({ headers, body }: HttpRequestParams): Promise<HttpResponse<any>>;
 }
 
-export interface IHttpRequest<HEADERS = any, QUERY = any, PARAMS = any, BODY = any> {
-  body?: BODY;
-  query?: QUERY;
-  params?: PARAMS;
-  headers?: HEADERS;
-}
-
-export interface IHttpError<T = any> {
+export interface IHttpError {
   name: string;
   message: string;
   statusCode: number;
-  extras?: ErrorResponseBody<T>;
-}
-
-export interface ErrorResponseBody<T = UnkownParams> {
-  data: T;
-  url: string;
-  method: string;
+  extras?: any;
 }
 
 export interface RequestRouter {
-  route({ headers, body }: IHttpRequest): Promise<HttpResponse<any>>;
+  route({ headers, body }: HttpRequestParams): Promise<HttpResponse<any>>;
 }

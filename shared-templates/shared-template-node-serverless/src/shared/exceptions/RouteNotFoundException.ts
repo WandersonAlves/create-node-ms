@@ -1,5 +1,5 @@
 import { NOT_FOUND } from 'http-status';
-import GenericException from './GenericException';
+import GenericException from '@shared/exceptions/GenericException';
 
 export default class RouteNotFoundException extends GenericException {
   constructor(url: string, method: string) {

@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-return */
-import GenericException from '../exceptions/GenericException';
-import HttpResponse from '../responses/HttpResponse';
+import GenericException from '@shared/exceptions/GenericException';
+import HttpResponse from '@shared/responses/HttpResponse';
 
 // eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export default function ExceptionHandler(target: object, name: string | symbol, descriptor: PropertyDescriptor) {

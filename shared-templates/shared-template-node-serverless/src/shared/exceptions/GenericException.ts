@@ -1,4 +1,4 @@
-import { IHttpError } from '../contracts';
+import { IHttpError } from '@shared/contracts';
 import { INTERNAL_SERVER_ERROR } from 'http-status';
 
 export default class GenericException extends Error {

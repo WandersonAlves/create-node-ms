@@ -1,12 +1,13 @@
-import { IHttpRequest, RequestRouter } from '../../../shared/contracts';
-import { inject, injectable } from 'inversify';
-import GenerateRandomNumberCase from './GenerateRandomNumberCase';
+import { HttpRequestParams, RequestRouter } from '@shared/contracts';
+import { inject } from 'inversify';
+import { provide } from 'inversify-binding-decorators';
+import GenerateRandomNumberCase from '@modules/RandomNumber/GenerateRandomNumber/GenerateRandomNumberCase';
 
-@injectable()
+@provide(GenerateRandomNumberRouter)
 export default class GenerateRandomNumberRouter implements RequestRouter {
   @inject(GenerateRandomNumberCase) private case: GenerateRandomNumberCase;
 
-  route({ headers }: IHttpRequest<any>) {
-    return this.case.execute({ headers });
+  async route({ headers }: HttpRequestParams<any>) {
+    return await this.case.execute({ headers });
   }
 }

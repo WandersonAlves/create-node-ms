@@ -1,5 +1,5 @@
 import { AxiosError, AxiosResponse } from 'axios';
-import HttpResponse from '../shared/responses/HttpResponse';
+import HttpResponse from '@shared/responses/HttpResponse';
 
 export default class ReturnHelper {
   static CaseResponse<T>(status: number, data: T, success = true): Promise<HttpResponse<T>> {

@@ -1,12 +1,12 @@
 import { Container } from 'inversify';
-import { Newable } from '../../shared/types';
-import AxiosHttpHandle from '../http/AxiosHttpHandler';
-import RandomNumberContainer from '../../modules/RandomNumber/RandomNumberContainer';
+import { Newable } from '@shared/types';
+import { buildProviderModule } from 'inversify-binding-decorators';
+import AxiosHttpHandle from '@infra/http/AxiosHttpHandler';
 
 // Merge container modules
-const container = new Container({ defaultScope: 'Singleton' });
+const container = new Container({ defaultScope: 'Singleton', autoBindInjectable: true });
 
-container.load(RandomNumberContainer);
+container.load(buildProviderModule());
 
 // Infra
 container.bind<AxiosHttpHandle>(AxiosHttpHandle).toSelf();

@@ -12,6 +12,15 @@ https://github.com/typescript-eslint/tslint-to-eslint-config/blob/master/docs/FA
 Happy linting! 💖
 */
 module.exports = {
+  overrides: [
+    {
+      files: '*.spec.ts',
+      rules: {
+        '@typescript-eslint/no-unused-expressions': 'off',
+        '@typescript-eslint/no-unsafe-member-access': 'off',
+      },
+    },
+  ],
   env: {
     es6: true,
   },
@@ -128,6 +137,7 @@ module.exports = {
     eqeqeq: ['error', 'smart'],
     'guard-for-in': 'error',
     'id-blacklist': 'error',
+    curly: 'error',
     'id-match': 'error',
     'import/order': 'off',
     'jsdoc/check-alignment': 'error',
@@ -151,12 +161,19 @@ module.exports = {
     'no-irregular-whitespace': 'off',
     'no-multiple-empty-lines': 'off',
     'no-new-wrappers': 'error',
-    'no-shadow': [
+    'no-restricted-imports': [
       'error',
       {
-        hoist: 'all',
+        patterns: [
+          {
+            group: ['./*', '../*'],
+            message: 'Use absolute import instead.',
+          },
+        ],
       },
     ],
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': 'error',
     'no-throw-literal': 'error',
     'no-trailing-spaces': 'off',
     'no-undef-init': 'error',

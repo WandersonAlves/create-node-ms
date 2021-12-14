@@ -5,10 +5,16 @@ provider:
   runtime: nodejs12.x
   region: ${env:AWS_REGION}
 
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
 plugins:
   - serverless-offline
   - serverless-dotenv-plugin
   - serverless-plugin-typescript
+  - serverless-tscpaths
 
 functions:
   server:

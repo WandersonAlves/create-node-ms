@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { Container } from 'inversify';
-import { Newable } from '../shared/types';
-import { RequestRouter, UseCase } from '../shared/contracts';
-import AxiosHttpHandle from '../infra/http/AxiosHttpHandler';
+import { Newable } from '@shared/types';
+import { RequestRouter, UseCase } from '@shared/contracts';
+import AxiosHttpHandle from '@infra/http/AxiosHttpHandler';
 
 export default class TestContainer<T = UseCase | RequestRouter> {
   private _ref: Newable<T>;
@@ -22,6 +22,16 @@ export default class TestContainer<T = UseCase | RequestRouter> {
 
   add<TT = UseCase | RequestRouter>(obj: Newable<TT>) {
     this._container.bind(obj).toSelf();
+    return this;
+  }
+
+  addDynamicValue<TT>(obj: Newable<TT>) {
+    this._container.bind(obj).toDynamicValue(() => new obj());
+    return this;
+  }
+
+  addDynamicValueWithAlias<TT>(alias: string, obj: Newable<TT>) {
+    this._container.bind<TT>(alias).toDynamicValue(() => new obj());
     return this;
   }
 }

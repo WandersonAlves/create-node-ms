@@ -1,5 +1,5 @@
 import { APIGatewayProxyResult } from 'aws-lambda';
-import HttpResponse from './HttpResponse';
+import HttpResponse from '@shared/responses/HttpResponse';
 
 export default class ServerlessResponse {
   static Lambda(response: HttpResponse<any>): APIGatewayProxyResult {

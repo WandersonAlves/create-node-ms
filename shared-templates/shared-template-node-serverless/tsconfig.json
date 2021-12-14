@@ -8,8 +8,18 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "inlineSourceMap": true,
-    "lib": ["es2017"]
+    "lib": ["es2017"],
+    "baseUrl": "src/",
+    "paths": {
+      "@infra/*": ["infra/*"],
+      "@mocks/*": ["mocks/*"],
+      "@modules/*": ["modules/*"],
+      "@server/*": ["server/*"],
+      "@shared/*": ["shared/*"],
+      "@test/*": ["test/*"],
+      "@utils/*": ["utils/*"]
+    }
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "include": ["src/**/*.ts", "tests/**/*.ts", "custom.d.ts"],
   "exclude": ["node_modules"]
 }

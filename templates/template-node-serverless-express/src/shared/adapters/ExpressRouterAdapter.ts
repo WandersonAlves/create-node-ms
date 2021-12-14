@@ -1,4 +1,4 @@
-import { IHttpRequest, RequestRouter } from '../contracts';
+import { HttpRequestParams, RequestRouter } from '@shared/contracts';
 import { Request, Response } from 'express';
 
 export default class ExpressRouterAdapter {
@@ -9,7 +9,7 @@ export default class ExpressRouterAdapter {
   static adapt(router: RequestRouter) {
     return async (req: Request, resp: Response) => {
       const normalizedHeaders: { [k: string]: string } = ExpressRouterAdapter.NormalizeHeaders(req);
-      const httpRequest: IHttpRequest = {
+      const httpRequest: HttpRequestParams = {
         body: req.body,
         params: req.apiGateway.event.pathParameters,
         query: req.apiGateway.event.queryStringParameters,

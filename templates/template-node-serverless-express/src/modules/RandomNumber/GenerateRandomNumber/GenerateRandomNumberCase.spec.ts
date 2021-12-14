@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { expect } from 'chai';
-import GenerateRandomNumberCase from './GenerateRandomNumberCase';
-import TestContainer from '../../../mocks/TestContainer';
-import container from '../../../infra/container/inversify.config';
+import GenerateRandomNumberCase from '@modules/RandomNumber/GenerateRandomNumber/GenerateRandomNumberCase';
+import TestContainer from '@mocks/TestContainer';
+import container from '@infra/container/inversify.config';
 
 describe('GenerateRandomNumberCase', () => {
   beforeEach(() => {

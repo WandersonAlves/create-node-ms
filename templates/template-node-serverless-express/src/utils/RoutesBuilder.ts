@@ -1,7 +1,7 @@
-import { GetFromContainer } from '../infra/container/inversify.config';
-import { Newable } from '../shared/types';
+import { GetFromContainer } from '@infra/container/inversify.config';
+import { Newable } from '@shared/types';
 import { Router } from 'express';
-import ExpressRouterAdapter from '../shared/adapters/ExpressRouterAdapter';
+import ExpressRouterAdapter from '@shared/adapters/ExpressRouterAdapter';
 
 /**
  * Creates a express route using the build pattern

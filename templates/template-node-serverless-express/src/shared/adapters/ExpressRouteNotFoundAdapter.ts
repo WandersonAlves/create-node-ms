@@ -1,6 +1,6 @@
 import { NOT_FOUND } from 'http-status';
 import { Request, Response } from 'express';
-import RouteNotFoundException from '../exceptions/RouteNotFoundException';
+import RouteNotFoundException from '@shared/exceptions/RouteNotFoundException';
 
 export default class ExpressRouteNotFoundAdapter {
   static adapt() {

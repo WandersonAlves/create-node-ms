@@ -1,5 +1,5 @@
 import { UNAUTHORIZED } from 'http-status';
-import GenericException from './GenericException';
+import GenericException from '@shared/exceptions/GenericException';
 
 export default class AuthException extends GenericException {
   static JWTExpiredOrNotReceived = 'JWTExpiredOrNotReceived';

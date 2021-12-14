@@ -1,5 +1,5 @@
 import * as httpCodes from 'http-status';
-import GenericException from './GenericException';
+import GenericException from '@shared/exceptions/GenericException';
 
 export default class UnprocessableObjectException extends GenericException {
   constructor(errors: any) {

@@ -1,13 +1,14 @@
-import * as bodyParser from 'body-parser';
+import * as cors from 'cors';
 import * as express from 'express';
 import { eventContext } from 'aws-serverless-express/middleware';
-import ExpressRouteNotFoundAdapter from '../shared/adapters/ExpressRouteNotFoundAdapter';
-import V1Routes from '../modules/Routes';
+import ExpressRouteNotFoundAdapter from '@shared/adapters/ExpressRouteNotFoundAdapter';
+import V1Routes from '@modules/Routes';
 
 const server = express();
 
+server.options('*', cors());
 server.use(eventContext());
-server.use(bodyParser.json());
+server.use(express.json());
 
 server.use('/v1', V1Routes);
 
