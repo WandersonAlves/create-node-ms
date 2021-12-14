@@ -1,8 +1,8 @@
 import { Container } from 'inversify';
-import AxiosHttpHandle from '../http/AxiosHttpHandler';
-import GenerateRandomNumberCase from '../../cases/GenerateRandomNumberCase';
+import AxiosHttpHandle from '@infra/http/AxiosHttpHandler';
+import GenerateRandomNumberCase from '@cases/GenerateRandomNumberCase';
 
-const container = new Container({ defaultScope: 'Singleton' });
+const container = new Container({ defaultScope: 'Singleton', autoBindInjectable: true });
 
 // Domain / Use Cases
 container.bind<GenerateRandomNumberCase>(GenerateRandomNumberCase).toSelf();

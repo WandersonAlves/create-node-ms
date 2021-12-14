@@ -1,10 +1,10 @@
 import { OK } from 'http-status';
-import { UseCase } from '../shared/contracts';
-import { injectable } from 'inversify';
-import ExceptionHandler from '../shared/decorators/ExceptionHandler';
-import HttpResponse from '../shared/responses/HttpResponse';
+import { UseCase } from '@shared/contracts';
+import { provide } from 'inversify-binding-decorators';
+import ExceptionHandler from '@shared/decorators/ExceptionHandler';
+import HttpResponse from '@shared/responses/HttpResponse';
 
-@injectable()
+@provide(GenerateRandomNumberCase)
 export default class GenerateRandomNumberCase implements UseCase {
   @ExceptionHandler
   async execute() {

@@ -14,6 +14,7 @@
       "@infra/*": ["infra/*"],
       "@mocks/*": ["mocks/*"],
       "@modules/*": ["modules/*"],
+      "@cases/*": ["cases/*"],
       "@server/*": ["server/*"],
       "@shared/*": ["shared/*"],
       "@test/*": ["test/*"],

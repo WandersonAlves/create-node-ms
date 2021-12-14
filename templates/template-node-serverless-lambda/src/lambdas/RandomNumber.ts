@@ -1,10 +1,10 @@
 import 'reflect-metadata';
 import { APIGatewayProxyResult } from 'aws-lambda';
-import GenerateRandomNumberCase from '../cases/GenerateRandomNumberCase';
-import ServerlessResponse from '../shared/responses/ServerlessResponse';
-import container from '../infra/container/inversify.config';
+import GenerateRandomNumberCase from '@cases/GenerateRandomNumberCase';
+import ServerlessResponse from '@shared/responses/ServerlessResponse';
+import container from '@infra/container/inversify.config';
 
-const useCase = container.get<GenerateRandomNumberCase>(GenerateRandomNumberCase);
+const useCase = container.get(GenerateRandomNumberCase);
 
 export const handle = async (): Promise<APIGatewayProxyResult> => {
   const result = await useCase.execute();

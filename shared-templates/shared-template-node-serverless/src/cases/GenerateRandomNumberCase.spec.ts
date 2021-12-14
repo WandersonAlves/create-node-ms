@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { expect } from 'chai';
-import GenerateRandomNumberCase from '../../src/cases/GenerateRandomNumberCase';
-import HttpResponse from '../../src/shared/responses/HttpResponse';
-import container from '../../src/infra/container/inversify.config';
+import GenerateRandomNumberCase from '@cases/GenerateRandomNumberCase';
+import HttpResponse from '@shared/responses/HttpResponse';
+import container from '@infra/container/inversify.config';
 
 const _bindHublogRepoMock = () => null;
 
