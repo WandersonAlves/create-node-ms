@@ -1,5 +1,6 @@
 {
-  "exclude": ["src/**/*.spec.ts", "src/infra/http/AxiosHttpHandler.ts", "src/shared/**.ts", "src/utils/**.ts"],
+  "include": ["src/modules/**/*.ts"],
+  "exclude": ["src/modules/**/*.spec.ts"],
   "check-coverage": true,
   "branches": 76,
   "lines": 76,
