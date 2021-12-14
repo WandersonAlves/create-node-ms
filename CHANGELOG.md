@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.33](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.32...v0.3.33) (2021-12-14)
+
+### Bug Fixes
+
+- add status code to express adapter response ([b704719](https://github.com/WandersonAlves/create-node-ms/commit/b7047193b62f1951a521297924f3cb27e37fad5d))
+
 ### [0.3.32](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.30...v0.3.32) (2021-12-14)
 
 ### Features
