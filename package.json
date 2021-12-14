@@ -1,6 +1,6 @@
 {
   "name": "create-node-ms",
-  "version": "0.3.33",
+  "version": "0.3.34",
   "engines": {
     "node": ">=10.22.0"
   },
@@ -18,7 +18,7 @@
     "start": "node -r ts-node/register ./src/index.ts",
     "build": "rm -rf ./lib && tsc",
     "prerelease": "yarn build",
-    "release": "git add -f ./lib && npx standard-version",
+    "release": "npx standard-version && yarn build && yarn publish",
     "format": "prettier --write '**/*.ts'",
     "test:e2e": "docker build --no-cache -t create-node-ms-e2e-test . && docker run create-node-ms-e2e-test"
   },
