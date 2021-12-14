@@ -1,6 +1,6 @@
 {
   "name": "create-node-ms",
-  "version": "0.3.34",
+  "version": "0.3.35",
   "engines": {
     "node": ">=10.22.0"
   },
@@ -16,7 +16,7 @@
     "dev:help": "yarn dev --help",
     "dev": "node -r ts-node/register ./src/index.ts ",
     "start": "node -r ts-node/register ./src/index.ts",
-    "build": "rm -rf ./lib && tsc",
+    "build": "tsc",
     "prerelease": "yarn build",
     "release": "npx standard-version && yarn build && yarn publish",
     "format": "prettier --write '**/*.ts'",
