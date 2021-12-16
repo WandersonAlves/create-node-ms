@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.39](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.38...v0.3.39) (2021-12-16)
+
+### Features
+
+- add sinon-chai ([315578b](https://github.com/WandersonAlves/create-node-ms/commit/315578b668c966698faed4ec1ed1c20cc887b5a8))
+- **nse:** RoutesBuilder accepts middleware ([3611398](https://github.com/WandersonAlves/create-node-ms/commit/361139885a90de30bc43cf0806e3c370463df163))
+
+### Bug Fixes
+
+- use params from express instead of apiGateway ([25384f5](https://github.com/WandersonAlves/create-node-ms/commit/25384f5295e906e66b4211bfd07307c310bce2e2))
+
 ### [0.3.38](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.37...v0.3.38) (2021-12-14)
 
 ### Bug Fixes
