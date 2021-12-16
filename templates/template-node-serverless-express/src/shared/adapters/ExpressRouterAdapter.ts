@@ -11,7 +11,7 @@ export default class ExpressRouterAdapter {
       const normalizedHeaders: { [k: string]: string } = ExpressRouterAdapter.NormalizeHeaders(req);
       const httpRequest: HttpRequestParams = {
         body: req.body,
-        params: req.apiGateway.event.pathParameters,
+        params: req.params,
         query: req.apiGateway.event.queryStringParameters,
         headers: normalizedHeaders,
       };
