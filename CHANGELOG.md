@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.40](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.39...v0.3.40) (2021-12-27)
+
+### Bug Fixes
+
+- wrong implementation of patch on AxiosHttpHandler ([c775a14](https://github.com/WandersonAlves/create-node-ms/commit/c775a14b9033e46157f69e0080fc48d08b629d0b))
+
 ### [0.3.39](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.38...v0.3.39) (2021-12-16)
 
 ### Features
