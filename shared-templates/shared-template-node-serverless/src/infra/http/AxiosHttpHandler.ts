@@ -32,7 +32,7 @@ export default class AxiosHttpHandle {
   }
 
   patch<T>(url: string, data: any, params?: AxiosRequestConfig) {
-    return this._axios.post<T>(url, data, params);
+    return this._axios.patch<T>(url, data, params);
   }
 
   delete<T>(url: string, params?: AxiosRequestConfig) {
