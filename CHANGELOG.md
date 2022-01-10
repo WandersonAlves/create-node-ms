@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.41](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.40...v0.3.41) (2022-01-10)
+
+### Bug Fixes
+
+- better typings on UnprocessableObjectException ([6d23c80](https://github.com/WandersonAlves/create-node-ms/commit/6d23c80c31f2a06ecb9754f5d25f6b8518deb7be))
+- update AxiosHttpHandler consistency ([961f001](https://github.com/WandersonAlves/create-node-ms/commit/961f00182ed17a8d83000217e98f612c68594563))
+
 ### [0.3.40](https://github.com/WandersonAlves/create-node-ms/compare/v0.3.39...v0.3.40) (2021-12-27)
 
 ### Bug Fixes
