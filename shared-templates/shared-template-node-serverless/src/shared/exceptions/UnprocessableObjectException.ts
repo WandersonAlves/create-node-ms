@@ -1,8 +1,9 @@
 import * as httpCodes from 'http-status';
+import { FieldError } from '@shared/contracts';
 import GenericException from '@shared/exceptions/GenericException';
 
 export default class UnprocessableObjectException extends GenericException {
-  constructor(errors: any) {
+  constructor(errors: FieldError[]) {
     const params = {
       name: 'UnprocessableObjectException',
       message: 'Fields validation failed',

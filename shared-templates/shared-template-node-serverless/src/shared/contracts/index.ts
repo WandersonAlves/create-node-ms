@@ -6,7 +6,10 @@ export interface HttpRequestParams<B = any, Q = any, P = any, H = any> {
   query?: Q;
   params?: P;
 }
-
+export interface FieldError {
+  field: string;
+  reason: string;
+}
 export interface UseCase {
   execute({ headers, body }: HttpRequestParams): Promise<HttpResponse<any>>;
 }
