@@ -1,8 +1,9 @@
 import * as Agent from 'agentkeepalive';
-import { injectable } from 'inversify';
+import { provide } from 'inversify-binding-decorators';
+import { unmanaged } from 'inversify';
 import Axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
-@injectable()
+@provide(AxiosHttpHandle)
 export default class AxiosHttpHandle {
   private static AgentOptions: Agent.HttpsOptions = {
     maxSockets: 100,
@@ -16,22 +17,23 @@ export default class AxiosHttpHandle {
 
   private _axios: AxiosInstance;
 
-  constructor() {
+  constructor(@unmanaged() config?: AxiosRequestConfig) {
     this._axios = Axios.create({
       httpAgent: AxiosHttpHandle.HttpAgent,
       httpsAgent: AxiosHttpHandle.HttpsAgent,
+      ...config,
     });
   }
 
-  post<T>(url: string, data: any, params?: AxiosRequestConfig) {
+  post<T>(url: string, data?: any, params?: AxiosRequestConfig) {
     return this._axios.post<T>(url, data, params);
   }
 
-  put<T>(url: string, data: any, params?: AxiosRequestConfig) {
+  put<T>(url: string, data?: any, params?: AxiosRequestConfig) {
     return this._axios.put<T>(url, data, params);
   }
 
-  patch<T>(url: string, data: any, params?: AxiosRequestConfig) {
+  patch<T>(url: string, data?: any, params?: AxiosRequestConfig) {
     return this._axios.patch<T>(url, data, params);
   }
 
