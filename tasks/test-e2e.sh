@@ -19,22 +19,32 @@ npm set registry "$localRegistryAddress"
 npm publish --tag e2e
 
 # Finally run a e2e test
-npx create-node-ms nsl -pn serverless-lambda-npm --noCommit --useNpm
-cd serverless-lambda-npm && npm run build
+sh -c "echo '🏃🏾‍♂️ serverless-lambda --useNpm'"
+npx create-node-ms serverless-lambda -pn serverless-lambda-npm --noCommit --useNpm
+cd serverless-lambda-npm && npm run test && npm run lint && npm run build
+sh -c "echo '✅ serverless-lambda --useNpm e2e done'"
 
-sh -c "echo '✅ node-serverless-lambda-npm e2e done'"
 cd ..
 
+sh -c "echo '🏃🏾‍♂️ serverless-express'"
 npx create-node-ms nse -pn serverless-express --noCommit
-cd serverless-express && yarn build
+cd serverless-express && yarn test && yarn lint && yarn build
+sh -c "echo '✅ serverless-express e2e done'"
 
-sh -c "echo '✅ node-serverless-express e2e done'"
 cd ..
 
-npx create-node-ms nsl -pn serverless-lambda --noCommit
-cd serverless-lambda && yarn build
+sh -c "echo '🏃🏾‍♂️ serverless-lambda'"
+npx create-node-ms serverless-lambda -pn serverless-lambda --noCommit
+cd serverless-lambda && yarn test && yarn lint && yarn build
+sh -c "echo '✅ serverless-lambda e2e done'"
 
-sh -c "echo '✅ node-serverless-lambda e2e done'"
+cd ..
+
+sh -c "echo '🏃🏾‍♂️ express'"
+npx create-node-ms express -pn express-server --noCommit
+cd express-server && yarn test && yarn lint && yarn build
+sh -c "echo '✅ express e2e done'"
+
 cd ..
 
 # Done!

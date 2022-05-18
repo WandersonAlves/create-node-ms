@@ -2,10 +2,7 @@ import { createLogger, format, transports } from 'winston';
 const { printf, colorize } = format;
 const colorizer = colorize();
 
-const timestampFormatter = () =>
-  new Date().toLocaleString('pt-BR', {
-    timeZone: 'America/Sao_Paulo',
-  });
+const timestampFormatter = () => new Date().toISOString();
 
 const consoleFormatter = printf(({ stack, level, message, label, timestamp }: { [key: string]: string }) => {
   const levelLabelColorized = colorizer.colorize(level, `${level}:${label}`);
