@@ -9,27 +9,18 @@ program.version('0.0.1', '-v, --version');
 
 GenerateServerlessCommand(
   program,
-  'node-serverless-express',
-  'Create a serverless framework project with TypeScript using aws-serverless-express',
+  'serverless-express',
+  'Create a serverless project with TypeScript and ExpressJS',
   CreateNodeServerlessExpress,
 );
 
 GenerateServerlessCommand(
   program,
-  'nse',
-  'Create a serverless framework project with TypeScript using aws-serverless-express',
-  CreateNodeServerlessExpress,
-);
-
-GenerateServerlessCommand(
-  program,
-  'node-serverless-lambda',
-  'Create a serverless framework project with TypeScript',
+  'serverless-lambda',
+  'Create a serverless project with TypeScript',
   CreateNodeServerlessLambda,
 );
 
 GenerateServerlessCommand(program, 'express', 'Create a ExpressJS project with TypeScript', CreateExpressProject);
-
-GenerateServerlessCommand(program, 'nsl', 'Create a serverless framework project with TypeScript', CreateNodeServerlessLambda);
 
 program.parse(process.argv);

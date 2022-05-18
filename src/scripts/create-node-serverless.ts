@@ -24,7 +24,7 @@ export const CreateNodeServerlessExpress = async ({
   addDevDeps,
 }) => {
   await GenerateNodeProject({
-    TEMPLATE_FOLDER: 'template-node-serverless-express',
+    TEMPLATE_FOLDER: 'template-serverless-express',
     SHARED_TEMPLATE_FOLDER: 'shared-template-node-serverless',
     projectName,
     projectPath,
@@ -46,7 +46,7 @@ export const CreateNodeServerlessLambda = async ({
   addDevDeps,
 }) => {
   await GenerateNodeProject({
-    TEMPLATE_FOLDER: 'template-node-serverless-lambda',
+    TEMPLATE_FOLDER: 'template-serverless-lambda',
     SHARED_TEMPLATE_FOLDER: 'shared-template-node-serverless',
     projectName,
     projectPath,
