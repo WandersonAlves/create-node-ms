@@ -1,11 +1,12 @@
 # clean-node-ms
 
-A optionated group of templates to help you build nice micro-services (in aws lamda) :bowtie:
+A optionated group of templates to help you build nice micro-services :bowtie:
 
-Currently has two templates:
+Currently has three templates:
 
-- node-serverless-express (nse)
-- node-serverless-lambda (nsl)
+- express
+- serverless-express
+- serverless-lambda
 
 ## Quick Overview
 
@@ -27,25 +28,53 @@ yarn dev
 
 ## Templates
 
-### node-serverless (`node-serverless-express` | `node-serverless-lambda`)
+### express
 
-Comes with two serverless flavors: express (`node-serverless-express` or `nse`) and lambda (`node-serverless-lambda` or `nsl`)
+Generates a project with ExpressJS and Typescript
 
-> `npx create-node-ms nse -pn serverless-express`
+> `npx create-node-ms express -pn express-server`
 
-- Serverless Framework + `serverless-offline` using `aws-serverless-express` or raw lambda file
+Includes:
+
+- ExpressJS + Typescript
 - IoC|DI: InversifyJS
 - Testing: mocha + chai
 - Build: Typescript + Webpack
 
-Has configuration for debugging within vscode (see .vscode/launch.json)
+### serverless-express
+
+Generates a project with ExpressJS and Typescript running locally with [`serverless-offline`](https://www.serverless.com/plugins/serverless-offline)
+
+> `npx create-node-ms serverless-express -pn serverless-express`
+
+Includes:
+
+- Serverless Framework + `serverless-offline` + `aws-serverless-express` + ExpressJS + Typescript
+- IoC|DI: InversifyJS
+- Testing: mocha + chai
+- Build: Typescript + Webpack
+
+### serverless-lambda
+
+Generates a project with Typescript running locally with [`serverless-offline`](https://www.serverless.com/plugins/serverless-offline)
+
+Can store multiple lambdas (instead of one from `serverless-express`) and has support for building a single lambda running `LAMBDA=<lambda-name> yarn build` (see generated project's README.md)
+
+> `npx create-node-ms serverless-lambda -pn serverless-lambda`
+
+Includes:
+
+- Serverless Framework + `serverless-offline` + Typescript
+- IoC|DI: InversifyJS
+- Testing: mocha + chai
+- Build: Typescript + Webpack
 
 ## Contributing
 
 - Fork and clone this repo
 - Make changes
-- Run `yarn dev`, `yarn dev:nse` or `yarn dev:nsl` (or `make code-nse` || `make code-nsl`) to create a new template with your code changes
-  - This will remove `../create-node-ms-junk` folder
+- Run `make code-serverless-express` || `make code-serverless-lambda` || `make code-express` to create a new template with your code changes
+  - This will clean `../create-node-ms-junk` folder
   - Create a `../create-node-ms-junk/` folder
   - And generate a new project with the name declared on your dev command on `../create-node-ms-junk/` folder
 - Commit your changes (this project has `commitlint` configured)
