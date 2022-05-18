@@ -9,6 +9,7 @@
     "create-node-ms": "node lib/index.js",
     "dev:ms": "yarn dev:prepare node-ms -p ../create-node-ms-junk --verbose  --projectName test-service -e test",
     "dev:nse": "yarn dev:prepare nse -p ../create-node-ms-junk -pn serverless-express --verbose",
+    "dev:express": "yarn dev:prepare express -p ../create-node-ms-junk -pn express-server --verbose",
     "dev:nsl": "yarn dev:prepare nsl -p ../create-node-ms-junk -pn serverless-lambda --verbose",
     "dev:nsl:deps": "yarn dev:prepare nsl -p ../create-node-ms-junk -pn deps-test --verbose -d date-fns lodash -D @types/lodash",
     "dev:prepare": "yarn dev:clean && mkdir ../create-node-ms-junk && yarn dev",

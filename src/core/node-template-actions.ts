@@ -40,6 +40,14 @@ export const runLint = (serviceDir: string, useNpm?: boolean) => {
   });
 };
 
+export const runUnitTests = (serviceDir: string, useNpm?: boolean) => {
+  logger.info('Running tests...', { label: 'install' });
+  execSync(`${useNpm ? 'npm run test' : 'yarn test'}`, {
+    cwd: serviceDir,
+    stdio: 'inherit',
+  });
+};
+
 export const installExtraDeps = (serviceDir: string, packages: string[], useNpm?: boolean) => {
   logger.info('Installing extra depedencies...', { label: 'install' });
   execSync(`${useNpm ? 'npm i' : 'yarn add'} ${packages.join(' ')}`, { stdio: 'inherit', cwd: serviceDir });

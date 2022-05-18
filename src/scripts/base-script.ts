@@ -7,9 +7,9 @@ import {
   installExtraDevDeps,
   installNodeDeps,
   runLint,
+  runUnitTests,
 } from './../core/node-template-actions';
 import { processTemplate, RenamingParams } from './../core/template-processing';
-import { execSync } from 'child_process';
 import { join } from 'path';
 import { jsonString, logger } from './../utils/logger';
 import { removeSync } from 'fs-extra';
@@ -127,6 +127,7 @@ export const GenerateNodeProject = async ({
   }
 
   runLint(genTemplatePath, useNpm);
+  runUnitTests(genTemplatePath, useNpm);
 
   if (!noCommit) {
     gitFirstCommit(genTemplatePath);

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { GenerateServerlessCommand } from './cmd/index';
-import { CreateNodeServerlessExpress, CreateNodeServerlessLambda } from './scripts/create-node-serverless';
+import { CreateExpressProject, CreateNodeServerlessExpress, CreateNodeServerlessLambda } from './scripts/create-node-serverless';
 import { createCommand } from 'commander';
 
 const program = createCommand();
@@ -27,6 +27,8 @@ GenerateServerlessCommand(
   'Create a serverless framework project with TypeScript',
   CreateNodeServerlessLambda,
 );
+
+GenerateServerlessCommand(program, 'express', 'Create a ExpressJS project with TypeScript', CreateExpressProject);
 
 GenerateServerlessCommand(program, 'nsl', 'Create a serverless framework project with TypeScript', CreateNodeServerlessLambda);
 
