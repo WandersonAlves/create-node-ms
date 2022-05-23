@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import RandomNumberRoutes from '@modules/RandomNumber/RandomNumberRoutes';
+import RandomNumberRoutes from '@modules/v1/RandomNumber/RandomNumberRoutes';
 
 const V1Routes = Router();
 

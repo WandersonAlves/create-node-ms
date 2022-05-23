@@ -1,7 +1,7 @@
 import * as cors from 'cors';
 import * as express from 'express';
 import ExpressRouteNotFoundAdapter from '@shared/adapters/ExpressRouteNotFoundAdapter';
-import V1Routes from '@modules/Routes';
+import V1Routes from '@modules/v1/Routes';
 
 const server = express();
 
