@@ -10,13 +10,21 @@ Currently has three templates:
 
 ## Quick Overview
 
+Interactive mode
+
+```
+npx create-node-ms create
+```
+
+Non-Interactive mode
+
 ```
 npx create-node-ms <template-name> -pn test-service
 cd test-service
 yarn dev
 ```
 
-## Global Options
+## Global Options (Non-Interactive mode)
 
 - `-pn, --projectName`(**required**): Project name
 - `-p, --path`: Absolute or relative path to create the project
@@ -69,11 +77,15 @@ Includes:
 - Testing: mocha + chai
 - Build: Typescript + Webpack
 
+## Testing
+
+This package uses e2e testing. Check `tasks/test-e2e.sh`. Uses [`verdaccio`](https://github.com/verdaccio/verdaccio) under the hood.
+
 ## Contributing
 
 - Fork and clone this repo
 - Make changes
-- Run `make code-serverless-express` || `make code-serverless-lambda` || `make code-express` to create a new template with your code changes
+- Run `make code-serverless-express` || `make code-serverless-lambda` || `make code-express` to create a new template with your code changes (or `yarn dev create` to run interactive mode)
   - This will clean `../create-node-ms-junk` folder
   - Create a `../create-node-ms-junk/` folder
   - And generate a new project with the name declared on your dev command on `../create-node-ms-junk/` folder
