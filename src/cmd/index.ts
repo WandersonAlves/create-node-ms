@@ -1,5 +1,5 @@
 import * as commander from 'commander';
-
+import { UserInputGenerator } from '../scripts/user-input';
 export const GenerateServerlessCommand = (refProgram: commander.Command, cmdName: string, desc: string, action: any) => {
   refProgram
     .command(cmdName)
@@ -12,4 +12,8 @@ export const GenerateServerlessCommand = (refProgram: commander.Command, cmdName
     .option('-D, --addDevDeps <addDevDeps...>', 'Install extra dev depedencies')
     .requiredOption('-pn, --projectName <projectName>', 'Project name')
     .action(action);
+};
+
+export const GenerateUserInputCommand = (refProgram: commander.Command) => {
+  refProgram.command('create').description('Wizard to create your project').action(UserInputGenerator);
 };

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { GenerateServerlessCommand } from './cmd/index';
+import { GenerateServerlessCommand, GenerateUserInputCommand } from './cmd/index';
 import { CreateExpressProject, CreateNodeServerlessExpress, CreateNodeServerlessLambda } from './scripts/create-node-serverless';
 import { createCommand } from 'commander';
 
@@ -22,5 +22,5 @@ GenerateServerlessCommand(
 );
 
 GenerateServerlessCommand(program, 'express', 'Create a ExpressJS project with TypeScript', CreateExpressProject);
-
+GenerateUserInputCommand(program);
 program.parse(process.argv);
