@@ -36,17 +36,19 @@ export type RenamingParams = [string, string][];
 export const processTemplate = async (
   serviceDir: string,
   contentRenaming: RenamingParams,
-  fileRenaming: RenamingParams,
+  fileRenaming?: RenamingParams,
   cb?: (str: string) => void,
 ) => {
   const files: string[] = await recursiveGetFileList(serviceDir);
   for (const file of files) {
     cb ? cb(file) : null;
     renameFileContent(file, ...contentRenaming);
-    renameSync(
-      file,
-      fileRenaming.reduce((prev, acc) => prev.replace(new RegExp(acc[0], 'g'), acc[1]), file),
-    );
+    if (fileRenaming) {
+      renameSync(
+        file,
+        fileRenaming.reduce((prev, acc) => prev.replace(new RegExp(acc[0], 'g'), acc[1]), file),
+      );
+    }
   }
 };
 
