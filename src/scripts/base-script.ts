@@ -26,7 +26,6 @@ export const GenerateNodeProject = async ({
   addDeps,
   addDevDeps,
 }: GenerateNodeProjectParams & TemplatingParams) => {
-  logger.level = verbose ? 'debug' : 'info';
   logger.verbose(
     jsonString({
       TEMPLATE_FOLDER,
