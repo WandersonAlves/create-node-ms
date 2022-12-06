@@ -16,7 +16,9 @@ export const CreateNodeServerlessLambda = async (params: GenerateNodeProjectPara
 
 const _GenerateProject = async (params: GenerateNodeProjectParams, templateFolder: string) => {
   logger.level = params.verbose ? 'debug' : 'info';
+
   const { noCommit, projectName, useNpm, projectPath, verbose, addDeps, addDevDeps } = new ProjectParams(params);
+
   await GenerateNodeProject({
     TEMPLATE_FOLDER: templateFolder,
     SHARED_TEMPLATE_FOLDER: 'shared-template-node-serverless',

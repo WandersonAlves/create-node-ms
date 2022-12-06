@@ -92,5 +92,5 @@ const getOptionsObject = async () => {
     addDeps: null,
     addDevDeps: null,
   };
-  return { template: responses.template, options };
+  return { template: <string>responses.template, options };
 };

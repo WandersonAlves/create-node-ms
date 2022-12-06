@@ -2,23 +2,33 @@
 import { GenerateServerlessCommand, GenerateUserInputCommand } from './cmd/index';
 import { CreateExpressProject, CreateNodeServerlessExpress, CreateNodeServerlessLambda } from './scripts/create-node-serverless';
 import { createCommand } from 'commander';
+import { GenerateNodeProjectParams } from './utils/types';
 
 const program = createCommand();
 
-program.version('0.0.1', '-v, --version');
+program
+  .name('create-node-ms')
+  .description('A generator for microservices with Clean Architecture in Node')
+  .version('0.0.1', '-v, --version');
 
 GenerateServerlessCommand(
   program,
   'serverless-express',
   'Create a serverless project with TypeScript and ExpressJS',
-  CreateNodeServerlessExpress,
+  (projectName: string, options: GenerateNodeProjectParams) => {
+    options.projectName = projectName;
+    CreateNodeServerlessExpress(options);
+  },
 );
 
 GenerateServerlessCommand(
   program,
   'serverless-lambda',
   'Create a serverless project with TypeScript',
-  CreateNodeServerlessLambda,
+  (projectName: string, options: GenerateNodeProjectParams) => {
+    options.projectName = projectName;
+    CreateNodeServerlessLambda(options);
+  },
 );
 
 GenerateServerlessCommand(program, 'express', 'Create a ExpressJS project with TypeScript', CreateExpressProject);
