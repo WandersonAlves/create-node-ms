@@ -19,20 +19,19 @@ npx create-node-ms create
 Non-Interactive mode
 
 ```
-npx create-node-ms <template-name> -pn test-service
+npx create-node-ms <template-name> <projectName> [options]
 cd test-service
 yarn dev
 ```
 
 ## Global Options (Non-Interactive mode)
 
-- `-pn, --projectName`(**required**): Project name
-- `-p, --path`: Absolute or relative path to create the project
-- `--useNpm`: Use npm instead of yarn to install depedencies
-- `--noCommit`: Don't do a first commit. If you has git, but not configured a name/email, git will fail to commit.
-- `--verbose`: Output verbose info
 - `-d, --addDeps`: Add extra depedencies that are not installed by default
 - `-D, --addDevDeps`: Add dev extra depedencies that are not installed by default
+- `-p, --path`: Absolute or relative path to create the project
+- `--noCommit`: Don't do a first commit. If you has git, but not configured a name/email, git will fail to commit.
+- `--verbose`: Output verbose info
+- `--useNpm`: Use npm instead of yarn to install depedencies
 
 ## Templates
 
@@ -40,7 +39,7 @@ yarn dev
 
 Generates a project with ExpressJS and Typescript
 
-> `npx create-node-ms express -pn express-server`
+> `npx create-node-ms express express-server`
 
 Includes:
 
@@ -53,7 +52,7 @@ Includes:
 
 Generates a project with ExpressJS and Typescript running locally with [`serverless-offline`](https://www.serverless.com/plugins/serverless-offline)
 
-> `npx create-node-ms serverless-express -pn serverless-express`
+> `npx create-node-ms serverless-express sls-express`
 
 Includes:
 
@@ -68,7 +67,7 @@ Generates a project with Typescript running locally with [`serverless-offline`](
 
 Can store multiple lambdas (instead of one from `serverless-express`) and has support for building a single lambda running `LAMBDA=<lambda-name> yarn build` (see generated project's README.md)
 
-> `npx create-node-ms serverless-lambda -pn serverless-lambda`
+> `npx create-node-ms serverless-lambda sls-lambda`
 
 Includes:
 
