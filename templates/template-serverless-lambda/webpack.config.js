@@ -3,6 +3,12 @@ const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = env => {
   const lambdaName = process.env.LAMBDA;
+
+  if (!lambdaName) {
+    console.error('Missing lambda name. Please use as `LAMBDA=<lambda-name> yarn/npm build');
+    process.exit(1);
+  }
+
   return {
     target: 'node',
     entry: {
