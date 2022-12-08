@@ -9,7 +9,7 @@ const program = createCommand();
 program
   .name('create-node-ms')
   .description('A generator for microservices with Clean Architecture in Node')
-  .version('0.0.1', '-v, --version');
+  .version(process.env.npm_package_version, '-v, --version');
 
 GenerateServerlessCommand(
   program,
