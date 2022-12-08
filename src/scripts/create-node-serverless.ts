@@ -1,5 +1,5 @@
 import { logger } from '../utils/logger';
-import { GenerateNodeProjectParams, ProjectParams } from '../utils/types';
+import { GenerateNodeProjectParams } from '../utils/types';
 import { GenerateNodeProject } from './base-script';
 
 export const CreateExpressProject = async (params: GenerateNodeProjectParams) => {
@@ -15,9 +15,8 @@ export const CreateNodeServerlessLambda = async (params: GenerateNodeProjectPara
 };
 
 const _GenerateProject = async (params: GenerateNodeProjectParams, templateFolder: string) => {
-  logger.level = params.verbose ? 'debug' : 'info';
-
-  const { noCommit, projectName, useNpm, projectPath, verbose, addDeps, addDevDeps } = new ProjectParams(params);
+  const { noCommit, projectName, useNpm, projectPath, verbose, addDeps, addDevDeps } = params;
+  logger.level = verbose ? 'debug' : 'info';
 
   await GenerateNodeProject({
     TEMPLATE_FOLDER: templateFolder,

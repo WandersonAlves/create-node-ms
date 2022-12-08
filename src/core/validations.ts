@@ -33,7 +33,7 @@ export const environmentVerification = (cmmds: string[]) => {
   const missingEnv = validations.filter(val => (val.exists ? false : true));
 
   validations.forEach(val =>
-    val.exists ? logger.info(`✅ '${val.cmd}' found!`, { label }) : logger.error(`⛔️ '${val.cmd}' not found :(`, { label }),
+    val.exists ? logger.verbose(`✅ '${val.cmd}' found!`, { label }) : logger.error(`⛔️ '${val.cmd}' not found :(`, { label }),
   );
 
   return missingEnv;
