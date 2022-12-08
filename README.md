@@ -2,11 +2,13 @@
 
 A optionated group of templates to help you build nice micro-services :bowtie:
 
-Currently has three templates:
+Currently has support for these templates below:
 
 - express
 - serverless-express
 - serverless-lambda
+
+All of them comes with `build` and `publish` commands in the most optmized way (PR's welcome!)
 
 ## Quick Overview
 
@@ -24,7 +26,7 @@ cd test-service
 yarn dev
 ```
 
-## Global Options (Non-Interactive mode)
+### Global Options (Non-Interactive mode)
 
 - `-d, --addDeps`: Add extra depedencies that are not installed by default
 - `-D, --addDevDeps`: Add dev extra depedencies that are not installed by default
@@ -65,7 +67,7 @@ Includes:
 
 Generates a project with Typescript running locally with [`serverless-offline`](https://www.serverless.com/plugins/serverless-offline)
 
-Can store multiple lambdas (instead of one from `serverless-express`) and has support for building a single lambda running `LAMBDA=<lambda-name> yarn build` (see generated project's README.md)
+Can store multiple lambdas (instead of one from `serverless-express`) and has support for building multiple lambdas (or just one) running `LAMBDA=<lambda-name>,<lambda-name> yarn build` (see generated project's README.md)
 
 > `npx create-node-ms serverless-lambda sls-lambda`
 

@@ -2,18 +2,25 @@ const path = require('path');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = env => {
-  const lambdaName = process.env.LAMBDA;
+  const lambdas = process.env.LAMBDA || '';
 
-  if (!lambdaName) {
+  if (!lambdas) {
     console.error('Missing lambda name. Please use as `LAMBDA=<lambda-name> yarn/npm build');
     process.exit(1);
   }
 
-  return {
+  const entryMultiple = {};
+  const lambdasNames = lambdas.split(',');
+  lambdasNames.forEach(v => {
+    if (v === '') {
+      return;
+    }
+    entryMultiple[v] = path.resolve(__dirname, `./dist/lambdas/${v}`);
+  });
+
+  const webpackConfig = {
     target: 'node',
-    entry: {
-      app: path.resolve(__dirname, `./dist/lambdas/${lambdaName}`),
-    },
+    entry: {},
     resolve: {
       plugins: [new TsconfigPathsPlugin({ configFile: './tsconfig.json' })],
       alias: {
@@ -31,7 +38,7 @@ module.exports = env => {
     },
     output: {
       path: path.resolve(__dirname, './build'),
-      filename: `${lambdaName}.js`,
+      filename: `[name].js`,
       libraryTarget: 'commonjs2',
     },
     optimization: {
@@ -41,4 +48,10 @@ module.exports = env => {
       nodeEnv: false,
     },
   };
+
+  if (Object.getOwnPropertyNames(entryMultiple).length > 0) {
+    webpackConfig.entry = entryMultiple;
+  }
+
+  return webpackConfig;
 };
