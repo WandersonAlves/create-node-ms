@@ -18,7 +18,7 @@
     "dev": "D_npyarn_D start:dev",
     "start:build": "SLS_DEBUG=* && node --inspect ./node_modules/.bin/sls offline --watch --config serverless-prd.yml --noPrependStageInUrl",
     "release": "npx standard-version --release-as",
-    "clean": "rm -rf dist/",
+    "clean": "rm -rf dist/ build/",
     "build": "yarn clean && tsc && yarn build:webpack",
     "build:webpack": "webpack --config webpack.config.js",
     "prepare": "husky install"

@@ -17,7 +17,7 @@
     "start:dev": "node --inspect -r ts-node/register -r tsconfig-paths/register ./src/index.ts",
     "dev": "yarn start:dev",
     "release": "npx standard-version --release-as",
-    "clean": "rm -rf dist/",
+    "clean": "rm -rf dist/ build/",
     "build": "yarn clean && tsc && yarn build:webpack",
     "build:webpack": "webpack --config webpack.config.js",
     "prepare": "husky install"
