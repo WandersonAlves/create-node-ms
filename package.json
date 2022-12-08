@@ -65,12 +65,10 @@
         2,
         "always",
         [
-          "node-ms",
-          "nse",
-          "nsl",
-          "serverless",
-          "core",
-          "lib"
+          "lib",
+          "sls-lambda",
+          "sls-express",
+          "express"
         ]
       ]
     }
