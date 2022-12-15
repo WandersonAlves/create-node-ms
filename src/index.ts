@@ -31,6 +31,14 @@ GenerateServerlessCommand(
   },
 );
 
-GenerateServerlessCommand(program, 'express', 'Create a ExpressJS project with TypeScript', CreateExpressProject);
+GenerateServerlessCommand(
+  program,
+  'express',
+  'Create a ExpressJS project with TypeScript',
+  (projectName: string, options: GenerateNodeProjectParams) => {
+    options.projectName = projectName;
+    CreateExpressProject(options);
+  },
+);
 GenerateUserInputCommand(program);
 program.parse(process.argv);
