@@ -12,7 +12,7 @@
     "baseUrl": "src/",
     "paths": {
       "@infra/*": ["infra/*"],
-      "@mocks/*": ["mocks/*"],
+      "@test-utils/*": ["test-utils/*"],
       "@modules/*": ["modules/*"],
       "@cases/*": ["cases/*"],
       "@server/*": ["server/*"],
