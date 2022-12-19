@@ -4,19 +4,22 @@
 set -e # Set exit on error
 set -x # Output to console
 
-# Install verdaccio
+# Install verdaccio and run it
 npm install -g verdaccio
+npm install -g verdaccio-memory
 # See https://www.tecmint.com/run-linux-command-process-in-background-detach-process/
 sh -c "verdaccio --config $(pwd)/tasks/verdaccio.yaml </dev/null &>/dev/null &"
+
+# Set registry
+echo "registry=http://localhost:4873/
+//localhost:4873/:_authToken=fake" > ~/.npmrc
+yarn config set registry http://localhost:4873
 
 # Build project
 yarn
 yarn build
 
-# Set registry and publish
-echo "registry=http://localhost:4873/
-//localhost:4873/:_authToken=fake" > ~/.npmrc
-yarn config set registry http://localhost:4873
+# Publish project
 yarn publish
 
 # Finally run a e2e test
