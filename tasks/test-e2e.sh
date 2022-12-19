@@ -6,7 +6,6 @@ set -x # Output to console
 
 # Install verdaccio and run it
 npm install -g verdaccio
-npm install -g verdaccio-memory
 # See https://www.tecmint.com/run-linux-command-process-in-background-detach-process/
 sh -c "verdaccio --config $(pwd)/tasks/verdaccio.yaml </dev/null &>/dev/null &"
 
