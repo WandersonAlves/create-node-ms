@@ -1,6 +1,6 @@
-# D_ProjectName_D
+# express-server
 
-Welcome to your application
+This will be a awesome server one day!
 
 ## Everyday commands
 
@@ -10,15 +10,16 @@ Welcome to your application
 - `lint:fix`: Run eslint and fix all fixable errors
 - `dev`: Uses `nodemon` to start and restart your development
 - `build`: Creates a bundle of your server using `webpack` and `typescript`
+- `prettier:fix`: Run prettier
 
 ## Project Structure
 
-- `src/infra`: contains infrastructure files: env variables, depedency injection container and a http handler
-- `src/mocks`: files used to mock thing while testing
+- `src/infra`: Contains infrastructure files: env variables, depedency injection container and a http handler
+- `src/test-utils`: Files used while testing
   - `./TestContainer.ts`: Creates a minimal inversify container that you can inject your file (and everything that that file will need to be injected)
   - `./ReturnHelper.ts`: Collection of helpers
-- `src/server`: server file
-- `src/shared`: files used in all places on the boilerplate
+- `src/server`: Server file
+- `src/shared`:Ffiles used in all places on the boilerplate
   - `./adapters`: Adapters files that handle expecific things of a external lib (i.e: express)
   - `./contracts`: Self explanatory
   - `./decorators`: Used on `Case` layer. Abstracts a error response

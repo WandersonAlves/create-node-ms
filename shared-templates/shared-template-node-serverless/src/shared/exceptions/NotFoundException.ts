@@ -2,7 +2,7 @@ import { NOT_FOUND } from 'http-status';
 import GenericException from '@shared/exceptions/GenericException';
 
 export default class NotFoundException extends GenericException {
-  constructor(idObject) {
+  constructor(idObject: object) {
     const parseFields = (obj: { [param: string]: any }) => {
       let string = '';
 
