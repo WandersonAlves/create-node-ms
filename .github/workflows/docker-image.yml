@@ -1,18 +1,11 @@
-name: Docker Image CI
+name: E2E Testing
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+on: [push, pull_request]
 
 jobs:
-
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build --no-cache -t create-node-ms-e2e-test . && docker run create-node-ms-e2e-test
+      - uses: actions/checkout@v3
+      - name: Build/Run e2e testing in Docker
+        run: docker build --no-cache -t create-node-ms-e2e-test . && docker run create-node-ms-e2e-test
