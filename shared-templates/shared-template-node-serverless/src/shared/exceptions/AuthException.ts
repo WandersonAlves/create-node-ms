@@ -17,6 +17,7 @@ export default class AuthException extends GenericException {
   };
   /**
    * Creates a new AuthException
+   *
    * @param type A type of auth exception. This type SHOULD be one of AuthException static members
    */
   constructor(type: string) {

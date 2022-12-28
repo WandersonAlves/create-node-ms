@@ -7,45 +7,25 @@ import {
   installExtraDevDeps,
   installNodeDeps,
   runLint,
+  runUnitTests,
 } from './../core/node-template-actions';
 import { processTemplate, RenamingParams } from './../core/template-processing';
-import { execSync } from 'child_process';
 import { join } from 'path';
 import { jsonString, logger } from './../utils/logger';
 import { removeSync } from 'fs-extra';
-
-interface GenerateNodeProjectParams {
-  projectPath: string;
-  projectName: string;
-  TEMPLATE_FOLDER: string;
-  SHARED_TEMPLATE_FOLDER?: string;
-  entityNameLowerCase?: string;
-  entityNameCapitalized?: string;
-  entitiesNameLowerCase?: string;
-  entitiesNameCapitalized?: string;
-  useNpm?: boolean;
-  noCommit?: boolean;
-  verbose?: boolean;
-  addDeps?: string[];
-  addDevDeps?: string[];
-}
+import { GenerateNodeProjectParams, TemplatingParams } from '../utils/types';
 
 export const GenerateNodeProject = async ({
   projectPath,
   projectName,
   TEMPLATE_FOLDER,
   SHARED_TEMPLATE_FOLDER,
-  entitiesNameCapitalized,
-  entitiesNameLowerCase,
-  entityNameCapitalized,
-  entityNameLowerCase,
   noCommit,
   useNpm,
   verbose,
   addDeps,
   addDevDeps,
-}: GenerateNodeProjectParams) => {
-  logger.level = verbose ? 'debug' : 'info';
+}: GenerateNodeProjectParams & TemplatingParams) => {
   logger.verbose(
     jsonString({
       TEMPLATE_FOLDER,
@@ -93,25 +73,12 @@ export const GenerateNodeProject = async ({
   }
 
   const fileContentRenaming: RenamingParams = [
-    ['D_entity_D', entityNameLowerCase],
-    ['D_Entity_D', entityNameCapitalized],
-    ['D_entities_D', entitiesNameLowerCase],
-    ['D_Entities_D', entitiesNameCapitalized],
     ['D_ProjectName_D', projectName],
     ['D_npyarn_D', useNpm ? 'npm run' : 'yarn'],
   ];
 
-  const fileNameRenaming: RenamingParams = [
-    ['entity', entityNameLowerCase],
-    ['Entity', entityNameCapitalized],
-    ['entities', entitiesNameLowerCase],
-    ['Entities', entitiesNameCapitalized],
-  ];
-
   logger.info('Processing template...', { label: 'template' });
-  await processTemplate(genTemplatePath, fileContentRenaming, fileNameRenaming, fileName =>
-    logger.verbose(fileName, { label: 'template' }),
-  );
+  await processTemplate(genTemplatePath, fileContentRenaming, null, fileName => logger.verbose(fileName, { label: 'template' }));
 
   if (!noCommit) {
     gitInit(genTemplatePath);
@@ -127,6 +94,7 @@ export const GenerateNodeProject = async ({
   }
 
   runLint(genTemplatePath, useNpm);
+  runUnitTests(genTemplatePath, useNpm);
 
   if (!noCommit) {
     gitFirstCommit(genTemplatePath);

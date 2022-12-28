@@ -1,0 +1,17 @@
+service: D_ProjectName_D
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+
+plugins:
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+functions:
+  lambda:
+    handler: build/build.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}

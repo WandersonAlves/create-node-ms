@@ -7,15 +7,14 @@
   "description": "A generator for microservices with Clean Architecture in Node",
   "scripts": {
     "create-node-ms": "node lib/index.js",
-    "dev:ms": "yarn dev:prepare node-ms -p ../create-node-ms-junk --verbose  --projectName test-service -e test",
-    "dev:nse": "yarn dev:prepare nse -p ../create-node-ms-junk -pn serverless-express --verbose",
-    "dev:nsl": "yarn dev:prepare nsl -p ../create-node-ms-junk -pn serverless-lambda --verbose",
-    "dev:nsl:deps": "yarn dev:prepare nsl -p ../create-node-ms-junk -pn deps-test --verbose -d date-fns lodash -D @types/lodash",
+    "dev:se": "yarn dev:prepare serverless-express sls-express -p ../create-node-ms-junk --verbose",
+    "dev:express": "yarn dev:prepare express express-server -p ../create-node-ms-junk --verbose",
+    "dev:sl": "yarn dev:prepare serverless-lambda sls-lambda -p ../create-node-ms-junk --verbose",
+    "dev:sl:deps": "yarn dev:prepare serverless-lambda -p ../create-node-ms-junk -pn deps-test --verbose -d date-fns lodash -D @types/lodash",
     "dev:prepare": "yarn dev:clean && mkdir ../create-node-ms-junk && yarn dev",
     "dev:clean": "rm -rf ../create-node-ms-junk",
-    "dev:help": "yarn dev --help",
     "dev": "node -r ts-node/register ./src/index.ts ",
-    "start": "node -r ts-node/register ./src/index.ts",
+    "clean": "yarn dev:clean",
     "build": "tsc",
     "prerelease": "yarn build",
     "release": "npx standard-version && yarn build && yarn publish",
@@ -46,6 +45,7 @@
     "@commitlint/config-conventional": "^9.1.2",
     "@types/fs-extra": "^9.0.1",
     "@types/node": "^14.0.14",
+    "@types/prompts": "^2.0.14",
     "husky": "^4.2.5",
     "nodemon": "^2.0.4",
     "prettier": "^2.1.1",
@@ -54,8 +54,9 @@
     "typescript": "^4.0.2"
   },
   "dependencies": {
-    "commander": "^6.2.0",
+    "commander": "^9.4.1",
     "fs-extra": "^9.0.1",
+    "prompts": "^2.4.2",
     "winston": "^3.3.3"
   },
   "commitlint": {
@@ -64,12 +65,10 @@
         2,
         "always",
         [
-          "node-ms",
-          "nse",
-          "nsl",
-          "serverless",
-          "core",
-          "lib"
+          "lib",
+          "sls-lambda",
+          "sls-express",
+          "express"
         ]
       ]
     }
@@ -77,7 +76,8 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "pretty-quick --staged",
+      "pre-push": "yarn test:e2e"
     }
   }
 }

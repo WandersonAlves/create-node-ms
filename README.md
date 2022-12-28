@@ -1,51 +1,93 @@
 # clean-node-ms
 
-A optionated group of templates to help you build nice micro-services (in aws lamda) :bowtie:
+A optionated group of templates to help you build nice micro-services :bowtie:
 
-Currently has two templates:
+Currently has support for these templates below:
 
-- node-serverless-express (nse)
-- node-serverless-lambda (nsl)
+- express
+- serverless-express
+- serverless-lambda
+
+All of them comes with `build` and `publish` commands in the most optmized way (PR's welcome!)
 
 ## Quick Overview
 
+Interactive mode
+
 ```
-npx create-node-ms <template-name> -pn test-service
+npx create-node-ms create
+```
+
+Non-Interactive mode
+
+```
+npx create-node-ms <template-name> <projectName> [options]
 cd test-service
 yarn dev
 ```
 
-## Global Options
+### Global Options (Non-Interactive mode)
 
-- `-pn, --projectName`(**required**): Project name
-- `-p, --path`: Absolute or relative path to create the project
-- `--useNpm`: Use npm instead of yarn to install depedencies
-- `--noCommit`: Don't do a first commit. If you has git, but not configured a name/email, git will fail to commit.
-- `--verbose`: Output verbose info
 - `-d, --addDeps`: Add extra depedencies that are not installed by default
 - `-D, --addDevDeps`: Add dev extra depedencies that are not installed by default
+- `-p, --path`: Absolute or relative path to create the project
+- `--noCommit`: Don't do a first commit. If you has git, but not configured a name/email, git will fail to commit.
+- `--verbose`: Output verbose info
+- `--useNpm`: Use npm instead of yarn to install depedencies
 
 ## Templates
 
-### node-serverless (`node-serverless-express` | `node-serverless-lambda`)
+### express
 
-Comes with two serverless flavors: express (`node-serverless-express` or `nse`) and lambda (`node-serverless-lambda` or `nsl`)
+Generates a project with ExpressJS and Typescript
 
-> `npx create-node-ms nse -pn serverless-express`
+> `npx create-node-ms express express-server`
 
-- Serverless Framework + `serverless-offline` using `aws-serverless-express` or raw lambda file
+Includes:
+
+- ExpressJS + Typescript
 - IoC|DI: InversifyJS
 - Testing: mocha + chai
 - Build: Typescript + Webpack
 
-Has configuration for debugging within vscode (see .vscode/launch.json)
+### serverless-express
+
+Generates a project with ExpressJS and Typescript running locally with [`serverless-offline`](https://www.serverless.com/plugins/serverless-offline)
+
+> `npx create-node-ms serverless-express sls-express`
+
+Includes:
+
+- Serverless Framework + `serverless-offline` + `aws-serverless-express` + ExpressJS + Typescript
+- IoC|DI: InversifyJS
+- Testing: mocha + chai
+- Build: Typescript + Webpack
+
+### serverless-lambda
+
+Generates a project with Typescript running locally with [`serverless-offline`](https://www.serverless.com/plugins/serverless-offline)
+
+Can store multiple lambdas (instead of one from `serverless-express`) and has support for building multiple lambdas (or just one) running `LAMBDA=<lambda-name>,<lambda-name> yarn build` (see generated project's README.md)
+
+> `npx create-node-ms serverless-lambda sls-lambda`
+
+Includes:
+
+- Serverless Framework + `serverless-offline` + Typescript
+- IoC|DI: InversifyJS
+- Testing: mocha + chai
+- Build: Typescript + Webpack
+
+## Testing
+
+This package uses e2e testing. Check `tasks/test-e2e.sh`. Uses [`verdaccio`](https://github.com/verdaccio/verdaccio) under the hood.
 
 ## Contributing
 
 - Fork and clone this repo
 - Make changes
-- Run `yarn dev`, `yarn dev:nse` or `yarn dev:nsl` (or `make code-nse` || `make code-nsl`) to create a new template with your code changes
-  - This will remove `../create-node-ms-junk` folder
+- Run `make code-serverless-express` || `make code-serverless-lambda` || `make code-express` to create a new template with your code changes (or `yarn dev create` to run interactive mode)
+  - This will clean `../create-node-ms-junk` folder
   - Create a `../create-node-ms-junk/` folder
   - And generate a new project with the name declared on your dev command on `../create-node-ms-junk/` folder
 - Commit your changes (this project has `commitlint` configured)

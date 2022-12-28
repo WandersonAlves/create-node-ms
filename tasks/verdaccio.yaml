@@ -5,6 +5,7 @@ storage: ./storage
 uplinks:
   npmjs:
     url: https://registry.npmjs.org/
+    maxage: 30m
 
 packages:
   'create-node-ms':

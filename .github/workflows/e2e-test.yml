@@ -1,0 +1,11 @@
+name: E2E Testing
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build/Run e2e testing in Docker
+        run: docker build --no-cache -t create-node-ms-e2e-test . && docker run create-node-ms-e2e-test

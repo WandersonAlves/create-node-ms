@@ -1,33 +1,44 @@
 #!/usr/bin/env node
-import { GenerateServerlessCommand } from './cmd/index';
-import { CreateNodeServerlessExpress, CreateNodeServerlessLambda } from './scripts/create-node-serverless';
+import { GenerateServerlessCommand, GenerateUserInputCommand } from './cmd/index';
+import { CreateExpressProject, CreateNodeServerlessExpress, CreateNodeServerlessLambda } from './scripts/create-node-serverless';
 import { createCommand } from 'commander';
+import { GenerateNodeProjectParams } from './utils/types';
 
 const program = createCommand();
 
-program.version('0.0.1', '-v, --version');
+program
+  .name('create-node-ms')
+  .description('A generator for microservices with Clean Architecture in Node')
+  .version(process.env.npm_package_version, '-v, --version');
 
 GenerateServerlessCommand(
   program,
-  'node-serverless-express',
-  'Create a serverless framework project with TypeScript using aws-serverless-express',
-  CreateNodeServerlessExpress,
+  'serverless-express',
+  'Create a serverless project with TypeScript and ExpressJS',
+  (projectName: string, options: GenerateNodeProjectParams) => {
+    options.projectName = projectName;
+    CreateNodeServerlessExpress(options);
+  },
 );
 
 GenerateServerlessCommand(
   program,
-  'nse',
-  'Create a serverless framework project with TypeScript using aws-serverless-express',
-  CreateNodeServerlessExpress,
+  'serverless-lambda',
+  'Create a serverless project with TypeScript',
+  (projectName: string, options: GenerateNodeProjectParams) => {
+    options.projectName = projectName;
+    CreateNodeServerlessLambda(options);
+  },
 );
 
 GenerateServerlessCommand(
   program,
-  'node-serverless-lambda',
-  'Create a serverless framework project with TypeScript',
-  CreateNodeServerlessLambda,
+  'express',
+  'Create a ExpressJS project with TypeScript',
+  (projectName: string, options: GenerateNodeProjectParams) => {
+    options.projectName = projectName;
+    CreateExpressProject(options);
+  },
 );
-
-GenerateServerlessCommand(program, 'nsl', 'Create a serverless framework project with TypeScript', CreateNodeServerlessLambda);
-
+GenerateUserInputCommand(program);
 program.parse(process.argv);
